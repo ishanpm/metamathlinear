@@ -277,12 +277,6 @@ $}
 ${
     dismdac.1 $e |- ( a % ( b % ( c & d ) ) ) $.
     $( `%` distributes over `&`. $)
-    dismdac $p |- ( a % ( ( b % c ) & ( b % d ) ) ) $=
-    ( wac eac1 eac2 iac ) ABCFDABCABCDFZEGACDABJEHZGIACDKHI $.
-$}
-${
-    dismdac.1 $e |- ( a % ( b % ( c & d ) ) ) $.
-    $( `%` distributes over `&`. $)
     dismdac $p |- ( a % ( ( b % c ) & ( b % d ) ) ) $= ? $.
 $}
 ${
@@ -347,20 +341,16 @@ $( Definition of linear biconditional. Since the linear implication has not been
 df-lb $a |- ( ( ~ ( a O-O b ) % ( ( ~ a % b ) & ( ~ b % a ) ) ) & ( ~ ( ( ~ a % b ) & ( ~ b % a ) ) % ( a O-O b ) ) ) $.
 
 ${
-    lb1i.1 $e |- ( a % b ) $.
-    lb1i.2 $e |- ( a % ( b O-O c ) ) $.
+    lb1d.1 $e |- ( a % b ) $.
+    lb1d.2 $e |- ( b O-O c ) $.
     $( Forward deduction using `O-O`. $)
-    lb1i $p |- b $=
-    ( wneg wmd wlb wac df-lb eac1i  cut1 ) ABCAEBFZBEAFZABGZLMHZDNEOF
-      OENFABIJKJK $.
+    lb1d $p |- ( a % c ) $= ? $.
 $}
 ${
-    lb2i.1 $e |- b $.
-    lb2i.2 $e |- ( a O-O b ) $.
+    lb2d.1 $e |- ( a % b ) $.
+    lb2d.2 $e |- ( b O-O c ) $.
     $( Reverse deduction using `O-O`. $)
-    lb2i $p |- a $=
-    ( wneg wmd wlb wac df-lb eac1i  cut1 eac2i  ) BACAEBFZBEAFZABGZMNHZ
-      DOEPFPEOFABIJKLK $.
+    lb2d $p |- ( c % b ) $= ? $.
 $}
 ${
     lb1i.1 $e |- a $.
@@ -412,9 +402,7 @@ ${
     syl.1 $e |- ( a -O b ) $.
     syl.2 $e |- ( b -O c ) $.
     $( Syllogism using linear implication. $)
-    syl $p |- ( a -O c ) $=
-    ( wli wneg wmd df-li lb1i mdm2i lb2i ) ACFAGZCHMBCABFMBHDABIJEKA
-      CIL $.
+    syl $p |- ( a -O c ) $= ? $.
 $}
 ${
     mp.1 $e |- a $.
@@ -489,19 +477,15 @@ lb2s $p |- ( ( a O-O b ) -O ( b -O a ) ) $=
 ${
     lb1.1 $e |- ( a O-O b ) $.
     $( Extract forward implication from biconditional. Alternate form of ~ lb1i . $)
-    lb1 $p |- ( a -O b ) $=
-    ( wlb wli lb1s mp ) ABDABECABFG $.
+    lb1 $p |- ( a -O b ) $= ? $.
 $}
 ${
     lb2.1 $e |- ( a O-O b ) $.
     $( Extract reverse implication from biconditional. Alternate form of ~ lb2i . $)
-    lb2 $p |- ( b -O a ) $=
-    ( wlb wli lb2s mp ) ABDBAECABFG $.
+    lb2 $p |- ( b -O a ) $= ? $.
 $}
 $( Forward implication of biconditional definition. $)
-dflb1 $p |- ( ( a O-O b ) -O ( ( a -O b ) & ( b -O a ) ) ) $=
- ( wlb wli wac wneg wmd lb1s df-li lb1i lb2s ax-iac lb2i ) ABCZABDZBA
-  DZEZDNFZQGNOPNODROGABHNOIJNPDRPGABKNPIJLNQIM $.
+dflb1 $p |- ( ( a O-O b ) -O ( ( a -O b ) & ( b -O a ) ) ) $= ? $.
 $( Reverse implication of biconditional definition. $)
 dflb2 $p |- ( ( ( a -O b ) & ( b -O a ) ) -O ( a O-O b ) ) $= ? $.
 $( Nicer definition of biconditional. Uses `O-O` and `-O`. $)
