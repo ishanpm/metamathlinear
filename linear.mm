@@ -91,32 +91,6 @@ ${
     ( tbot ax-1a ax-cut ax-1b ) BEABACFDGH $.
 $}
 ${
-    cutneg.1 $e |- ( a % ~ b ) $.
-    cutneg.2 $e |- ( b % c ) $.
-    $( Flipped version of ~ax-cut . $)
-    cutneg $p |- b $= ? $.
-$}
-${
-    dni.1 $e |- ( a % b ) $.
-    $( Double negation introduction. $)
-    dni $p |- ( a % ~ ~ b ) $= ? $.
-$}
-${
-    dni.1 $e |- ( a % ~ ~ b ) $.
-    $( Double negation elimination. $)
-    dni $p |- ( a % b ) $= ? $.
-$}
-${
-    a3.1 $e |- ( d % ( a % b ) ) $.
-    $( `%` is commutative. Inference form of ~ax-3 . $)
-    a3 $p |- ( d % ( b % a ) ) $= ? $.
-$}
-${
-    a4.1 $e |- ( d % ( ( a % b ) % c ) ) $.
-    $( `%` is associative. Inference form of ~ax-4 . $)
-    a4 $p |- ( d % ( a % ( b % c ) ) ) $= ? $.
-$}
-${
     a3i.1 $e |- ( a % b ) $.
     $( `%` is commutative. Inference form of ~ax-3 . $)
     a3i $p |- ( b % a ) $=
@@ -149,6 +123,44 @@ ${
     $( Remove a `_|_`, right hand side. See ~ax-1b . $)
     a1br $p |- a $=
     ( tbot a3i ax-1b ) AACBDE $.
+$}
+${
+    cutneg.1 $e |- ( a % ~ b ) $.
+    cutneg.2 $e |- ( b % c ) $.
+    $( Negated version of ~ax-cut . $)
+    cutneg $p |- ( a % c ) $=
+    ( a3i tneg ax-cut ) CACBABCEFABGDFHF $.
+$}
+${
+    cutf.1 $e |- ( b % a ) $.
+    cutf.2 $e |- ( ~ b % c ) $.
+    $( Left-hand version of ~ax-cut . $)
+    cutf $p |- ( c % a ) $=
+    ( a3i ax-cut ) ACABCBADFEGF $.
+$}
+${
+    dni.1 $e |- ( a % b ) $.
+    $( Double negation introduction. $)
+    dni $p |- ( a % ~ ~ b ) $=
+    ( tneg ax-2 a3i ax-cut ) ABBDZDZCIHHEFG $.
+$}
+${
+    dne.1 $e |- ( a % ~ ~ b ) $.
+    $( Double negation elimination. $)
+    dne $p |- ( a % b ) $=
+    ( tneg ax-2 a3i dni ax-cut ) ABDZDZBCBJDBIIBBEFGFH $.
+$}
+${
+    a3.1 $e |- ( d % ( a % b ) ) $.
+    $( `%` is commutative. Inference form of ~ax-3 . $)
+    a3 $p |- ( d % ( b % a ) ) $=
+    ( tmd ax-3 ax-cut ) CABEBAEDABFG $.
+$}
+${
+    a4.1 $e |- ( d % ( ( a % b ) % c ) ) $.
+    $( `%` is associative. Inference form of ~ax-4 . $)
+    a4 $p |- ( d % ( a % ( b % c ) ) ) $=
+    ( tmd ax-4 ax-cut ) DABFCFABCFFEABCGH $.
 $}
 
 $(
