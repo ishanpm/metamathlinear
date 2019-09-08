@@ -1,5 +1,6 @@
 $(
 Updated 9/7 - Replaced axiom labels with better names and made theorem labels more consistent
+Updated 9/8 - Added some missing proofs and more deduction form proofs
 $)
 
 $(
@@ -233,6 +234,13 @@ ${
     ( wac wneg dni1 ax-iac dne1 ) ABCFAGBCABDHACEHIJ $.
 $}
 ${
+    iaci.1 $e |- a $.
+    iaci.2 $e |- b $.
+    $( `&` introduction rule. Inference form of ~ax-iac . $)
+    iaci $p |- ( a & b ) $=
+    ( wac wbot ax-ibot iac ax-ebot ) ABEFABACGBDGHI $.
+$}
+${
     eac1.1 $e |- ( a % ( b & c ) ) $.
     $( `&` elimination rule, left hand side. ~ax-eac1 has a negation for some reason, this one doesn't. $)
     eac1  $p |- ( a % b ) $=
@@ -336,7 +344,7 @@ $c -O O-O $.
 $( Linear biconditional, defined by ~df-lb . This is the operator used for definitions, so its definition will be a little unusual... $)
 wlb $a wff ( a O-O b ) $.
 
-$( Definition of linear biconditional. Since the linear implication has not been defined, this is a mouthfull. The good news is, once the properties of the linear biconditional are proven, it will be much easier to express other definitions. $)
+$( Definition of linear biconditional. Since the linear implication has not been defined, this is a mouthfull. The good news is, once the properties of the linear biconditional are proven, it will be much easier to express other definitions. See ~dflb for a cleaner form of the definiition. $)
 
 df-lb $a |- ( ( ~ ( a O-O b ) % ( ( ~ a % b ) & ( ~ b % a ) ) ) & ( ~ ( ( ~ a % b ) & ( ~ b % a ) ) % ( a O-O b ) ) ) $.
 
@@ -344,29 +352,31 @@ ${
     lb1d.1 $e |- ( a % b ) $.
     lb1d.2 $e |- ( b O-O c ) $.
     $( Forward deduction using `O-O`. $)
-    lb1d $p |- ( a % c ) $= ? $.
+    lb1d $p |- ( a % c ) $=
+    ( wneg wmd wlb wac df-lb eac1i cut1 ax-cut ) ABCDBFCGZCFBGZBCHZ
+      NOIZEPFQGQFPGBCJKLKM $.
 $}
 ${
-    lb2d.1 $e |- ( a % b ) $.
+    lb2d.1 $e |- ( a % c ) $.
     lb2d.2 $e |- ( b O-O c ) $.
     $( Reverse deduction using `O-O`. $)
-    lb2d $p |- ( c % b ) $= ? $.
+    lb2d $p |- ( a % b ) $=
+    ( wneg wmd wlb wac df-lb eac1i cut1 eac2i ax-cut ) ACBDBFCGZCFB
+      GZBCHZOPIZEQFRGRFQGBCJKLMN $.
 $}
 ${
     lb1i.1 $e |- a $.
     lb1i.2 $e |- ( a O-O b ) $.
     $( Forward inference using `O-O`. $)
     lb1i $p |- b $=
-    ( wneg wmd wlb wac df-lb eac1i  cut1 ) ABCAEBFZBEAFZABGZLMHZDNEOF
-      OENFABIJKJK $.
+    ( wbot ax-ibot lb1d ax-ebot ) BEABACFDGH $.
 $}
 ${
     lb2i.1 $e |- b $.
     lb2i.2 $e |- ( a O-O b ) $.
     $( Reverse inference using `O-O`. $)
     lb2i $p |- a $=
-    ( wneg wmd wlb wac df-lb eac1i  cut1 eac2i  ) BACAEBFZBEAFZABGZMNHZ
-      DOEPFPEOFABIJKLK $.
+    ( wbot ax-ibot lb2d ax-ebot ) AEABBCFDGH $.
 $}
 
 $( Linear implication, defined by ~df-li . $)
@@ -375,34 +385,77 @@ $( Definition of linear implication. $)
 df-li $a |- ( ( a -O b ) O-O ( ~ a % b ) ) $.
 
 ${
-    mdm1.1 $e |- ( d % ( a % b ) ) $.
-    mdm1.2 $e |- ( d % ( a -O c ) ) $.
-    $( Par is monotone in its first argument. $)
-    mdm1 $p |- ( d % ( c % b ) ) $= ? $.
+    dfli1.1 $e |- ( a % ( b -O c ) ) $.
+    $( Convert from linear implication. $)
+    dfli1 $p |- ( a % ( ~ b % c ) ) $=
+    ( wli wneg wmd df-li lb1d ) ABCEBFCGDBCHI $.
+$}
+${
+    dfli2.1 $e |- ( a % ( ~ b % c ) ) $.
+    $( Convert to linear implication. $)
+    dfli2 $p |- ( a % ( b -O c ) ) $=
+    ( wli wneg wmd df-li lb2d ) ABCEBFCGDBCHI $.
+$}
+${
+    dfli1i.1 $e |- ( b -O c ) $.
+    $( Convert from linear implication. $)
+    dfli1i $p |- ( ~ b % c ) $=
+    ( wneg wmd wbot wli ax-ibot dfli1 ax-ebot ) ADBEFABABGCHIJ $.
+$}
+${
+    dfli2i.1 $e |- ( ~ b % c ) $.
+    $( Convert to linear implication. $)
+    dfli2i $p |- ( b -O c ) $=
+    ( wli wbot wneg wmd ax-ibot dfli2 ax-ebot ) ABDEABAFBGCHIJ $.
 $}
 ${
     mdm2.1 $e |- ( d % ( a % b ) ) $.
-    mdm2.2 $e |- ( d % ( b -O c ) ) $.
+    mdm2.2 $e |- ( b -O c ) $.
     $( Par is monotone in its second argument. $)
-    mdm2 $p |- ( d % ( a % c ) ) $= ? $.
+    mdm2 $p |- ( d % ( a % c ) ) $=
+    ( wmd mdasri wli wneg df-li lb1i ax-cut mdasi ) DACDAGBCDABEHBC
+      IBJCGFBCKLMN $.
+$}
+${
+    mdm1.1 $e |- ( d % ( a % b ) ) $.
+    mdm1.2 $e |- ( a -O c ) $.
+    $( Par is monotone in its first argument. $)
+    mdm1 $p |- ( d % ( c % b ) ) $=
+    ( mdco mdm2 ) BCDBACDABDEGFHG $.
 $}
 ${
     mdm1i.1 $e |- ( a % b ) $.
     mdm1i.2 $e |- ( a -O c ) $.
     $( Par is monotone in its first argument. Inference form of ~mdm1 . $)
-    mdm1i $p |- ( c % b ) $= ? $.
+    mdm1i $p |- ( c % b ) $=
+    ( wmd wbot ax-ibot mdm1 ax-ebot ) CBFABCGABFDHEIJ $.
 $}
 ${
     mdm2i.1 $e |- ( a % b ) $.
     mdm2i.2 $e |- ( b -O c ) $.
     $( Par is monotone in its second argument. Inference form of ~mdm2 . Essentially ~ax-cut using linear implication. $)
-    mdm2i $p |- ( a % c ) $= ? $.
+    mdm2i $p |- ( a % c ) $=
+    ( wmd wbot ax-ibot mdm2 ax-ebot ) ACFABCGABFDHEIJ $.
+$}
+${
+    mdm1s.1 $e |- ( a -O c ) $.
+    $( Par is monotone in its first argument. Syllogism form of ~mdm1 . $)
+    mdm1s $p |- ( ( a % b ) -O ( c % b ) ) $=
+    ( wmd wneg ax-init mdm1 dfli2i ) ABEZCBEABCJFJGDHI $.
+$}
+${
+    mdm2s.1 $e |- ( b -O c ) $.
+    $( Par is monotone in its second argument. Syllogism form of ~mdm2 . $)
+    mdm2s $p |- ( ( a % b ) -O ( a % c ) ) $=
+    ( wmd wneg ax-init mdm2 dfli2i ) ABEZACEABCJFJGDHI $.
 $}
 ${
     syl.1 $e |- ( a -O b ) $.
     syl.2 $e |- ( b -O c ) $.
     $( Syllogism using linear implication. $)
-    syl $p |- ( a -O c ) $= ? $.
+    syl $p |- ( a -O c ) $=
+    ( wli wneg wmd df-li lb1i ax-cut lb2i ) ACFAGZCHMBCABFMBHDABIJB
+      CFBGCHEBCIJKACIL $.
 $}
 ${
     mp.1 $e |- a $.
@@ -424,75 +477,89 @@ dnes $p |- ( ~ ~ a -O a ) $=
   LKKEFGFKAHI $.
 
 ${
-    a6alt.1 $e |- ( a % b ) $.
-    a6alt.2 $e |- ( a % c ) $.
-    $( `&` introduction rule. ~ax-iac has a negated input for some reason, this doesn't. $)
-    a6alt $p |- ( a % ( b & c ) ) $=
-    ( wneg wac dnis mdm1i ax-iac dnes ) AFZFZBCGALBCABMDAHZIACMENIJAKI
-      $.
-$}
-${
-    a7aalt.1 $e |- ( a % ( b & c ) ) $.
-    $( `&` elimination rule, left hand side. ~ax-eac1 has a negated input for some reason, this doesn't. $)
-    a7aalt $p |- ( a % b ) $=
-    ( wneg wac dnis mdm1i ax-eac1 dnes ) AEZEZBAKBCABCFLDAGHIAJH $.
-$}
-${
-    a7balt.1 $e |- ( a % ( b & c ) ) $.
-    $( `&` elimination rule, right hand side. ~ax-eac2 has a negated input for some reason, this doesn't. $)
-    a7balt $p |- ( a % c ) $=
-    ( wneg wac dnis mdm1i ax-eac2 dnes ) AEZEZCAKBCABCFLDAGHIAJH $.
-$}
-$( `&` elimination rule, left hand side. Syllogism form of ~ax-eac1 . $)
-a7as $p |- ( ( a & b ) -O a ) $= ? $.
-$( `&` elimination rule, right hand side. Syllogism form of ~ax-eac2 . $)
-a7bs $p |- ( ( a & b ) -O b ) $= ? $.
-${
-    acm1.1 $e |- ( a & b )  $.
+    acm1.1 $e |- ( d % ( a & b ) ) $.
     acm1.2 $e |- ( a -O c ) $.
     $( With is monotone in its first argument. $)
-    acm1 $p |- ( c & b ) $= ? $.
+    acm1 $p |- ( d % ( c & b ) ) $=
+    ( eac1 mdm2i eac2 iac ) DCBDACDABEGFHDABEIJ $.
 $}
 ${
-    acm2.1 $e |- ( a & b )  $.
+    acm2.1 $e |- ( d % ( a & b ) ) $.
     acm2.2 $e |- ( b -O c ) $.
     $( With is monotone in its second argument. $)
-    acm2 $p |- ( a & c ) $= ? $.
+    acm2 $p |- ( d % ( a & c ) ) $=
+    ( acco acm1 ) DCABACDDABEGFHG $.
 $}
-$( With is monotone in its first argument. $)
-acm1s $p |- ( ( a -O c ) -O ( ( a & b ) -O ( c & b ) ) ) $= ? $.
-$( With is monotone in its second argument. $)
-acm2s $p |- ( ( b -O c ) -O ( ( a & b ) -O ( a & c ) ) ) $= ? $.
+${
+    acm1i.1 $e |- ( a & b ) $.
+    acm1i.2 $e |- ( a -O c ) $.
+    $( With is monotone in its first argument. Inference form of ~acm1 . $)
+    acm1i $p |- ( c & b ) $=
+    ( wac wbot ax-ibot acm1 ax-ebot ) CBFABCGABFDHEIJ $.
+$}
+${
+    acm2i.1 $e |- ( a & b )  $.
+    acm2i.2 $e |- ( b -O c ) $.
+    $( With is monotone in its second argument. Inference form of ~acm2 . $)
+    acm2i $p |- ( a & c ) $=
+    ( wac wbot ax-ibot acm2 ax-ebot ) ACFABCGABFDHEIJ $.
+$}
+${
+    acm1s.2 $e |- ( a -O c ) $.
+    $( With is monotone in its first argument. Syllogism form of ~acm1 . $)
+    acm1s $p |- ( ( a & b ) -O ( c & b ) ) $=
+    ( wac wneg ax-init acm1 dfli2i ) ABEZCBEABCJFJGDHI $.
+$}
+${
+    acm2s.2 $e |- ( b -O c ) $.
+    $( With is monotone in its second argument. Syllogism form of ~acm2 . $)
+    acm2s $p |- ( ( a & b ) -O ( a & c ) ) $=
+    ( wac wneg ax-init acm2 dfli2i ) ABEZACEABCJFJGDHI $.
+$}
 
 $( Extract forward implication from biconditional. Syllogism form of ~ lb1i . $)
 lb1s $p |- ( ( a O-O b ) -O ( a -O b ) ) $=
- ( wlb wli wneg wmd wac df-lb eac1i  ax-eac1 df-li cut1 eac2i  ax-cut
+ ( wlb wli wneg wmd wac df-lb eac1i ax-eac1 df-li cut1 eac2i ax-cut
   lb2i ) ABCZABDZDPEZQFRAEBFZQPSBEAFZRSTGZFUAEPFABHIJQESFZSEQFZQSCZUB
   UCGZABKUDEUEFUEEUDFQSHILMNPQKO $.
 $( Extract reverse implication from biconditional. Syllogism form of ~ lb2i . $)
 lb2s $p |- ( ( a O-O b ) -O ( b -O a ) ) $=
- ( wlb wli wneg wmd wac df-lb eac1i  ax-eac2 df-li cut1 ax-cut lb2i ) A
+ ( wlb wli wneg wmd wac df-lb eac1i ax-eac2 df-li cut1 ax-cut lb2i ) A
   BCZBADZDOEZPFQBEAFZPOAEBFZRQSRGZFTEOFABHIJPRCZREPFZBAKUAPERFZUBUAEU
   CUBGZFUDEUAFPRHIJLMOPKN $.
 ${
     lb1.1 $e |- ( a O-O b ) $.
     $( Extract forward implication from biconditional. Alternate form of ~ lb1i . $)
-    lb1 $p |- ( a -O b ) $= ? $.
+    lb1 $p |- ( a -O b ) $=
+    ( wlb wli lb1s mp ) ABDABECABFG $.
 $}
 ${
     lb2.1 $e |- ( a O-O b ) $.
     $( Extract reverse implication from biconditional. Alternate form of ~ lb2i . $)
-    lb2 $p |- ( b -O a ) $= ? $.
+    lb2 $p |- ( b -O a ) $=
+    ( wlb wli lb2s mp ) ABDBAECABFG $.
 $}
 $( Forward implication of biconditional definition. $)
-dflb1 $p |- ( ( a O-O b ) -O ( ( a -O b ) & ( b -O a ) ) ) $= ? $.
+dflb1s $p |- ( ( a O-O b ) -O ( ( a -O b ) & ( b -O a ) ) ) $=
+ ( wlb wli wac lb1s dfli1i lb2s ax-iac dfli2i ) ABCZABDZBADZEKLMKLA
+  BFGKMABHGIJ $.
 $( Reverse implication of biconditional definition. $)
-dflb2 $p |- ( ( ( a -O b ) & ( b -O a ) ) -O ( a O-O b ) ) $= ? $.
+dflb2s $p |- ( ( ( a -O b ) & ( b -O a ) ) -O ( a O-O b ) ) $= 
+( wli wac wneg wmd wlb ax-init dfli1 dfli2i acm1s acm2s df-lb
+  eac2i syl ) ABCZBACZDZAEBFZBEAFZDZABGZRSQDUAPQSPSPEABPHIJKSQTQTQEBA
+  QHIJLOUAUBUBEUAFUAEUBFABMNJO $.
 $( Nicer definition of biconditional. Uses `O-O` and `-O`. $)
-dflb $p |- ( ( a O-O b ) O-O ( ( a -O b ) & ( b -O a ) ) ) $= ? $.
+dflb $p |- ( ( a O-O b ) O-O ( ( a -O b ) & ( b -O a ) ) ) $=
+ ( wlb wli wac dflb1s dflb2s iaci mp ) ABCZABDBADEZDZKJDZEJKCLMABFA
+  BGHJKGI $.
 
-$( Contrapositive rule for linear implication. This follows quite neatly from ~df-li . $)
-licon $p |- ( ( a -O b ) -O ( ~ b -O ~ a ) ) $= ? $.
+${
+    licon.1 $e |- ( c % ( a -O b ) ) $.
+    $( Contrapositive rule for linear implication. This follows quite neatly from ~df-li . $)
+    licon $p |- ( c % ( ~ b -O ~ a ) ) $=
+    ( wneg wmd dfli1 mdasri dni mdasi mdco dfli2 ) CBEZAEZNMEZCCNOC
+      NFBCNBCABDGHIJKL $.
+$}
 
 $c 1 (X) 0 (+) ! $.
 $( One, the unit of `(X)`. Defined by ~df-one . $)
