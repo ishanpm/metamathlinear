@@ -21,14 +21,14 @@ $)
 
 $c |- wff $.
 $v ph ps ch th ta et ze si $.
-wa $f wff ph $.
-wb $f wff ps $.
-wc $f wff ch $.
-wd $f wff th $.
-wp $f wff ta $.
-wq $f wff et $.
-wr $f wff ze $.
-ws $f wff si $.
+wph $f wff ph $.
+wps $f wff ps $.
+wch $f wff ch $.
+wth $f wff th $.
+wta $f wff ta $.
+wet $f wff et $.
+wze $f wff ze $.
+wsi $f wff si $.
 
 $(
 #*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#
@@ -630,15 +630,32 @@ ${
   ( lbi2 lbi1 syl ilb ) BCBACABDFACEGHCABACEFABDGHI $.
 $}
 ${
+  lbeud.1 $e |- ( ph -O ( ps O-O ch ) ) $.
+  lbeud.2 $e |- ( ph -O ( ps O-O th ) ) $.
+  $( Linear biconditional is Euclidean. Deduction for ~lbeu . $)
+  lbeud $p |- ( ph -O ( ch O-O th ) ) $= ? $.
+$}
+${
   lbsymi.1 $e |- ( ph O-O ps ) $.
-  $( Linear biconditional is symmetric. Inference for ~lbsym . ERROR this makes mmj2 freak out for some reason $)
-  $( lbsymi $p |- ( ps O-O ph ) $= ? $. $)
+  $( Linear biconditional is symmetric. Deduction for ~lbsym . $)
+  lbsymi $p |- ( ps O-O ph ) $= ? $.
 $}
 ${
   lbtri.1 $e |- ( ph O-O ps ) $.
   lbtri.2 $e |- ( ps O-O ch ) $.
-  $( Linear biconditional is transitive. Inference for ~lbtr . $)
+  $( Linear biconditional is transitive. Deduction for ~lbtr . $)
   lbtri $p |- ( ph O-O ch ) $= ? $.
+$}
+${
+  lbsymd.1 $e |- ( ph -O ( ps O-O ch ) ) $.
+  $( Linear biconditional is symmetric. Deduction for ~lbsym . $)
+  lbsymd $p |- ( ph -O ( ch O-O ps ) ) $= ? $.
+$}
+${
+  lbtrd.1 $e |- ( ph -O ( ps O-O ch ) ) $.
+  lbtrd.2 $e |- ( ph -O ( ch O-O th ) ) $.
+  $( Linear biconditional is transitive. Deduction for ~lbtr . $)
+  lbtrd $p |- ( ph -O ( ps O-O th ) ) $= ? $.
 $}
 
 $(
@@ -646,7 +663,7 @@ $(
 Operator properties and duals
 =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
-All operators in linear logic have a dual. The dual operator is the same as its corresponding operator but negated, similar to ` ph /\ ps <-> ~ ( ~ ph \/ ~ ps ) ` in classical logic. Here we will characterize the dual operators.
+All operators in linear logic have a dual. The dual operator is the same as its corresponding operator but negated, similar to ` ph /\ ps <-> -. ( -. ph \/ -. ps ) ` in classical logic. Here we will characterize the dual operators.
 
 Also, now that we finally have the underpinnings for linear logic completely set up, we can finally establish the properties of the operators alongside their duals. This will make it much easier to do more interesting proofs.
 $)
@@ -943,7 +960,7 @@ df-bi $a |- ( ( ph <-> ps ) O-O ( ( ph -> ps ) /\ ( ps -> ph ) ) ) $.
 $( Principle of simplification. Allows discarding an unneeded antecedent. This is not possible with linear implication, since such a move would be non-linear; the `!` exponentials in the definition of the logical implication operator allow `ps` to be discarded. Axiom 1 in the Metamath iset.mm database. $)
 simp $p |- ( ph -> ( ps -> ph ) ) $= ? $.
 $( Axiom 2 in the Metamath iset.mm database. This uses the other property of the positive exponential, which is that it can be duplicated. $)
-frege $p |- ( ( ph -> ( ps -> ch ) ) -> ( ( ph -> ch ) -> ( ps -> ch ) ) ) $= ? $.
+frege $p |- ( ( ph -> ( ps -> ch ) ) -> ( ( ph -> ps ) -> ( ph -> ch ) ) ) $= ? $.
 ${
   mp.min $e |- ph $.
   mp.maj $e |- ( ph -> ps ) $.
@@ -962,6 +979,29 @@ $( 'Not' introduction. Axiom in1 in iset.mm. $)
 inot $p |- ( ( ph -> -. ph ) -> -. ph ) $= ? $.
 $( 'Not' elimination. Axiom in2 in iset.mm. $)
 enot $p |- ( -. ph -> ( ph -> ps ) ) $= ? $.
+
+
+${
+simpi.1 $e |- ph $.
+$( Inference using simplification. Adds an unneeded antecedent. Inference for ~simp . $)
+simpi $p |- ( ps -> ph ) $= ? $.
+$}
+${
+fregei.1 $e |- ( ph -> ( ps -> ch ) ) $.
+$( Inference using transposition. Inference for ~frege . $)
+fregei $p |- ( ( ph -> ps ) -> ( ph -> ch ) ) $= ? $.
+$}
+${
+  lbtrimd.1 $e |- ( ph -> ( ps O-O ch ) ) $.
+  lbtrimd.2 $e |- ( ph -> ( ch O-O th ) ) $.
+  $( Linear biconditional is transitive. Intuitionistic deduction for ~lbtr . $)
+  lbtrimd $p |- ( ph -> ( ps O-O th ) ) $= ? $.
+$}
+${
+  lbsymimd.1 $e |- ( ph -> ( ps O-O ch ) ) $.
+  $( Linear biconditional is transitive. Intuitionistic deduction for ~lbsym . $)
+  lbsymimd $p |- ( ph -> ( ch O-O ps ) ) $= ? $.
+$}
 
 $(
 #*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#
@@ -1058,7 +1098,7 @@ $( Creation operator. Creates and scopes a new channel `x`. It also has a dual `
 wnu $a wff v. x ph $.
 
 $( Proper substitution of `x` with `Y`. Although used as a primitive token in the axioms, it can actually be treated as a defined symbol; see ~dfps . See ~nps for proper substitution in nilads. $)
-wps $a wff [ x := Y ] ph $.
+wsub $a wff [ x := Y ] ph $.
 
 $(
 -.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-
@@ -1122,14 +1162,14 @@ $}
 
 ${
 $d u x $. $d u y $. $d v x $. $d v y $.
-ax-psse1 $a |- ( [ x := y ] [ x << a ] ph O-O [ x := y ] [ y << a ] ph ) $.
-ax-psse2 $a |- ( [ x := y ] [ a << x ] ph O-O [ x := y ] [ a << y ] ph ) $.
-ax-psse3 $a |- ( [ x := y ] [ u << v ] ph O-O [ u << v ] [ x := y ] ph ) $.
-ax-psre1 $a |- ( [ x := y ] [ x >> a ] ph O-O [ x := y ] [ y >> a ] ph ) $.
-ax-psre2 $a |- ( [ x := y ] [ u >> v ] ph O-O [ u >> v ] [ x := y ] ph ) $.
-ax-psnu1 $a |- ( [ x := y ] v. x ph O-O v. x ph ) $.
-ax-psnu2 $a |- ( [ x := y ] v. u ph O-O v. u [ x := y ] ph ) $.
-ax-psid  $a |- ( [ x := x ] ph O-O ph ) $.
+ax-subse1 $a |- ( [ x := y ] [ x << a ] ph O-O [ x := y ] [ y << a ] ph ) $.
+ax-subse2 $a |- ( [ x := y ] [ a << x ] ph O-O [ x := y ] [ a << y ] ph ) $.
+ax-subse3 $a |- ( [ x := y ] [ u << v ] ph O-O [ u << v ] [ x := y ] ph ) $.
+ax-subre1 $a |- ( [ x := y ] [ x >> a ] ph O-O [ x := y ] [ y >> a ] ph ) $.
+ax-subre2 $a |- ( [ x := y ] [ u >> v ] ph O-O [ u >> v ] [ x := y ] ph ) $.
+ax-subnu1 $a |- ( [ x := y ] v. x ph O-O v. x ph ) $.
+ax-subnu2 $a |- ( [ x := y ] v. u ph O-O v. u [ x := y ] ph ) $.
+ax-subid  $a |- ( [ x := x ] ph O-O ph ) $.
 $}
 
 $( Message passing. $)
@@ -1165,7 +1205,7 @@ ${
   $(  "Definition" of proper substitution. Or at least it would be, if I implemented proper substitution was a defined operator...
 
   This simply sends the desired value `Y` along a temporary channel `a`, and then reads it to the desired name `x`. $)
-  dfps $p |- ( [ x := Y ] ph O-O v. z ( [ z << Y ] 1 (X) [ z >> x ] ph ) ) $= ? $.
+  dfsub $p |- ( [ x := Y ] ph O-O v. z ( [ z << Y ] 1 (X) [ z >> x ] ph ) ) $= ? $.
 $}
 
 ${
@@ -1240,8 +1280,8 @@ eqse2 $p |- ( X = Y -O ( [ a << X ] ph O-O [ a << Y ] ph ) ) $= ? $.
 $( Recieving is closed under equality. $)
 eqre  $p |- ( X = Y -O ( [ X >> a ] ph O-O [ Y >> a ] ph ) ) $= ? $.
 
-$( Restatement of ~dfps with nilad equality. $)
-dfps1 $p |- ( [ x := Y ] ph O-O ^. x ( x = Y -O ph ) ) $= ? $.
+$( Restatement of ~dfsub with nilad equality. $)
+dfsub1 $p |- ( [ x := Y ] ph O-O ^. x ( x = Y -O ph ) ) $= ? $.
 
 test $p |- ( v. b [ a << b ] 1 (X) ( [ a >> c ] 1 (X) [ c << a ] 1 ) ) $= ? $.
 
@@ -1306,22 +1346,28 @@ ${
   nvarjust $p |- x = { r | [ r << x ] 1 } $= ? $.
 $}
 
-$( Proper substitution of `x` with `Y` in the nilad `A`. See also ~wps . $)
-nps $a nilad [ x := Y ] A $.
+$( Proper substitution of `x` with `Y` in the nilad `A`. See also ~wsub . $)
+nsub $a nilad [ x := Y ] A $.
 ${
   $d r a x $.
   $d r a Y $.
   $d r a F $.
   $( The proper substitution of `x` with `Y` in `F`. $)
-  df-nps $a |- [ x := Y ] F = { r | v. a [ x := y ] [ F >> f ] [ r << f ] 1 } $.
+  df-nsub $a |- [ x := Y ] F = { r | v. a [ x := y ] [ F >> f ] [ r << f ] 1 } $.
 $}
+
+$(
+#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#
+Lambda calculus
+#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#
+$)
 
 $( Lambda abstraction. $)
 nla $a nilad \. x Y $.
 ${
   $d r f a x $.
   $d r f a Y $.
-  $( Definition of lambda abstraction. The lambda exposes a "handle" `f` which reads a temporary communication channel `a`. The resulting function's input `x` and output `Y` are passed along `a`. The `!` exponential creates infinite instances of the function, which can all run in parallel. Compare with ~df-fv to see how this function is called. $)
+  $( Definition of lambda abstraction. The lambda exposes a "handle" `f` which reads a temporary communication channel `a`. The resulting function's input `x` and output `Y` are passed along `a`. The `!` exponential creates infinite instances of this function "provider", which can all run in parallel. Compare with ~df-fv to see how this function is called. $)
   df-la $a |- \. x Y = { v. f | ! [ f >> a ] [ a >> x ] [ a << Y ] 1 } $.
 $}
 $( Function application. $)
@@ -1347,14 +1393,78 @@ $( TODO $)
 $( Compose operator. $)
 $( TODO $)
 
+$c True False |= |/= Impl And Or Not SS KK II ii $.
+
+$( Function representing truth. This can be passed around like a variable. $)
+ntru $a nilad True $.
+$( Function representing falsity. This can be passed around like a variable. $)
+nfal $a nilad False $.
+${
+  $d x y $.
+  $( Church-encoding of truth. $)
+  df-tru $a |- True = \. x \. y x $.
+  $( Church-encoding of falsity. $)
+  df-fal $a |- False = \. x \. y y $.
+$}
+
+$( A shorthand way of saying that a church-encoded value is true. I would totally use this as a new typecode, so I could prove statements with `|=` instead of `|-`, but it turns out that adds needless complexity (and mmj2 doesn't like it). $)
+df-eqtru $a |- ( P = True O-O |= P ) $.
+$( A shorthand way of saying that a church-encoded value is false. Note that this is not the opposite of ~df-eqtru (although they do exclude each other), since there are many more things an expression could equal. $)
+df-eqfal $a |- ( P = False O-O |/= P ) $.
+${
+dfeqtru1.1 $e |- P = True $.
+dfeqtru1 $p |- |= P $= ? $.
+$}
+${
+dfeqtru2.1 $e |- |= P $.
+dfeqtru2 $p |- P = True $= ? $.
+$}
+
+tru $p |- |= True $= ? $.
+
+${
+$d a b c x y $.
+
+$( Function representing logical implication. $)
+nlimpl $a nilad Impl $.
+$( Function representing logical conjunction. $)
+nland $a nilad And $.
+$( Function representing logical disjunction. $)
+nlor $a nilad Or $.
+$( Function representing logical negation. $)
+nlnot $a nilad Not $.
+$( Church-encoding of logical conjunction. $)
+df-limpl $a |- Impl = \. a \. b ( True a b ) $.
+$( Church-encoding of logical conjunction. $)
+df-land $a |- And = \. a \. b ( False a b ) $.
+$( Church-encoding of logical disjunction. $)
+df-lor $a |- Or = \. a \. b ( b a True ) $.
+$( Church-encoding of logical negation. $)
+df-lnot $a |- Not = \. a \. x \. y ( y a x ) $.
+
+$( S combinator, the input distributor. $)
+nss $a nilad SS $.
+$( K combinator, the constant generator. $)
+nkk $a nilad KK $.
+$( I combinator, the identity function. $)
+nii $a nilad II $.
+$( Iota combinator, from which the S, K, and I combinators can be derived. $)
+niota $a nilad ii $.
+$(  $)
+df-ss $a |- SS = \. a \. b \. c ( ( b ' a ) ' ( c ' a ) ) $.
+$(  $)
+df-kk $a |- KK = \. a \. b a $.
+$(  $)
+df-ii $a |- II = \. a a $.
+$(  $)
+df-iota $a |- ii = \. f ( ( f ' SS ) ' KK ) $.
+$}
+
 $(
 #*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#
-Rho calculus
+Naive set theory
 #*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#
 $)
-
-
-
 
 $(
 #*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#
