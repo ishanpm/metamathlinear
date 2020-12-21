@@ -1,0 +1,1 @@
+C:\metamath\metamath.exe "read linear.mm"

@@ -1,0 +1,9 @@
+LoadFile,linear.mm
+VerifyProof,*
+Parse,* 
+PrintSyntaxDetails
+ProofAsstUseAutotransformations,no,no,no
+ProofAsstUnifySearchExclude,biigb,xxxid,dummylink
+ProofAsstProofFolder, myproofs
+TheoremLoaderMMTFolder, myproofs
+RunProofAsstGUI
