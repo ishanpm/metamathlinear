@@ -632,7 +632,7 @@ $}
 ${
   lbsymi.1 $e |- ( ph O-O ps ) $.
   $( Linear biconditional is symmetric. Inference for ~lbsym . ERROR this makes mmj2 freak out for some reason $)
-  lbsymi $p |- ( ps O-O ph ) $= ? $.
+  $( lbsymi $p |- ( ps O-O ph ) $= ? $. $)
 $}
 ${
   lbtri.1 $e |- ( ph O-O ps ) $.
