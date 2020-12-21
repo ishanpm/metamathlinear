@@ -1202,7 +1202,7 @@ ${
   $d z x $.
   $d z Y $.
   $d z ph $.
-  $(  "Definition" of proper substitution. Or at least it would be, if I implemented proper substitution was a defined operator...
+  $(  "Definition" of proper substitution. Or at least it would be, if I implemented proper substitution as a defined operator...
 
   This simply sends the desired value `Y` along a temporary channel `a`, and then reads it to the desired name `x`. $)
   dfsub $p |- ( [ x := Y ] ph O-O v. z ( [ z << Y ] 1 (X) [ z >> x ] ph ) ) $= ? $.
@@ -1407,6 +1407,8 @@ ${
   df-fal $a |- False = \. x \. y y $.
 $}
 
+weqtru $a wff |= P $.
+weqfal $a wff |/= P $.
 $( A shorthand way of saying that a church-encoded value is true. I would totally use this as a new typecode, so I could prove statements with `|=` instead of `|-`, but it turns out that adds needless complexity (and mmj2 doesn't like it). $)
 df-eqtru $a |- ( P = True O-O |= P ) $.
 $( A shorthand way of saying that a church-encoded value is false. Note that this is not the opposite of ~df-eqtru (although they do exclude each other), since there are many more things an expression could equal. $)

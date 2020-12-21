@@ -1,8 +1,8 @@
 LoadFile,linear.mm
 VerifyProof,*
-Parse,* 
-PrintSyntaxDetails
+Parse,*
 ProofAsstUseAutotransformations,no,no,no
+PrintSyntaxDetails
 ProofAsstUnifySearchExclude,biigb,xxxid,dummylink
 ProofAsstProofFolder, myproofs
 TheoremLoaderMMTFolder, myproofs
