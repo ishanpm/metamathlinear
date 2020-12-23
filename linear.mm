@@ -620,6 +620,15 @@ ${
   ( wlb wli wac iaci dflb lb2i ) ABEABFZBAFZGKLCDHABIJ $.
 $}
 
+${
+  ilbd.1 $e |- ( ph -O ( ps -O ch ) ) $.
+  ilbd.2 $e |- ( ph -O ( ch -O ps ) ) $.
+  $( Construct a biconditional from its forward and reverse implications. $)
+  ilbd $p |- ( ph -O ( ps O-O ch ) ) $=
+  ( wlb wneg wli wac dfli1i ax-iac dflb lb2d dfli2i ) ABCFZAGOBCHZC
+    BHZIAPQAPDJAQEJKBCLMN $.
+$}
+
 $( Linear biconditional is reflexive. This could be thought of as "both directions" of ~id . $)
 lbrf $p |- ( ph O-O ph ) $= ( id ilb ) AAABZDC $.
 ${
@@ -630,32 +639,22 @@ ${
   ( lbi2 lbi1 syl ilb ) BCBACABDFACEGHCABACEFABDGHI $.
 $}
 ${
-  lbeud.1 $e |- ( ph -O ( ps O-O ch ) ) $.
-  lbeud.2 $e |- ( ph -O ( ps O-O th ) ) $.
-  $( Linear biconditional is Euclidean. Deduction for ~lbeu . $)
-  lbeud $p |- ( ph -O ( ch O-O th ) ) $= ? $.
-$}
-${
   lbsymi.1 $e |- ( ph O-O ps ) $.
-  $( Linear biconditional is symmetric. Deduction for ~lbsym . $)
-  lbsymi $p |- ( ps O-O ph ) $= ? $.
+  $( Linear biconditional is symmetric. Inference for ~lbsym . $)
+  lbsymi $p |- ( ps O-O ph ) $= ( lbrf lbeui ) ABACADE $.
 $}
 ${
   lbtri.1 $e |- ( ph O-O ps ) $.
   lbtri.2 $e |- ( ps O-O ch ) $.
-  $( Linear biconditional is transitive. Deduction for ~lbtr . $)
-  lbtri $p |- ( ph O-O ch ) $= ? $.
+  $( Linear biconditional is transitive. Inference for ~lbtr . $)
+  lbtri $p |- ( ph O-O ch ) $= ( lbsymi lbeui ) BACABDFEG $.
 $}
 ${
   lbsymd.1 $e |- ( ph -O ( ps O-O ch ) ) $.
   $( Linear biconditional is symmetric. Deduction for ~lbsym . $)
-  lbsymd $p |- ( ph -O ( ch O-O ps ) ) $= ? $.
-$}
-${
-  lbtrd.1 $e |- ( ph -O ( ps O-O ch ) ) $.
-  lbtrd.2 $e |- ( ph -O ( ch O-O th ) ) $.
-  $( Linear biconditional is transitive. Deduction for ~lbtr . $)
-  lbtrd $p |- ( ph -O ( ps O-O th ) ) $= ? $.
+  lbsymd $p |- ( ph -O ( ch O-O ps ) ) $=
+  ( wli wneg wlb wac dfli1i dflb lb1d ax-eac2 dfli2i ax-eac1 ilbd )
+    ACBACBEZABCEZPAFBCGZQPHARDIBCJKZLMAQAQPSNMO $.
 $}
 
 $(
@@ -689,11 +688,16 @@ df-mc $a |- ( ( ph (X) ps ) O-O ~ ( ~ ph % ~ ps ) ) $.
 $( Double negation elimination and introduction. $)
 dn $p |- ( ph O-O ~ ~ ph ) $= ( wneg dnis dnes ilb ) AABBACADE $.
 $( `%` is commutative. $)
+mdco $p |- ( ( ph % ps ) -O ( ps % ph ) ) $=
+( wmd wneg ax-init mdcod dfli2i ) ABCZBACABHDHEFG $.
+$( `%` is commutative. Biconditional version of ~mdco . $)
 mdcob $p |- ( ( ph % ps ) O-O ( ps % ph ) ) $=
-( wmd ax-mdco dfli2i ilb ) ABCZBACZGHABDEHGBADEF $.
+( wmd mdco ilb ) ABCBACABDBADE $.
 $( `%` is associative. $)
-mdasb $p |- ( ( ( ph % ps ) % ch ) O-O ( ph % ( ps % ch ) ) ) $=
-( wmd ax-mdas dfli2i mdasr ilb ) ABDCDZABCDDZIJABCEFJIABCGFH $.
+mdas $p |- ( ( ( ph % ps ) % ch ) -O ( ph % ( ps % ch ) ) ) $= ( wmd ax-mdas dfli2i ) ABDCDABCDDABCEF $.
+$( `%` is associative. Reverse of ~mdas . $)
+mdasrNEW $p |- ( ( ph % ( ps % ch ) ) -O ( ( ph % ps ) % ch ) ) $= ? $.
+mdasb $p |- ( ( ( ph % ps ) % ch ) O-O ( ph % ( ps % ch ) ) ) $= ? $.
 $( `_|_` is the unit of `%` (left side). $)
 md1 $p |- ( ph O-O ( _|_ % ph ) ) $=
 ( wbot wmd wneg ax-init ax-ibot mdcoi mdasi mdcod dfli2i mdasri
@@ -702,10 +706,18 @@ $( `_|_` is the unit of `%` (right side). $)
 md2 $p |- ( ph O-O ( ph % _|_ ) ) $=
 ( wbot wmd md1 lbi1 mdcob lbi2 syl lb2s ilb ) AABCZABACZKALADZEKLA
   BFZGHKALKLNEMIJ $.
-$( `(X)` is commutative. $)
-mccob $p |- ( ( ph (X) ps ) O-O ( ps (X) ph ) ) $= ? $.
+$( `(X)` is commutative. TODO extract double negation theorems, ~licon alternate forms $)
+mcco $p |- ( ( ph (X) ps ) -O ( ps (X) ph ) ) $=
+( wmc wneg wmd dnis wli ax-mdco dfli2i id df-mc lb1s licon lmp
+  lb2s syl ) ABCZBACBDZADZEZDZQQDZDZUAQFTUBGUCUAGTSREZUBTUDRSHIUDUDDZ
+  DZUBUDFQUEGUFUBGQQUEQJABKLQUEMNPPTUBMNPBAKO $.
+$( `(X)` is commutative. Biconditional version of ~mcco . $)
+mccob $p |- ( ( ph (X) ps ) O-O ( ps (X) ph ) ) $=
+( wmc mcco ilb ) ABCBACABDBADE $.
 $( `(X)` is associative. $)
-mcasb $p |- ( ( ( ph (X) ps ) % ch ) O-O ( ps (X) ( ps (X) ch ) ) ) $= ? $.
+mcas $p |- ( ( ( ph (X) ps ) (X) ch ) -O ( ps (X) ( ps (X) ch ) ) ) $= ? $.
+$( `(X)` is associative. $)
+mcasb $p |- ( ( ( ph (X) ps ) (X) ch ) O-O ( ps (X) ( ps (X) ch ) ) ) $= ? $.
 $( `1` is the unit of `(X)` (left side). $)
 mc1 $p |- ( ph O-O ( 1 (X) ph ) ) $= ? $.
 $( `1` is the unit of `(X)` (right side). $)
@@ -816,9 +828,9 @@ $( Bury a single term with `!`. $)
 bury1 $p |- ( ! ph -O ! ! ph ) $= ? $.
 $( Demote `! ph` to `ph`. $)
 epe $p |- ( ! ph -O ph ) $= ? $.
-$( `! 1` It's like `1` but even more. $)
+$( `! 1`. It's like `1` but even more. $)
 peone $p |- ! 1 $= ? $.
-$( `! ``|`` ` It's like ` ``|`` ` but even more. $)
+$( `! ``|`` `. It's like ` ``|`` ` but even more. $)
 petop $p |- ! `|` $= ? $.
 
 ${
@@ -836,29 +848,29 @@ Here are some old uncategorized theorems. They need to be placed into an appropr
 $)
 
 ${
-  ione.1 $e |- ph $.
+  ionei.1 $e |- ph $.
   $( Insert One into Times. $)
-  ione $p |- ( ph (X) 1 ) $= ? $.
+  ionei $p |- ( ph (X) 1 ) $= ? $.
 $}
 ${
-  eone.1 $e |- ( ph (X) 1 ) $.
+  eonei.1 $e |- ( ph (X) 1 ) $.
   $( Remove One from Times. $)
-  eone $p |- ph $= ? $.
+  eonei $p |- ph $= ? $.
 $}
 ${
-  mcas.1 $e |- ( ph % ( ( ps (X) ch ) (X) th ) ) $.
+  mcasd.1 $e |- ( ph % ( ( ps (X) ch ) (X) th ) ) $.
   $( Times is associative. $)
-  mcas $p |- ( ph % ( ps (X) ( ch (X) th ) ) ) $= ? $.
+  mcasd $p |- ( ph % ( ps (X) ( ch (X) th ) ) ) $= ? $.
 $}
 ${
-  mcasr.1 $e |- ( ph % ( ps (X) ( ch (X) th ) ) ) $.
+  mcasrd.1 $e |- ( ph % ( ps (X) ( ch (X) th ) ) ) $.
   $( Times is associative. $)
-  mcasr $p |- ( ph % ( ( ps (X) ch ) (X) th ) ) $= ? $.
+  mcasrd $p |- ( ph % ( ( ps (X) ch ) (X) th ) ) $= ? $.
 $}
 ${
-  mcco.1 $e |- ( ph % ( ps (X) ch ) ) $.
+  mccod.1 $e |- ( ph % ( ps (X) ch ) ) $.
   $( Times is commutative. $)
-  mcco $p |- ( ph % ( ch (X) ps ) ) $= ? $.
+  mccod $p |- ( ph % ( ch (X) ps ) ) $= ? $.
 $}
 ${
   mcm1s.1 $e |- ( ph -O ch ) $.
@@ -1097,7 +1109,7 @@ wre $a wff [ X >> y ] ph $.
 $( Creation operator. Creates and scopes a new channel `x`. It also has a dual ` ~ v. x ~ ph `, which has a meaning I don't quite understand. $)
 wnu $a wff v. x ph $.
 
-$( Proper substitution of `x` with `Y`. Although used as a primitive token in the axioms, it can actually be treated as a defined symbol; see ~dfps . See ~nps for proper substitution in nilads. $)
+$( Proper substitution of `x` with `Y`. Although used as a primitive token in the axioms, it can actually be treated as a defined symbol; see ~dfsub . See ~nsub for proper substitution in nilads. $)
 wsub $a wff [ x := Y ] ph $.
 
 $(
@@ -1267,12 +1279,60 @@ $( Equality is Euclidean. $)
 eqeu $p |- ( ( X = Y (X) Y = Z ) -O X = Z ) $= ? $.
 $( Equality is transitive. $)
 eqtr $p |- ( ( X = Y (X) Y = Z ) -O X = Z ) $= ? $.
+$( Equality is symmetric. $)
+eqsym $p |- ( X = Y -O Y = X ) $= ? $.
+${
+  eqeui.1 $e |- X = Y $.
+  eqeui.2 $e |- X = Z $.
+  $( Equality is Euclidean. Inference for ~eqtr . $)
+  eqeui $p |- Y = Z $= ? $.
+$}
 ${
   eqtri.1 $e |- X = Y $.
   eqtri.2 $e |- Y = Z $.
-$( Equality is transitive. Inference form of ~eqtr . $)
+  $( Equality is transitive. Inference for ~eqtr . $)
   eqtri $p |- X = Z $= ? $.
 $}
+${
+  eqsymi.1 $e |- X = Y $.
+  $( Equality is symmetric. Inference for ~eqsym . $)
+  eqsymi $p |- Y = X $= ? $.
+$}
+${
+  eqeud.1 $e |- ( ph -O X = Y ) $.
+  eqeud.2 $e |- ( ph -O X = Z ) $.
+  $( Equality is Euclidean. Deduction for ~eqeu . $)
+  eqeud $p |- ( ph -O Y = Z ) $= ? $.
+$}
+${
+  eqtrd.1 $e |- ( ph -O X = Y ) $.
+  eqtrd.2 $e |- ( ph -O Y = Z ) $.
+  $( Equality is transitive. Deduction for ~eqtr . $)
+  eqtrd $p |- ( ph -O X = Z ) $= ? $.
+$}
+${
+  eqsymd.1 $e |- ( ph -O X = Y ) $.
+  $( Equality is symmetric. Deduction for ~eqsym . $)
+  eqsymd $p |- ( ph -O Y = X ) $= ? $.
+$}
+${
+  eqeuimd.1 $e |- ( ph -> X = Y ) $.
+  eqeuimd.2 $e |- ( ph -> X = Z ) $.
+  $( Equality is Euclidean. Intuitionistic deduction for ~eqeu . $)
+  eqeuimd $p |- ( ph -> Y = Z ) $= ? $.
+$}
+${
+  eqtrimd.1 $e |- ( ph -> X = Y ) $.
+  eqtrimd.2 $e |- ( ph -> Y = Z ) $.
+  $( Equality is transitive. Intuitionistic deduction for ~eqtr . $)
+  eqtrimd $p |- ( ph -> X = Z ) $= ? $.
+$}
+${
+  eqsymimd.1 $e |- ( ph -> X = Y ) $.
+  $( Equality is symmetric. Intuitionistic deduction for ~eqsym . $)
+  eqsymimd $p |- ( ph -> Y = X ) $= ? $.
+$}
+
 $( Sending is closed under equality (left side). $)
 eqse1 $p |- ( X = Y -O ( [ X << a ] ph O-O [ Y << a ] ph ) ) $= ? $.
 $( Sending is closed under equality (right side). $)
@@ -1378,6 +1438,10 @@ ${
   $( Definition of function application. This sends a temporary communication channel `a` to `F`, and communicates the input `X` and output `y`. Compare with ~df-la to see how functions are defined. $)
   df-fv $a |- ( F ' X ) = { r | v. a [ F << a ] [ a << X ] [ a >> y ] [ r << y ] 1 } $.
 $}
+
+$( Lambda evaluation theorem. $)
+lav $p |- ( \. x F ' Y ) = [ x := Y ] F $= ? $.
+
 $( Operator application. $)
 nov $a nilad ( A F B ) $.
 ${
@@ -1393,39 +1457,75 @@ $( TODO $)
 $( Compose operator. $)
 $( TODO $)
 
-$c True False |= |/= Impl And Or Not SS KK II ii $.
+$c SS KK II ii $.
+$( S combinator, the input distributor. $)
+nss $a nilad SS $.
+$( K combinator, the constant generator. $)
+nkk $a nilad KK $.
+$( I combinator, the identity function. $)
+nii $a nilad II $.
+$( Iota combinator, from which the S, K, and I combinators can be derived. $)
+niota $a nilad ii $.
+${
+  $d a b c f $.
+  $( Definition of the S combinator. $)
+  df-ss $a |- SS = \. a \. b \. c ( ( b ' a ) ' ( c ' a ) ) $.
+  $( Definition of the K combinator. $)
+  df-kk $a |- KK = \. a \. b a $.
+  $( Definition of the I combinator. $)
+  df-ii $a |- II = \. a a $.
+  $( Definition of the iota combinator in terms of `SS` and `KK`. $)
+  df-iota $a |- ii = \. f ( ( f ' SS ) ' KK ) $.
+$}
 
-$( Function representing truth. This can be passed around like a variable. $)
+$( Construction of `II` from `ii`. $)
+iiiota $p |- II = ( ii ' ii ) $= ? $.
+$( Construction of `KK` from `ii`. $)
+kkiota $p |- KK = ( ii ' ( ii ' ( ii ' ii ) ) ) $= ? $.
+$( Construction of `SS` from `ii`. $)
+ssiota $p |- SS = ( ii ' ( ii ' ( ii ' ( ii ' ii ) ) ) ) $= ? $.
+
+$(
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+Intuitionistic logic but with lambda calculus
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+$)
+
+$c True False |= |/= Impl And Or Not Iff $.
+
+$( Function representing truth. $)
 ntru $a nilad True $.
-$( Function representing falsity. This can be passed around like a variable. $)
+$( Function representing falsity. $)
 nfal $a nilad False $.
 ${
   $d x y $.
-  $( Church-encoding of truth. $)
+  $( Church-encoding of truth. It takes two (curried) arguments and returns the first. Happens to be identical to ~nkk . $)
   df-tru $a |- True = \. x \. y x $.
-  $( Church-encoding of falsity. $)
+  $( Church-encoding of falsity. It takes two (curried) arguments and returns the second. $)
   df-fal $a |- False = \. x \. y y $.
 $}
 
+$( Truth judgement. $)
 weqtru $a wff |= P $.
+$( Falsity judgement. $)
 weqfal $a wff |/= P $.
 $( A shorthand way of saying that a church-encoded value is true. I would totally use this as a new typecode, so I could prove statements with `|=` instead of `|-`, but it turns out that adds needless complexity (and mmj2 doesn't like it). $)
 df-eqtru $a |- ( P = True O-O |= P ) $.
 $( A shorthand way of saying that a church-encoded value is false. Note that this is not the opposite of ~df-eqtru (although they do exclude each other), since there are many more things an expression could equal. $)
 df-eqfal $a |- ( P = False O-O |/= P ) $.
 ${
-dfeqtru1.1 $e |- P = True $.
-dfeqtru1 $p |- |= P $= ? $.
+dfeqtru1i.1 $e |- P = True $.
+$( Introduce `|=`. $)
+dfeqtru1i $p |- |= P $= ? $.
 $}
 ${
-dfeqtru2.1 $e |- |= P $.
-dfeqtru2 $p |- P = True $= ? $.
+dfeqtru2i.1 $e |- |= P $.
+$( Eliminate `|=`. $)
+dfeqtru2i $p |- P = True $= ? $.
 $}
 
+$( `True` is true. Who'd've thunk it. $)
 tru $p |- |= True $= ? $.
-
-${
-$d a b c x y $.
 
 $( Function representing logical implication. $)
 nlimpl $a nilad Impl $.
@@ -1435,32 +1535,23 @@ $( Function representing logical disjunction. $)
 nlor $a nilad Or $.
 $( Function representing logical negation. $)
 nlnot $a nilad Not $.
-$( Church-encoding of logical conjunction. $)
-df-limpl $a |- Impl = \. a \. b ( True a b ) $.
-$( Church-encoding of logical conjunction. $)
-df-land $a |- And = \. a \. b ( False a b ) $.
-$( Church-encoding of logical disjunction. $)
-df-lor $a |- Or = \. a \. b ( b a True ) $.
-$( Church-encoding of logical negation. $)
-df-lnot $a |- Not = \. a \. x \. y ( y a x ) $.
-
-$( S combinator, the input distributor. $)
-nss $a nilad SS $.
-$( K combinator, the constant generator. $)
-nkk $a nilad KK $.
-$( I combinator, the identity function. $)
-nii $a nilad II $.
-$( Iota combinator, from which the S, K, and I combinators can be derived. $)
-niota $a nilad ii $.
-$(  $)
-df-ss $a |- SS = \. a \. b \. c ( ( b ' a ) ' ( c ' a ) ) $.
-$(  $)
-df-kk $a |- KK = \. a \. b a $.
-$(  $)
-df-ii $a |- II = \. a a $.
-$(  $)
-df-iota $a |- ii = \. f ( ( f ' SS ) ' KK ) $.
+$( Function representing logical biconditional. $)
+nliff $a nilad Iff $.
+${
+  $d a b x y $.
+  $( Church-encoding of logical conjunction. $)
+  df-limpl $a |- Impl = \. a \. b ( b a True ) $.
+  $( Church-encoding of logical conjunction. $)
+  df-land $a |- And = \. a \. b ( b a False ) $.
+  $( Church-encoding of logical disjunction. $)
+  df-lor $a |- Or = \. a \. b ( True a b ) $.
+  $( Church-encoding of logical negation. $)
+  df-lnot $a |- Not = \. a \. x \. y ( y a x ) $.
+  $( Church-encoding of logical biconditional. $)
+  df-liff $a |- Iff = \. a \. b ( b a ( Not ' b ) ) $.
 $}
+
+
 
 $(
 #*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#
@@ -1570,7 +1661,7 @@ htmlcss '<STYLE TYPE="text/css">\n' +
   '-->\n' +
   '</STYLE>\n';
   
-htmltitle "Linear Logic Test Page";
+htmltitle "Linear Logic Proof Explorer";
 
 htmlvarcolor '<SPAN CLASS=wff>wff</SPAN> '
   + '<SPAN CLASS=var>var</SPAN> '
@@ -1621,7 +1712,8 @@ althtmldef "]"   as "] ";
 althtmldef "]"   as "</span>";*/
 althtmldef ">>"  as " &#x226b; ";
 althtmldef "<<"  as " &#x226a; ";
-althtmldef ":="  as " := ";
+/*althtmldef ":="  as " := ";*/
+althtmldef ":="  as " &#x2254; ";
 althtmldef "v."  as "&nu;";
 althtmldef "|>"  as " &#x25b7; ";
 althtmldef "<|"  as " &#x25c1; ";
@@ -1637,6 +1729,21 @@ althtmldef "E."  as "&exist;";
 althtmldef "F."  as "&#8498;";
 althtmldef "e."  as " &isin; ";
 althtmldef "="   as " = ";
+
+althtmldef "True"  as "True";
+althtmldef "False"   as "False";
+althtmldef "|="  as "&#x22a8; ";
+althtmldef "|/="  as "&#x22ad; ";
+althtmldef "Impl"  as " Impl ";
+althtmldef "And"  as " And ";
+althtmldef "Or"  as " Or ";
+althtmldef "Not"  as "Not";
+althtmldef "Iff"  as " Iff ";
+althtmldef "SS"  as "S";
+althtmldef "KK"  as "K";
+althtmldef "II"  as "I";
+althtmldef "ii"  as "&iota;";
+
 althtmldef "ph"  as "<span class=wff>&#x1d711;</span>";
 althtmldef "ps"  as "<span class=wff>&#x1d713;</span>";
 althtmldef "ch"  as "<span class=wff>&#x1d712;</span>";
