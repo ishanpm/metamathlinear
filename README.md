@@ -9,7 +9,7 @@ I'm not sure if the system I am using is entirely consistent, but if not, hey, i
 
 ## Usage
 
-You can view the theorems right now, through the magic of modern technology. Check out the [table of contents](https://ishanpm.github.io/metamathlinear/output/mmdefinitions.html), or perhaps the [list of all axioms and definitions](https://ishanpm.github.io/metamathlinear/output/mmtheorems.html).
+You can view the theorems right now, through the magic of modern technology. Check out the [table of contents](https://ishanpm.github.io/metamathlinear/output/mmtheorems.html), or perhaps the [list of all axioms and definitions](https://ishanpm.github.io/metamathlinear/output/mmdefinitions.html).
 
 If you want to inspect the raw database, install Metamath from http://us.metamath.org/ (or just open [linear.mm](./linear.mm) in your favorite text editor). I recommend the [mmj2](https://github.com/digama0/mmj2) proof assistant if you want to try your hand at creating proofs, although it might be a little tricky to get up and running.
 
