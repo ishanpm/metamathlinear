@@ -1,0 +1,1737 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+    "http://www.w3.org/TR/html4/loose.dtd">
+<HTML LANG="EN-US">
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
+<STYLE TYPE="text/css">
+<!--
+img { margin-bottom: -4px }
+.r { font-family: "Arial Narrow";
+     font-size: x-small;
+   }
+-->
+</STYLE>
+<STYLE TYPE="text/css">
+<!--
+  .wff { color: blue; }
+  .var { color: red; }
+  .nilad { color: #C3C; }
+  .symvar { border-bottom:1px dotted;color:#C3C}
+  .typecode { color: gray }
+  .hidden { color: gray }
+  @font-face {
+    font-family: XITSMath-Regular;
+    src: url(xits-math.woff);
+  }
+  .math { font-family: XITSMath-Regular }
+  .desc-table { border: 1px outset grey }
+  .desc-table td, .desc-table th { border: 1px inset grey }
+  .command {
+    border: 1px solid black;
+    padding: 0em 0.1em;
+    margin: 0em 0.1em;
+    border-radius: 2px;
+  }
+-->
+</STYLE>
+<TITLE>P. 1 of Theorem List - Linear Logic Proof Explorer</TITLE>
+<LINK REL="shortcut icon" HREF="favicon.ico" TYPE="image/x-icon">
+<STYLE TYPE="text/css">
+<!--
+img { margin-bottom: -4px }
+-->
+</STYLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+<TABLE BORDER=0 WIDTH="100%"><TR>
+<TD ALIGN=LEFT VALIGN=TOP WIDTH="25%"
+ROWSPAN=2><A HREF="mmset.html"><FONT SIZE=-2 FACE=sans-serif><IMG SRC="mm.gif"
+BORDER=0 ALT="Home" HEIGHT=32 WIDTH=32 ALIGN=MIDDLE
+STYLE="margin-bottom:0px">Home</FONT></A></TD>
+<TD NOWRAP ALIGN=CENTER ROWSPAN=2><FONT SIZE="+3" COLOR="#006633"><B>Linear
+Logic Proof Explorer</B></FONT><BR><FONT SIZE="+2" COLOR="#006633"><B>Theorem
+List (p. 1 of 4)</B></FONT>
+</TD><TD NOWRAP ALIGN=RIGHT VALIGN=TOP WIDTH="25%"><FONT
+ SIZE=-1 FACE=sans-serif>
+<A HREF="mmtheorems.html">&lt; Previous</A>&nbsp;&nbsp;<A
+ HREF="mmtheorems2.html">Next &gt;</A>
+<TR>
+<TD COLSPAN=3 ALIGN=LEFT VALIGN=TOP><FONT SIZE=-2 FACE=sans-serif>
+<BR>
+<A HREF="../mm.html">Mirrors</A>
+&nbsp;&gt;&nbsp;<A HREF="../index.html">
+Metamath Home Page</A>
+&nbsp;&gt;&nbsp;<A HREF="">
+LLPE Home Page</A>
+&nbsp;&gt;&nbsp;<A HREF="mmtheorems.html">
+Theorem List Contents</A>
+&nbsp; &nbsp; &nbsp; <B><FONT COLOR="#006633">
+This page:</FONT></B> 
+<A HREF="#mmpglst">Page List</A>
+</FONT>
+</TD>
+</TR></TABLE>
+<HR NOSHADE SIZE=1>
+<A NAME="mmstmtlst"></A>
+
+<P><CENTER>
+<TABLE BORDER CELLSPACING=0 CELLPADDING=3 BGCOLOR="#EEFFFA"
+SUMMARY="Theorem List for Linear Logic Proof Explorer">
+<CAPTION><B>Theorem List for Linear Logic Proof Explorer - </B><SPAN CLASS=r
+ STYLE="color:#FB0000">1</SPAN><B>-</B><SPAN CLASS=r
+ STYLE="color:#678900">100</SPAN> &nbsp; *Has distinct variable
+ group(s)</CAPTION>
+
+<TR><TH>Type</TH><TH>Label</TH><TH>Description</TH></TR>
+<TR><TH COLSPAN=3>Statement</TH></TR>
+
+<TR BGCOLOR=white><TD COLSPAN=3><FONT SIZE=-3>&nbsp;</FONT></TD></TR>
+
+
+<TR BGCOLOR="#FFFFF2"><TD COLSPAN=3><CENTER><FONT SIZE="+1"><B><A
+ NAME="mm1h"></A>PART 1&nbsp;&nbsp;Hilbert-style axiomatisation of Linear
+ Logic</B></FONT></CENTER>
+<P STYLE="margin-bottom:0em">
+This is an implementation of Girard's linear logic based on <I>Axioms and
+Models of Linear Logic</I> by Wim H. Hesselink.
+<P STYLE="margin-bottom:0em">
+Thanks to the dual nature of linear logic, many of the operators are redundant.
+Only the <SPAN >&#x214b;</SPAN>, <SPAN >&amp;</SPAN>, <SPAN >?</SPAN>, and
+<SPAN >~</SPAN> operators and the units <SPAN >&#x22a5;</SPAN> and <SPAN
+>&#x22a4;</SPAN> are needed to construct any expression. The only problem is
+that to write the definitions of the composite operators, the linear
+biconditional <SPAN >&#x29df;</SPAN> is needed, which in turn depends on <SPAN
+>~</SPAN>, <SPAN >&#x214b;</SPAN>, and <SPAN >&amp;</SPAN>. Because of this,
+any proofs that use the composite operators are presented after all the axioms
+and definitions.
+
+</TD></TR>
+<TR BGCOLOR=white><TD COLSPAN=3><FONT SIZE=-3>&nbsp;</FONT></TD></TR>
+<TR BGCOLOR="#FFFFF2"><TD COLSPAN=3><CENTER><FONT SIZE="+1"><B><A
+ NAME="mm1b"></A>1.1&nbsp;&nbsp;Basic stuff</B></FONT></CENTER>
+<P STYLE="margin-bottom:0em">
+Here the operators <SPAN >&#x22a5;</SPAN>, <SPAN >&#x214b;</SPAN>, <SPAN
+>&#x22a4;</SPAN>, <SPAN >&amp;</SPAN>, <SPAN >?</SPAN>, and <SPAN >~</SPAN> are
+defined. Later, the duals <SPAN >1</SPAN>, <SPAN >&oplus;</SPAN>, <SPAN
+>0</SPAN>, <SPAN >&otimes;</SPAN>, <SPAN >!</SPAN> are defined, plus the
+implication operators <SPAN >&#x22b8;</SPAN>, <SPAN >&#x29df;</SPAN>, and the
+intuitionistic operators <SPAN >&and;</SPAN>, <SPAN >&or;</SPAN>, <SPAN
+>&not;</SPAN>, <SPAN >&rarr;</SPAN>, and <SPAN >&harr;</SPAN>.
+<P STYLE="margin-bottom:0em">
+Due to the way defenitions work in Metamath (i.e. they don't), my first
+priority is to get the linear biconditional <SPAN >&#x29df;</SPAN> working so
+that it can be used to define the other operators. Unfortunately, the
+definition of the linear biconditional depends on <SPAN >&#x214b;</SPAN>, <SPAN
+>&amp;</SPAN>, and <SPAN >~</SPAN>, so those need to be defined first. Proofs
+are generally most useful in the syllogism form <SPAN >(<span
+class=wff>&#x1d711;</span> &#x22b8; <span class=wff>&#x1d713;</span>) &rarr;
+(<span class=wff>&#x1d711;</span> &#x22b8; <span
+class=wff>&#x1d712;</span>)</SPAN>, so I'll avoid proving stuff here only to
+prove it again once <SPAN >&#x22b8;</SPAN> is defined.
+<P STYLE="margin-bottom:0em">
+Since linear implication is not available, inferences will be presented in
+deduction form <SPAN >(<span class=wff>&#x1d711;</span> &#x214b; <span
+class=wff>&#x1d713;</span>) &and; (<span class=wff>&#x1d711;</span> &#x214b;
+<span class=wff>&#x1d712;</span>) &rarr; (<span class=wff>&#x1d711;</span>
+&#x214b; <span class=wff>&#x1d703;</span>)</SPAN>. This is equivalent to <SPAN
+>(! <span class=wff>&#x1d713;</span> &otimes; ! <span
+class=wff>&#x1d712;</span>) &#x22b8; <span class=wff>&#x1d703;</span></SPAN>.
+This allows proofs to be used with the cut rule.
+
+</TD></TR>
+<TR BGCOLOR=white><TD COLSPAN=3><FONT SIZE=-3>&nbsp;</FONT></TD></TR>
+<TR BGCOLOR="#FFFFF2"><TD COLSPAN=3><CENTER><B><A
+ NAME="mm1s"></A>1.1.1&nbsp;&nbsp;Multiplicatives</B></CENTER>
+<P STYLE="margin-bottom:0em">
+There are two multiplicative binary connectives: <SPAN >&otimes;</SPAN> and
+<SPAN >&#x214b;</SPAN>. In the resource interpretation, these correspond to
+treating the resources involved in a parallel manner. Here we characterize
+<SPAN >&#x214b;</SPAN>, and <A HREF="df-mc.html">df-mc</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#5B8B00">106</SPAN> will define <SPAN >&otimes;</SPAN> as its
+dual.
+
+</TD></TR>
+<TR BGCOLOR=white><TD COLSPAN=3><FONT SIZE=-3>&nbsp;</FONT></TD></TR>
+<TR><TD NOWRAP><B><FONT COLOR="#00CC00">Syntax</FONT></B></TD><TD
+ ALIGN=CENTER><A HREF="wbot.html">wbot</A>&nbsp;<SPAN CLASS=r
+ STYLE="color:#FB0000">1</SPAN></TD><TD ALIGN=LEFT><A NAME="wbot"></A>
+Bottom, the unit of <SPAN >&#x214b;</SPAN>. In the resource interpretation,
+this represents an impossibility. Characterized by <A
+HREF="ax-ibot.html">ax-ibot</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#F90300">4</SPAN> and <A
+HREF="ax-ebot.html">ax-ebot</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#F90400">5</SPAN>.
+
+</TD></TR><TR><TD COLSPAN=3 ALIGN=CENTER><SPAN ><span
+ class='typecode'>wff</span> &#x22a5;</SPAN></TD></TR>
+<TR BGCOLOR=white><TD COLSPAN=3><FONT SIZE=-3>&nbsp;</FONT></TD></TR>
+
+<TR><TD NOWRAP><B><FONT COLOR="#00CC00">Syntax</FONT></B></TD><TD
+ ALIGN=CENTER><A HREF="wmd.html">wmd</A>&nbsp;<SPAN CLASS=r
+ STYLE="color:#FA0100">2</SPAN></TD><TD ALIGN=LEFT><A NAME="wmd"></A>
+Par, multiplicative disjunction. In the resource interpretation, this
+represents resources that are to be used in parallel. Characterized by <A
+HREF="ax-init.html">ax-init</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#F80600">7</SPAN>, <A HREF="ax-cut.html">ax-cut</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#F90500">6</SPAN>, <A
+HREF="ax-mdco.html">ax-mdco</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#F80700">8</SPAN>, <A HREF="ax-mdas.html">ax-mdas</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#F80800">9</SPAN>.
+
+</TD></TR><TR><TD COLSPAN=3 ALIGN=CENTER><SPAN ><span
+ class='typecode'>wff</span> (<span class=wff>&#x1d711;</span> &#x214b; <span
+ class=wff>&#x1d713;</span>)</SPAN></TD></TR>
+<TR BGCOLOR=white><TD COLSPAN=3><FONT SIZE=-3>&nbsp;</FONT></TD></TR>
+
+<TR><TD NOWRAP><B><FONT COLOR="#00CC00">Syntax</FONT></B></TD><TD
+ ALIGN=CENTER><A HREF="wneg.html">wneg</A>&nbsp;<SPAN CLASS=r
+ STYLE="color:#FA0200">3</SPAN></TD><TD ALIGN=LEFT><A NAME="wneg"></A>
+Linear negation. For any statement <SPAN ><span
+class=wff>&#x1d711;</span></SPAN>, <SPAN >~ <span
+class=wff>&#x1d711;</span></SPAN> is its dual. In the resource interpretation,
+this represents demand for something (sort of kind of). Combining <SPAN ><span
+class=wff>&#x1d711;</span></SPAN> and <SPAN >~ <span
+class=wff>&#x1d711;</span></SPAN> yields <SPAN >&#x22a5;</SPAN>.
+
+</TD></TR><TR><TD COLSPAN=3 ALIGN=CENTER><SPAN ><span
+ class='typecode'>wff</span> ~ <span
+ class=wff>&#x1d711;</span></SPAN></TD></TR>
+<TR BGCOLOR=white><TD COLSPAN=3><FONT SIZE=-3>&nbsp;</FONT></TD></TR>
+
+<TR><TD NOWRAP><B><FONT COLOR=red>Axiom</FONT></B></TD><TD ALIGN=CENTER><A
+ HREF="ax-ibot.html">ax-ibot</A>&nbsp;<SPAN CLASS=r
+ STYLE="color:#F90300">4</SPAN></TD><TD ALIGN=LEFT><A NAME="ax-ibot"></A>
+Add a <SPAN >&#x22a5;</SPAN>. Inverse of <A
+HREF="ax-ebot.html">ax-ebot</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#F90400">5</SPAN>.
+
+</TD></TR><TR><TD COLSPAN=3 ALIGN=CENTER><SPAN ><span
+ class='typecode'>&#x22a6;</span> <span
+ class=wff>&#x1d711;</span></SPAN>&nbsp;&nbsp;&nbsp; <FONT
+ FACE=sans-serif>&#8658;</FONT>&nbsp;&nbsp;&nbsp;<SPAN ><span
+ class='typecode'>&#x22a6;</span> (&#x22a5; &#x214b; <span
+ class=wff>&#x1d711;</span>)</SPAN></TD></TR>
+<TR BGCOLOR=white><TD COLSPAN=3><FONT SIZE=-3>&nbsp;</FONT></TD></TR>
+
+<TR><TD NOWRAP><B><FONT COLOR=red>Axiom</FONT></B></TD><TD ALIGN=CENTER><A
+ HREF="ax-ebot.html">ax-ebot</A>&nbsp;<SPAN CLASS=r
+ STYLE="color:#F90400">5</SPAN></TD><TD ALIGN=LEFT><A NAME="ax-ebot"></A>
+Remove a <SPAN >&#x22a5;</SPAN>. Inverse of <A
+HREF="ax-ibot.html">ax-ibot</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#F90300">4</SPAN>.
+
+</TD></TR><TR><TD COLSPAN=3 ALIGN=CENTER><SPAN ><span
+ class='typecode'>&#x22a6;</span> (&#x22a5; &#x214b; <span
+ class=wff>&#x1d711;</span>)</SPAN>&nbsp;&nbsp;&nbsp; <FONT
+ FACE=sans-serif>&#8658;</FONT>&nbsp;&nbsp;&nbsp;<SPAN ><span
+ class='typecode'>&#x22a6;</span> <span
+ class=wff>&#x1d711;</span></SPAN></TD></TR>
+<TR BGCOLOR=white><TD COLSPAN=3><FONT SIZE=-3>&nbsp;</FONT></TD></TR>
+
+<TR><TD NOWRAP><B><FONT COLOR=red>Axiom</FONT></B></TD><TD ALIGN=CENTER><A
+ HREF="ax-cut.html">ax-cut</A>&nbsp;<SPAN CLASS=r
+ STYLE="color:#F90500">6</SPAN></TD><TD ALIGN=LEFT><A NAME="ax-cut"></A>
+The cut rule is akin to syllogism in classical logic. It allows <SPAN >~ <span
+class=wff>&#x1d711;</span> &#x214b; <span class=wff>&#x1d713;</span></SPAN> to
+act like an implication, so that an <SPAN ><span
+class=wff>&#x1d711;</span></SPAN> can be removed and traded for a <SPAN ><span
+class=wff>&#x1d713;</span></SPAN>.
+
+</TD></TR><TR><TD COLSPAN=3 ALIGN=CENTER><SPAN ><span
+ class='typecode'>&#x22a6;</span> (<span class=wff>&#x1d711;</span> &#x214b;
+ <span class=wff>&#x1d713;</span>)</SPAN><SPAN >&nbsp;&nbsp;&nbsp;
+ &amp;&nbsp;&nbsp;&nbsp;</SPAN><SPAN ><span class='typecode'>&#x22a6;</span> (~
+ <span class=wff>&#x1d713;</span> &#x214b; <span
+ class=wff>&#x1d712;</span>)</SPAN>&nbsp;&nbsp;&nbsp; <FONT
+ FACE=sans-serif>&#8658;</FONT>&nbsp;&nbsp;&nbsp;<SPAN ><span
+ class='typecode'>&#x22a6;</span> (<span class=wff>&#x1d711;</span> &#x214b;
+ <span class=wff>&#x1d712;</span>)</SPAN></TD></TR>
+<TR BGCOLOR=white><TD COLSPAN=3><FONT SIZE=-3>&nbsp;</FONT></TD></TR>
+
+<TR><TD NOWRAP><B><FONT COLOR=red>Axiom</FONT></B></TD><TD ALIGN=CENTER><A
+ HREF="ax-init.html">ax-init</A>&nbsp;<SPAN CLASS=r
+ STYLE="color:#F80600">7</SPAN></TD><TD ALIGN=LEFT><A NAME="ax-init"></A>
+The <I>init</I> rule. This innocent-looking rule looks similar to the Law of
+Excluded Middle in classical logic, but don't be fooled. This allows us to turn
+any deduction into its dual by simply performing operations on the <SPAN >~
+<span class=wff>&#x1d711;</span></SPAN> side and flipping it around to get the
+reverse implication. This is analogous to using modus tollens in classical
+logic, but it's especially useful in linear logic because it allows each
+operator to be defined as its dual with all of the deductions negated and
+backwards.
+
+</TD></TR><TR><TD COLSPAN=3 ALIGN=CENTER><SPAN ><span
+ class='typecode'>&#x22a6;</span> (~ <span class=wff>&#x1d711;</span> &#x214b;
+ <span class=wff>&#x1d711;</span>)</SPAN></TD></TR>
+<TR BGCOLOR=white><TD COLSPAN=3><FONT SIZE=-3>&nbsp;</FONT></TD></TR>
+
+<TR><TD NOWRAP><B><FONT COLOR=red>Axiom</FONT></B></TD><TD ALIGN=CENTER><A
+ HREF="ax-mdco.html">ax-mdco</A>&nbsp;<SPAN CLASS=r
+ STYLE="color:#F80700">8</SPAN></TD><TD ALIGN=LEFT><A NAME="ax-mdco"></A>
+<SPAN >&#x214b;</SPAN> is commutative.
+
+</TD></TR><TR><TD COLSPAN=3 ALIGN=CENTER><SPAN ><span
+ class='typecode'>&#x22a6;</span> (~ (<span class=wff>&#x1d711;</span> &#x214b;
+ <span class=wff>&#x1d713;</span>) &#x214b; (<span class=wff>&#x1d713;</span>
+ &#x214b; <span class=wff>&#x1d711;</span>))</SPAN></TD></TR>
+<TR BGCOLOR=white><TD COLSPAN=3><FONT SIZE=-3>&nbsp;</FONT></TD></TR>
+
+<TR><TD NOWRAP><B><FONT COLOR=red>Axiom</FONT></B></TD><TD ALIGN=CENTER><A
+ HREF="ax-mdas.html">ax-mdas</A>&nbsp;<SPAN CLASS=r
+ STYLE="color:#F80800">9</SPAN></TD><TD ALIGN=LEFT><A NAME="ax-mdas"></A>
+<SPAN >&#x214b;</SPAN> is associative.
+
+</TD></TR><TR><TD COLSPAN=3 ALIGN=CENTER><SPAN ><span
+ class='typecode'>&#x22a6;</span> (~ ((<span class=wff>&#x1d711;</span>
+ &#x214b; <span class=wff>&#x1d713;</span>) &#x214b; <span
+ class=wff>&#x1d712;</span>) &#x214b; (<span class=wff>&#x1d711;</span>
+ &#x214b; (<span class=wff>&#x1d713;</span> &#x214b; <span
+ class=wff>&#x1d712;</span>)))</SPAN></TD></TR>
+<TR BGCOLOR=white><TD COLSPAN=3><FONT SIZE=-3>&nbsp;</FONT></TD></TR>
+
+<TR><TD NOWRAP>Theorem</TD><TD ALIGN=CENTER><A
+ HREF="cut1.html">cut1</A>&nbsp;<SPAN CLASS=r
+ STYLE="color:#F70900">10</SPAN></TD><TD ALIGN=LEFT><A NAME="cut1"></A>
+Modus ponens like inference.
+
+</TD></TR><TR><TD COLSPAN=3 ALIGN=CENTER><SPAN ><span
+ class='typecode'>&#x22a6;</span> <span class=wff>&#x1d711;</span></SPAN><SPAN
+ >&nbsp;&nbsp;&nbsp; &amp;&nbsp;&nbsp;&nbsp;</SPAN><SPAN ><span
+ class='typecode'>&#x22a6;</span> (~ <span class=wff>&#x1d711;</span> &#x214b;
+ <span class=wff>&#x1d713;</span>)</SPAN>&nbsp;&nbsp;&nbsp; <FONT
+ FACE=sans-serif>&#8658;</FONT>&nbsp;&nbsp;&nbsp;<SPAN ><span
+ class='typecode'>&#x22a6;</span> <span
+ class=wff>&#x1d713;</span></SPAN></TD></TR>
+<TR BGCOLOR=white><TD COLSPAN=3><FONT SIZE=-3>&nbsp;</FONT></TD></TR>
+
+<TR><TD NOWRAP>Theorem</TD><TD ALIGN=CENTER><A
+ HREF="mdcod.html">mdcod</A>&nbsp;<SPAN CLASS=r
+ STYLE="color:#F70A00">11</SPAN></TD><TD ALIGN=LEFT><A NAME="mdcod"></A>
+<SPAN >&#x214b;</SPAN> is commutative. Deduction form of <A
+HREF="ax-mdco.html">ax-mdco</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#F80700">8</SPAN>.
+
+</TD></TR><TR><TD COLSPAN=3 ALIGN=CENTER><SPAN ><span
+ class='typecode'>&#x22a6;</span> (<span class=wff>&#x1d703;</span> &#x214b;
+ (<span class=wff>&#x1d711;</span> &#x214b; <span
+ class=wff>&#x1d713;</span>))</SPAN>&nbsp;&nbsp;&nbsp; <FONT
+ FACE=sans-serif>&#8658;</FONT>&nbsp;&nbsp;&nbsp;<SPAN ><span
+ class='typecode'>&#x22a6;</span> (<span class=wff>&#x1d703;</span> &#x214b;
+ (<span class=wff>&#x1d713;</span> &#x214b; <span
+ class=wff>&#x1d711;</span>))</SPAN></TD></TR>
+<TR BGCOLOR=white><TD COLSPAN=3><FONT SIZE=-3>&nbsp;</FONT></TD></TR>
+
+<TR><TD NOWRAP>Theorem</TD><TD ALIGN=CENTER><A
+ HREF="mdcoi.html">mdcoi</A>&nbsp;<SPAN CLASS=r
+ STYLE="color:#F70B00">12</SPAN></TD><TD ALIGN=LEFT><A NAME="mdcoi"></A>
+<SPAN >&#x214b;</SPAN> is commutative. Inference form of <A
+HREF="ax-mdco.html">ax-mdco</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#F80700">8</SPAN>.
+
+</TD></TR><TR><TD COLSPAN=3 ALIGN=CENTER><SPAN ><span
+ class='typecode'>&#x22a6;</span> (<span class=wff>&#x1d711;</span> &#x214b;
+ <span class=wff>&#x1d713;</span>)</SPAN>&nbsp;&nbsp;&nbsp; <FONT
+ FACE=sans-serif>&#8658;</FONT>&nbsp;&nbsp;&nbsp;<SPAN ><span
+ class='typecode'>&#x22a6;</span> (<span class=wff>&#x1d713;</span> &#x214b;
+ <span class=wff>&#x1d711;</span>)</SPAN></TD></TR>
+<TR BGCOLOR=white><TD COLSPAN=3><FONT SIZE=-3>&nbsp;</FONT></TD></TR>
+
+<TR><TD NOWRAP>Theorem</TD><TD ALIGN=CENTER><A
+ HREF="mdasd.html">mdasd</A>&nbsp;<SPAN CLASS=r
+ STYLE="color:#F60C00">13</SPAN></TD><TD ALIGN=LEFT><A NAME="mdasd"></A>
+<SPAN >&#x214b;</SPAN> is associative. Deduction form of <A
+HREF="ax-mdas.html">ax-mdas</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#F80800">9</SPAN>.
+
+</TD></TR><TR><TD COLSPAN=3 ALIGN=CENTER><SPAN ><span
+ class='typecode'>&#x22a6;</span> (<span class=wff>&#x1d703;</span> &#x214b;
+ ((<span class=wff>&#x1d711;</span> &#x214b; <span class=wff>&#x1d713;</span>)
+ &#x214b; <span class=wff>&#x1d712;</span>))</SPAN>&nbsp;&nbsp;&nbsp; <FONT
+ FACE=sans-serif>&#8658;</FONT>&nbsp;&nbsp;&nbsp;<SPAN ><span
+ class='typecode'>&#x22a6;</span> (<span class=wff>&#x1d703;</span> &#x214b;
+ (<span class=wff>&#x1d711;</span> &#x214b; (<span class=wff>&#x1d713;</span>
+ &#x214b; <span class=wff>&#x1d712;</span>)))</SPAN></TD></TR>
+<TR BGCOLOR=white><TD COLSPAN=3><FONT SIZE=-3>&nbsp;</FONT></TD></TR>
+
+<TR><TD NOWRAP>Theorem</TD><TD ALIGN=CENTER><A
+ HREF="mdasi.html">mdasi</A>&nbsp;<SPAN CLASS=r
+ STYLE="color:#F60E00">14</SPAN></TD><TD ALIGN=LEFT><A NAME="mdasi"></A>
+<SPAN >&#x214b;</SPAN> is associative. Inference form of <A
+HREF="ax-mdas.html">ax-mdas</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#F80800">9</SPAN>.
+
+</TD></TR><TR><TD COLSPAN=3 ALIGN=CENTER><SPAN ><span
+ class='typecode'>&#x22a6;</span> ((<span class=wff>&#x1d711;</span> &#x214b;
+ <span class=wff>&#x1d713;</span>) &#x214b; <span
+ class=wff>&#x1d712;</span>)</SPAN>&nbsp;&nbsp;&nbsp; <FONT
+ FACE=sans-serif>&#8658;</FONT>&nbsp;&nbsp;&nbsp;<SPAN ><span
+ class='typecode'>&#x22a6;</span> (<span class=wff>&#x1d711;</span> &#x214b;
+ (<span class=wff>&#x1d713;</span> &#x214b; <span
+ class=wff>&#x1d712;</span>))</SPAN></TD></TR>
+<TR BGCOLOR=white><TD COLSPAN=3><FONT SIZE=-3>&nbsp;</FONT></TD></TR>
+
+<TR><TD NOWRAP>Theorem</TD><TD ALIGN=CENTER><A
+ HREF="mdasr.html">mdasr</A>&nbsp;<SPAN CLASS=r
+ STYLE="color:#F51100">15</SPAN></TD><TD ALIGN=LEFT><A NAME="mdasr"></A>
+<SPAN >&#x214b;</SPAN> is associative. Reverse of <A
+HREF="ax-mdas.html">ax-mdas</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#F80800">9</SPAN>.
+
+</TD></TR><TR><TD COLSPAN=3 ALIGN=CENTER><SPAN ><span
+ class='typecode'>&#x22a6;</span> (~ (<span class=wff>&#x1d711;</span> &#x214b;
+ (<span class=wff>&#x1d713;</span> &#x214b; <span class=wff>&#x1d712;</span>))
+ &#x214b; ((<span class=wff>&#x1d711;</span> &#x214b; <span
+ class=wff>&#x1d713;</span>) &#x214b; <span
+ class=wff>&#x1d712;</span>))</SPAN></TD></TR>
+<TR BGCOLOR=white><TD COLSPAN=3><FONT SIZE=-3>&nbsp;</FONT></TD></TR>
+
+<TR><TD NOWRAP>Theorem</TD><TD ALIGN=CENTER><A
+ HREF="mdasrd.html">mdasrd</A>&nbsp;<SPAN CLASS=r
+ STYLE="color:#F41400">16</SPAN></TD><TD ALIGN=LEFT><A NAME="mdasrd"></A>
+<SPAN >&#x214b;</SPAN> is associative. Deduction form of <A
+HREF="mdasr.html">mdasr</A>&nbsp;<SPAN CLASS=r STYLE="color:#F51100">15</SPAN>.
+
+</TD></TR><TR><TD COLSPAN=3 ALIGN=CENTER><SPAN ><span
+ class='typecode'>&#x22a6;</span> (<span class=wff>&#x1d703;</span> &#x214b;
+ (<span class=wff>&#x1d711;</span> &#x214b; (<span class=wff>&#x1d713;</span>
+ &#x214b; <span class=wff>&#x1d712;</span>)))</SPAN>&nbsp;&nbsp;&nbsp; <FONT
+ FACE=sans-serif>&#8658;</FONT>&nbsp;&nbsp;&nbsp;<SPAN ><span
+ class='typecode'>&#x22a6;</span> (<span class=wff>&#x1d703;</span> &#x214b;
+ ((<span class=wff>&#x1d711;</span> &#x214b; <span class=wff>&#x1d713;</span>)
+ &#x214b; <span class=wff>&#x1d712;</span>))</SPAN></TD></TR>
+<TR BGCOLOR=white><TD COLSPAN=3><FONT SIZE=-3>&nbsp;</FONT></TD></TR>
+
+<TR><TD NOWRAP>Theorem</TD><TD ALIGN=CENTER><A
+ HREF="mdasri.html">mdasri</A>&nbsp;<SPAN CLASS=r
+ STYLE="color:#F31600">17</SPAN></TD><TD ALIGN=LEFT><A NAME="mdasri"></A>
+<SPAN >&#x214b;</SPAN> is associative. Inference form of <A
+HREF="mdasrd.html">mdasrd</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#F41400">16</SPAN>.
+
+</TD></TR><TR><TD COLSPAN=3 ALIGN=CENTER><SPAN ><span
+ class='typecode'>&#x22a6;</span> (<span class=wff>&#x1d711;</span> &#x214b;
+ (<span class=wff>&#x1d713;</span> &#x214b; <span
+ class=wff>&#x1d712;</span>))</SPAN>&nbsp;&nbsp;&nbsp; <FONT
+ FACE=sans-serif>&#8658;</FONT>&nbsp;&nbsp;&nbsp;<SPAN ><span
+ class='typecode'>&#x22a6;</span> ((<span class=wff>&#x1d711;</span> &#x214b;
+ <span class=wff>&#x1d713;</span>) &#x214b; <span
+ class=wff>&#x1d712;</span>)</SPAN></TD></TR>
+<TR BGCOLOR=white><TD COLSPAN=3><FONT SIZE=-3>&nbsp;</FONT></TD></TR>
+
+<TR><TD NOWRAP>Theorem</TD><TD ALIGN=CENTER><A
+ HREF="ibotr.html">ibotr</A>&nbsp;<SPAN CLASS=r
+ STYLE="color:#F31900">18</SPAN></TD><TD ALIGN=LEFT><A NAME="ibotr"></A>
+Add a <SPAN >&#x22a5;</SPAN>, right hand side. See <A
+HREF="ax-ibot.html">ax-ibot</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#F90300">4</SPAN>.
+
+</TD></TR><TR><TD COLSPAN=3 ALIGN=CENTER><SPAN ><span
+ class='typecode'>&#x22a6;</span> <span
+ class=wff>&#x1d711;</span></SPAN>&nbsp;&nbsp;&nbsp; <FONT
+ FACE=sans-serif>&#8658;</FONT>&nbsp;&nbsp;&nbsp;<SPAN ><span
+ class='typecode'>&#x22a6;</span> (<span class=wff>&#x1d711;</span> &#x214b;
+ &#x22a5;)</SPAN></TD></TR>
+<TR BGCOLOR=white><TD COLSPAN=3><FONT SIZE=-3>&nbsp;</FONT></TD></TR>
+
+<TR><TD NOWRAP>Theorem</TD><TD ALIGN=CENTER><A
+ HREF="ebotr.html">ebotr</A>&nbsp;<SPAN CLASS=r
+ STYLE="color:#F21C00">19</SPAN></TD><TD ALIGN=LEFT><A NAME="ebotr"></A>
+Remove a <SPAN >&#x22a5;</SPAN>, right hand side. See <A
+HREF="ax-ebot.html">ax-ebot</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#F90400">5</SPAN>.
+
+</TD></TR><TR><TD COLSPAN=3 ALIGN=CENTER><SPAN ><span
+ class='typecode'>&#x22a6;</span> (<span class=wff>&#x1d711;</span> &#x214b;
+ &#x22a5;)</SPAN>&nbsp;&nbsp;&nbsp; <FONT
+ FACE=sans-serif>&#8658;</FONT>&nbsp;&nbsp;&nbsp;<SPAN ><span
+ class='typecode'>&#x22a6;</span> <span
+ class=wff>&#x1d711;</span></SPAN></TD></TR>
+<TR BGCOLOR=white><TD COLSPAN=3><FONT SIZE=-3>&nbsp;</FONT></TD></TR>
+
+<TR><TD NOWRAP>Theorem</TD><TD ALIGN=CENTER><A
+ HREF="nebot.html">nebot</A>&nbsp;<SPAN CLASS=r
+ STYLE="color:#F11E00">20</SPAN></TD><TD ALIGN=LEFT><A NAME="nebot"></A>
+Infer <SPAN >~ &#x22a5;</SPAN> (secretly <SPAN >1</SPAN>).
+
+</TD></TR><TR><TD COLSPAN=3 ALIGN=CENTER><SPAN ><span
+ class='typecode'>&#x22a6;</span> ~ &#x22a5;</SPAN></TD></TR>
+<TR BGCOLOR=white><TD COLSPAN=3><FONT SIZE=-3>&nbsp;</FONT></TD></TR>
+
+<TR><TD NOWRAP>Theorem</TD><TD ALIGN=CENTER><A
+ HREF="cutneg.html">cutneg</A>&nbsp;<SPAN CLASS=r
+ STYLE="color:#F02100">21</SPAN></TD><TD ALIGN=LEFT><A NAME="cutneg"></A>
+Negated version of <A HREF="ax-cut.html">ax-cut</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#F90500">6</SPAN>.
+
+</TD></TR><TR><TD COLSPAN=3 ALIGN=CENTER><SPAN ><span
+ class='typecode'>&#x22a6;</span> (<span class=wff>&#x1d711;</span> &#x214b; ~
+ <span class=wff>&#x1d713;</span>)</SPAN><SPAN >&nbsp;&nbsp;&nbsp;
+ &amp;&nbsp;&nbsp;&nbsp;</SPAN><SPAN ><span class='typecode'>&#x22a6;</span>
+ (<span class=wff>&#x1d713;</span> &#x214b; <span
+ class=wff>&#x1d712;</span>)</SPAN>&nbsp;&nbsp;&nbsp; <FONT
+ FACE=sans-serif>&#8658;</FONT>&nbsp;&nbsp;&nbsp;<SPAN ><span
+ class='typecode'>&#x22a6;</span> (<span class=wff>&#x1d711;</span> &#x214b;
+ <span class=wff>&#x1d712;</span>)</SPAN></TD></TR>
+<TR BGCOLOR=white><TD COLSPAN=3><FONT SIZE=-3>&nbsp;</FONT></TD></TR>
+
+<TR><TD NOWRAP>Theorem</TD><TD ALIGN=CENTER><A
+ HREF="cutf.html">cutf</A>&nbsp;<SPAN CLASS=r
+ STYLE="color:#F02400">22</SPAN></TD><TD ALIGN=LEFT><A NAME="cutf"></A>
+Left-hand version of <A HREF="ax-cut.html">ax-cut</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#F90500">6</SPAN>.
+
+</TD></TR><TR><TD COLSPAN=3 ALIGN=CENTER><SPAN ><span
+ class='typecode'>&#x22a6;</span> (<span class=wff>&#x1d713;</span> &#x214b;
+ <span class=wff>&#x1d711;</span>)</SPAN><SPAN >&nbsp;&nbsp;&nbsp;
+ &amp;&nbsp;&nbsp;&nbsp;</SPAN><SPAN ><span class='typecode'>&#x22a6;</span> (~
+ <span class=wff>&#x1d713;</span> &#x214b; <span
+ class=wff>&#x1d712;</span>)</SPAN>&nbsp;&nbsp;&nbsp; <FONT
+ FACE=sans-serif>&#8658;</FONT>&nbsp;&nbsp;&nbsp;<SPAN ><span
+ class='typecode'>&#x22a6;</span> (<span class=wff>&#x1d712;</span> &#x214b;
+ <span class=wff>&#x1d711;</span>)</SPAN></TD></TR>
+<TR BGCOLOR=white><TD COLSPAN=3><FONT SIZE=-3>&nbsp;</FONT></TD></TR>
+
+<TR><TD NOWRAP>Theorem</TD><TD ALIGN=CENTER><A
+ HREF="dnid.html">dnid</A>&nbsp;<SPAN CLASS=r
+ STYLE="color:#EF2600">23</SPAN></TD><TD ALIGN=LEFT><A NAME="dnid"></A>
+Double negation introduction.
+
+</TD></TR><TR><TD COLSPAN=3 ALIGN=CENTER><SPAN ><span
+ class='typecode'>&#x22a6;</span> (<span class=wff>&#x1d711;</span> &#x214b;
+ <span class=wff>&#x1d713;</span>)</SPAN>&nbsp;&nbsp;&nbsp; <FONT
+ FACE=sans-serif>&#8658;</FONT>&nbsp;&nbsp;&nbsp;<SPAN ><span
+ class='typecode'>&#x22a6;</span> (<span class=wff>&#x1d711;</span> &#x214b; ~
+ ~ <span class=wff>&#x1d713;</span>)</SPAN></TD></TR>
+<TR BGCOLOR=white><TD COLSPAN=3><FONT SIZE=-3>&nbsp;</FONT></TD></TR>
+
+<TR><TD NOWRAP>Theorem</TD><TD ALIGN=CENTER><A
+ HREF="dned.html">dned</A>&nbsp;<SPAN CLASS=r
+ STYLE="color:#EE2900">24</SPAN></TD><TD ALIGN=LEFT><A NAME="dned"></A>
+Double negation elimination.
+
+</TD></TR><TR><TD COLSPAN=3 ALIGN=CENTER><SPAN ><span
+ class='typecode'>&#x22a6;</span> (<span class=wff>&#x1d711;</span> &#x214b; ~
+ ~ <span class=wff>&#x1d713;</span>)</SPAN>&nbsp;&nbsp;&nbsp; <FONT
+ FACE=sans-serif>&#8658;</FONT>&nbsp;&nbsp;&nbsp;<SPAN ><span
+ class='typecode'>&#x22a6;</span> (<span class=wff>&#x1d711;</span> &#x214b;
+ <span class=wff>&#x1d713;</span>)</SPAN></TD></TR>
+<TR BGCOLOR=white><TD COLSPAN=3><FONT SIZE=-3>&nbsp;</FONT></TD></TR>
+
+<TR><TD NOWRAP>Theorem</TD><TD ALIGN=CENTER><A
+ HREF="dni1.html">dni1</A>&nbsp;<SPAN CLASS=r
+ STYLE="color:#ED2C00">25</SPAN></TD><TD ALIGN=LEFT><A NAME="dni1"></A>
+Double negation introduction, left hand side.
+
+</TD></TR><TR><TD COLSPAN=3 ALIGN=CENTER><SPAN ><span
+ class='typecode'>&#x22a6;</span> (<span class=wff>&#x1d711;</span> &#x214b;
+ <span class=wff>&#x1d713;</span>)</SPAN>&nbsp;&nbsp;&nbsp; <FONT
+ FACE=sans-serif>&#8658;</FONT>&nbsp;&nbsp;&nbsp;<SPAN ><span
+ class='typecode'>&#x22a6;</span> (~ ~ <span class=wff>&#x1d711;</span>
+ &#x214b; <span class=wff>&#x1d713;</span>)</SPAN></TD></TR>
+<TR BGCOLOR=white><TD COLSPAN=3><FONT SIZE=-3>&nbsp;</FONT></TD></TR>
+
+<TR><TD NOWRAP>Theorem</TD><TD ALIGN=CENTER><A
+ HREF="dne1.html">dne1</A>&nbsp;<SPAN CLASS=r
+ STYLE="color:#EC2E00">26</SPAN></TD><TD ALIGN=LEFT><A NAME="dne1"></A>
+Double negation elimination, left hand side.
+
+</TD></TR><TR><TD COLSPAN=3 ALIGN=CENTER><SPAN ><span
+ class='typecode'>&#x22a6;</span> (~ ~ <span class=wff>&#x1d711;</span>
+ &#x214b; <span class=wff>&#x1d713;</span>)</SPAN>&nbsp;&nbsp;&nbsp; <FONT
+ FACE=sans-serif>&#8658;</FONT>&nbsp;&nbsp;&nbsp;<SPAN ><span
+ class='typecode'>&#x22a6;</span> (<span class=wff>&#x1d711;</span> &#x214b;
+ <span class=wff>&#x1d713;</span>)</SPAN></TD></TR>
+<TR BGCOLOR=white><TD COLSPAN=3><FONT SIZE=-3>&nbsp;</FONT></TD></TR>
+
+<TR><TD NOWRAP>Theorem</TD><TD ALIGN=CENTER><A
+ HREF="inenebot.html">inenebot</A>&nbsp;<SPAN CLASS=r
+ STYLE="color:#EB3000">27</SPAN></TD><TD ALIGN=LEFT><A NAME="inenebot"></A>
+Add a <SPAN >~ ~ &#x22a5;</SPAN>. See <A
+HREF="ax-ibot.html">ax-ibot</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#F90300">4</SPAN>. This is useful for dealing with deductions
+where the antecedent is negated.
+
+</TD></TR><TR><TD COLSPAN=3 ALIGN=CENTER><SPAN ><span
+ class='typecode'>&#x22a6;</span> <span
+ class=wff>&#x1d711;</span></SPAN>&nbsp;&nbsp;&nbsp; <FONT
+ FACE=sans-serif>&#8658;</FONT>&nbsp;&nbsp;&nbsp;<SPAN ><span
+ class='typecode'>&#x22a6;</span> (~ ~ &#x22a5; &#x214b; <span
+ class=wff>&#x1d711;</span>)</SPAN></TD></TR>
+<TR BGCOLOR=white><TD COLSPAN=3><FONT SIZE=-3>&nbsp;</FONT></TD></TR>
+
+<TR><TD NOWRAP>Theorem</TD><TD ALIGN=CENTER><A
+ HREF="enenebot.html">enenebot</A>&nbsp;<SPAN CLASS=r
+ STYLE="color:#E93200">28</SPAN></TD><TD ALIGN=LEFT><A NAME="enenebot"></A>
+Remove a <SPAN >~ ~ &#x22a5;</SPAN>. Inverse of <A
+HREF="inenebot.html">inenebot</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#EB3000">27</SPAN>.
+
+</TD></TR><TR><TD COLSPAN=3 ALIGN=CENTER><SPAN ><span
+ class='typecode'>&#x22a6;</span> (~ ~ &#x22a5; &#x214b; <span
+ class=wff>&#x1d711;</span>)</SPAN>&nbsp;&nbsp;&nbsp; <FONT
+ FACE=sans-serif>&#8658;</FONT>&nbsp;&nbsp;&nbsp;<SPAN ><span
+ class='typecode'>&#x22a6;</span> <span
+ class=wff>&#x1d711;</span></SPAN></TD></TR>
+<TR BGCOLOR=white><TD COLSPAN=3><FONT SIZE=-3>&nbsp;</FONT></TD></TR>
+
+<TR BGCOLOR="#FFFFF2"><TD COLSPAN=3><CENTER><B><A
+ NAME="mm29s"></A>1.1.2&nbsp;&nbsp;Additives</B></CENTER>
+<P STYLE="margin-bottom:0em">
+There are two additive binary connectives: <SPAN >&amp;</SPAN> and <SPAN
+>&oplus;</SPAN>. These relate to treating the involved expressions
+independently. Here we characterize <SPAN >&amp;</SPAN>, and <A
+HREF="df-ad.html">df-ad</A>&nbsp;<SPAN CLASS=r STYLE="color:#1F9200">132</SPAN>
+will define <SPAN >&oplus;</SPAN> as its dual.
+
+</TD></TR>
+<TR BGCOLOR=white><TD COLSPAN=3><FONT SIZE=-3>&nbsp;</FONT></TD></TR>
+<TR><TD NOWRAP><B><FONT COLOR="#00CC00">Syntax</FONT></B></TD><TD
+ ALIGN=CENTER><A HREF="wtop.html">wtop</A>&nbsp;<SPAN CLASS=r
+ STYLE="color:#E83500">29</SPAN></TD><TD ALIGN=LEFT><A NAME="wtop"></A>
+Top, the unit of <SPAN >&amp;</SPAN>. In the resource interpretation, this
+represents an unknown collection of objects. Characterized by <A
+HREF="ax-top.html">ax-top</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#E53900">31</SPAN>.
+
+</TD></TR><TR><TD COLSPAN=3 ALIGN=CENTER><SPAN ><span
+ class='typecode'>wff</span> &#x22a4;</SPAN></TD></TR>
+<TR BGCOLOR=white><TD COLSPAN=3><FONT SIZE=-3>&nbsp;</FONT></TD></TR>
+
+<TR><TD NOWRAP><B><FONT COLOR="#00CC00">Syntax</FONT></B></TD><TD
+ ALIGN=CENTER><A HREF="wac.html">wac</A>&nbsp;<SPAN CLASS=r
+ STYLE="color:#E73700">30</SPAN></TD><TD ALIGN=LEFT><A NAME="wac"></A>
+With, additive conjunction. In the resource interpretation, this represents a
+choice between two resources. Characterized by <A
+HREF="ax-iac.html">ax-iac</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#E43B00">32</SPAN>, <A HREF="ax-eac1.html">ax-eac1</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#E33E00">33</SPAN>, <A
+HREF="ax-eac2.html">ax-eac2</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#E14000">34</SPAN>.
+
+</TD></TR><TR><TD COLSPAN=3 ALIGN=CENTER><SPAN ><span
+ class='typecode'>wff</span> (<span class=wff>&#x1d711;</span> &amp; <span
+ class=wff>&#x1d713;</span>)</SPAN></TD></TR>
+<TR BGCOLOR=white><TD COLSPAN=3><FONT SIZE=-3>&nbsp;</FONT></TD></TR>
+
+<TR><TD NOWRAP><B><FONT COLOR=red>Axiom</FONT></B></TD><TD ALIGN=CENTER><A
+ HREF="ax-top.html">ax-top</A>&nbsp;<SPAN CLASS=r
+ STYLE="color:#E53900">31</SPAN></TD><TD ALIGN=LEFT><A NAME="ax-top"></A>
+Anything can turn into <SPAN >&#x22a4;</SPAN>.
+
+</TD></TR><TR><TD COLSPAN=3 ALIGN=CENTER><SPAN ><span
+ class='typecode'>&#x22a6;</span> (~ <span class=wff>&#x1d711;</span> &#x214b;
+ &#x22a4;)</SPAN></TD></TR>
+<TR BGCOLOR=white><TD COLSPAN=3><FONT SIZE=-3>&nbsp;</FONT></TD></TR>
+
+<TR><TD NOWRAP><B><FONT COLOR=red>Axiom</FONT></B></TD><TD ALIGN=CENTER><A
+ HREF="ax-iac.html">ax-iac</A>&nbsp;<SPAN CLASS=r
+ STYLE="color:#E43B00">32</SPAN></TD><TD ALIGN=LEFT><A NAME="ax-iac"></A>
+<SPAN >&amp;</SPAN> introduction rule.
+
+</TD></TR><TR><TD COLSPAN=3 ALIGN=CENTER><SPAN ><span
+ class='typecode'>&#x22a6;</span> (~ <span class=wff>&#x1d711;</span> &#x214b;
+ <span class=wff>&#x1d713;</span>)</SPAN><SPAN >&nbsp;&nbsp;&nbsp;
+ &amp;&nbsp;&nbsp;&nbsp;</SPAN><SPAN ><span class='typecode'>&#x22a6;</span> (~
+ <span class=wff>&#x1d711;</span> &#x214b; <span
+ class=wff>&#x1d712;</span>)</SPAN>&nbsp;&nbsp;&nbsp; <FONT
+ FACE=sans-serif>&#8658;</FONT>&nbsp;&nbsp;&nbsp;<SPAN ><span
+ class='typecode'>&#x22a6;</span> (~ <span class=wff>&#x1d711;</span> &#x214b;
+ (<span class=wff>&#x1d713;</span> &amp; <span
+ class=wff>&#x1d712;</span>))</SPAN></TD></TR>
+<TR BGCOLOR=white><TD COLSPAN=3><FONT SIZE=-3>&nbsp;</FONT></TD></TR>
+
+<TR><TD NOWRAP><B><FONT COLOR=red>Axiom</FONT></B></TD><TD ALIGN=CENTER><A
+ HREF="ax-eac1.html">ax-eac1</A>&nbsp;<SPAN CLASS=r
+ STYLE="color:#E33E00">33</SPAN></TD><TD ALIGN=LEFT><A NAME="ax-eac1"></A>
+<SPAN >&amp;</SPAN> elimination rule, left hand side.
+
+</TD></TR><TR><TD COLSPAN=3 ALIGN=CENTER><SPAN ><span
+ class='typecode'>&#x22a6;</span> (~ <span class=wff>&#x1d711;</span> &#x214b;
+ (<span class=wff>&#x1d713;</span> &amp; <span
+ class=wff>&#x1d712;</span>))</SPAN>&nbsp;&nbsp;&nbsp; <FONT
+ FACE=sans-serif>&#8658;</FONT>&nbsp;&nbsp;&nbsp;<SPAN ><span
+ class='typecode'>&#x22a6;</span> (~ <span class=wff>&#x1d711;</span> &#x214b;
+ <span class=wff>&#x1d713;</span>)</SPAN></TD></TR>
+<TR BGCOLOR=white><TD COLSPAN=3><FONT SIZE=-3>&nbsp;</FONT></TD></TR>
+
+<TR><TD NOWRAP><B><FONT COLOR=red>Axiom</FONT></B></TD><TD ALIGN=CENTER><A
+ HREF="ax-eac2.html">ax-eac2</A>&nbsp;<SPAN CLASS=r
+ STYLE="color:#E14000">34</SPAN></TD><TD ALIGN=LEFT><A NAME="ax-eac2"></A>
+<SPAN >&amp;</SPAN> elimination rule, right hand side.
+
+</TD></TR><TR><TD COLSPAN=3 ALIGN=CENTER><SPAN ><span
+ class='typecode'>&#x22a6;</span> (~ <span class=wff>&#x1d711;</span> &#x214b;
+ (<span class=wff>&#x1d713;</span> &amp; <span
+ class=wff>&#x1d712;</span>))</SPAN>&nbsp;&nbsp;&nbsp; <FONT
+ FACE=sans-serif>&#8658;</FONT>&nbsp;&nbsp;&nbsp;<SPAN ><span
+ class='typecode'>&#x22a6;</span> (~ <span class=wff>&#x1d711;</span> &#x214b;
+ <span class=wff>&#x1d712;</span>)</SPAN></TD></TR>
+<TR BGCOLOR=white><TD COLSPAN=3><FONT SIZE=-3>&nbsp;</FONT></TD></TR>
+
+<TR><TD NOWRAP>Theorem</TD><TD ALIGN=CENTER><A
+ HREF="iac.html">iac</A>&nbsp;<SPAN CLASS=r
+ STYLE="color:#E04200">35</SPAN></TD><TD ALIGN=LEFT><A NAME="iac"></A>
+<SPAN >&amp;</SPAN> introduction rule. <A
+HREF="ax-iac.html">ax-iac</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#E43B00">32</SPAN> has a negation for some reason, this one
+doesn't.
+
+</TD></TR><TR><TD COLSPAN=3 ALIGN=CENTER><SPAN ><span
+ class='typecode'>&#x22a6;</span> (<span class=wff>&#x1d711;</span> &#x214b;
+ <span class=wff>&#x1d713;</span>)</SPAN><SPAN >&nbsp;&nbsp;&nbsp;
+ &amp;&nbsp;&nbsp;&nbsp;</SPAN><SPAN ><span class='typecode'>&#x22a6;</span>
+ (<span class=wff>&#x1d711;</span> &#x214b; <span
+ class=wff>&#x1d712;</span>)</SPAN>&nbsp;&nbsp;&nbsp; <FONT
+ FACE=sans-serif>&#8658;</FONT>&nbsp;&nbsp;&nbsp;<SPAN ><span
+ class='typecode'>&#x22a6;</span> (<span class=wff>&#x1d711;</span> &#x214b;
+ (<span class=wff>&#x1d713;</span> &amp; <span
+ class=wff>&#x1d712;</span>))</SPAN></TD></TR>
+<TR BGCOLOR=white><TD COLSPAN=3><FONT SIZE=-3>&nbsp;</FONT></TD></TR>
+
+<TR><TD NOWRAP>Theorem</TD><TD ALIGN=CENTER><A
+ HREF="iaci.html">iaci</A>&nbsp;<SPAN CLASS=r
+ STYLE="color:#DF4400">36</SPAN></TD><TD ALIGN=LEFT><A NAME="iaci"></A>
+<SPAN >&amp;</SPAN> introduction rule. Inference form of <A
+HREF="ax-iac.html">ax-iac</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#E43B00">32</SPAN>.
+
+</TD></TR><TR><TD COLSPAN=3 ALIGN=CENTER><SPAN ><span
+ class='typecode'>&#x22a6;</span> <span class=wff>&#x1d711;</span></SPAN><SPAN
+ >&nbsp;&nbsp;&nbsp; &amp;&nbsp;&nbsp;&nbsp;</SPAN><SPAN ><span
+ class='typecode'>&#x22a6;</span> <span
+ class=wff>&#x1d713;</span></SPAN>&nbsp;&nbsp;&nbsp; <FONT
+ FACE=sans-serif>&#8658;</FONT>&nbsp;&nbsp;&nbsp;<SPAN ><span
+ class='typecode'>&#x22a6;</span> (<span class=wff>&#x1d711;</span> &amp; <span
+ class=wff>&#x1d713;</span>)</SPAN></TD></TR>
+<TR BGCOLOR=white><TD COLSPAN=3><FONT SIZE=-3>&nbsp;</FONT></TD></TR>
+
+<TR><TD NOWRAP>Theorem</TD><TD ALIGN=CENTER><A
+ HREF="eac1d.html">eac1d</A>&nbsp;<SPAN CLASS=r
+ STYLE="color:#DD4700">37</SPAN></TD><TD ALIGN=LEFT><A NAME="eac1d"></A>
+<SPAN >&amp;</SPAN> elimination rule, left hand side. <A
+HREF="ax-eac1.html">ax-eac1</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#E33E00">33</SPAN> has a negation for some reason, this one
+doesn't.
+
+</TD></TR><TR><TD COLSPAN=3 ALIGN=CENTER><SPAN ><span
+ class='typecode'>&#x22a6;</span> (<span class=wff>&#x1d711;</span> &#x214b;
+ (<span class=wff>&#x1d713;</span> &amp; <span
+ class=wff>&#x1d712;</span>))</SPAN>&nbsp;&nbsp;&nbsp; <FONT
+ FACE=sans-serif>&#8658;</FONT>&nbsp;&nbsp;&nbsp;<SPAN ><span
+ class='typecode'>&#x22a6;</span> (<span class=wff>&#x1d711;</span> &#x214b;
+ <span class=wff>&#x1d713;</span>)</SPAN></TD></TR>
+<TR BGCOLOR=white><TD COLSPAN=3><FONT SIZE=-3>&nbsp;</FONT></TD></TR>
+
+<TR><TD NOWRAP>Theorem</TD><TD ALIGN=CENTER><A
+ HREF="eac1i.html">eac1i</A>&nbsp;<SPAN CLASS=r
+ STYLE="color:#DC4800">38</SPAN></TD><TD ALIGN=LEFT><A NAME="eac1i"></A>
+<SPAN >&amp;</SPAN> elimination rule, left hand side. Inference form of <A
+HREF="ax-eac1.html">ax-eac1</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#E33E00">33</SPAN>.
+
+</TD></TR><TR><TD COLSPAN=3 ALIGN=CENTER><SPAN ><span
+ class='typecode'>&#x22a6;</span> (<span class=wff>&#x1d711;</span> &amp; <span
+ class=wff>&#x1d713;</span>)</SPAN>&nbsp;&nbsp;&nbsp; <FONT
+ FACE=sans-serif>&#8658;</FONT>&nbsp;&nbsp;&nbsp;<SPAN ><span
+ class='typecode'>&#x22a6;</span> <span
+ class=wff>&#x1d711;</span></SPAN></TD></TR>
+<TR BGCOLOR=white><TD COLSPAN=3><FONT SIZE=-3>&nbsp;</FONT></TD></TR>
+
+<TR><TD NOWRAP>Theorem</TD><TD ALIGN=CENTER><A
+ HREF="eac2d.html">eac2d</A>&nbsp;<SPAN CLASS=r
+ STYLE="color:#DA4A00">39</SPAN></TD><TD ALIGN=LEFT><A NAME="eac2d"></A>
+<SPAN >&amp;</SPAN> elimination rule, right hand side. <A
+HREF="ax-eac2.html">ax-eac2</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#E14000">34</SPAN> has a negation for some reason, this one
+doesn't.
+
+</TD></TR><TR><TD COLSPAN=3 ALIGN=CENTER><SPAN ><span
+ class='typecode'>&#x22a6;</span> (<span class=wff>&#x1d711;</span> &#x214b;
+ (<span class=wff>&#x1d713;</span> &amp; <span
+ class=wff>&#x1d712;</span>))</SPAN>&nbsp;&nbsp;&nbsp; <FONT
+ FACE=sans-serif>&#8658;</FONT>&nbsp;&nbsp;&nbsp;<SPAN ><span
+ class='typecode'>&#x22a6;</span> (<span class=wff>&#x1d711;</span> &#x214b;
+ <span class=wff>&#x1d712;</span>)</SPAN></TD></TR>
+<TR BGCOLOR=white><TD COLSPAN=3><FONT SIZE=-3>&nbsp;</FONT></TD></TR>
+
+<TR><TD NOWRAP>Theorem</TD><TD ALIGN=CENTER><A
+ HREF="eac2i.html">eac2i</A>&nbsp;<SPAN CLASS=r
+ STYLE="color:#D94B00">40</SPAN></TD><TD ALIGN=LEFT><A NAME="eac2i"></A>
+<SPAN >&amp;</SPAN> elimination rule, right hand side. Inference form of <A
+HREF="ax-eac2.html">ax-eac2</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#E14000">34</SPAN>.
+
+</TD></TR><TR><TD COLSPAN=3 ALIGN=CENTER><SPAN ><span
+ class='typecode'>&#x22a6;</span> (<span class=wff>&#x1d711;</span> &amp; <span
+ class=wff>&#x1d713;</span>)</SPAN>&nbsp;&nbsp;&nbsp; <FONT
+ FACE=sans-serif>&#8658;</FONT>&nbsp;&nbsp;&nbsp;<SPAN ><span
+ class='typecode'>&#x22a6;</span> <span
+ class=wff>&#x1d713;</span></SPAN></TD></TR>
+<TR BGCOLOR=white><TD COLSPAN=3><FONT SIZE=-3>&nbsp;</FONT></TD></TR>
+
+<TR><TD NOWRAP>Theorem</TD><TD ALIGN=CENTER><A
+ HREF="itopi.html">itopi</A>&nbsp;<SPAN CLASS=r
+ STYLE="color:#D74D00">41</SPAN></TD><TD ALIGN=LEFT><A NAME="itopi"></A>
+Insert Top into With. Inverse of <A HREF="etopi.html">etopi</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#D54E00">42</SPAN>.
+
+</TD></TR><TR><TD COLSPAN=3 ALIGN=CENTER><SPAN ><span
+ class='typecode'>&#x22a6;</span> <span
+ class=wff>&#x1d711;</span></SPAN>&nbsp;&nbsp;&nbsp; <FONT
+ FACE=sans-serif>&#8658;</FONT>&nbsp;&nbsp;&nbsp;<SPAN ><span
+ class='typecode'>&#x22a6;</span> (<span class=wff>&#x1d711;</span> &amp;
+ &#x22a4;)</SPAN></TD></TR>
+<TR BGCOLOR=white><TD COLSPAN=3><FONT SIZE=-3>&nbsp;</FONT></TD></TR>
+
+<TR><TD NOWRAP>Theorem</TD><TD ALIGN=CENTER><A
+ HREF="etopi.html">etopi</A>&nbsp;<SPAN CLASS=r
+ STYLE="color:#D54E00">42</SPAN></TD><TD ALIGN=LEFT><A NAME="etopi"></A>
+Remove Top from With. This is, of course, just a special case of <A
+HREF="ax-eac1.html">ax-eac1</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#E33E00">33</SPAN>.
+
+</TD></TR><TR><TD COLSPAN=3 ALIGN=CENTER><SPAN ><span
+ class='typecode'>&#x22a6;</span> (<span class=wff>&#x1d711;</span> &amp;
+ &#x22a4;)</SPAN>&nbsp;&nbsp;&nbsp; <FONT
+ FACE=sans-serif>&#8658;</FONT>&nbsp;&nbsp;&nbsp;<SPAN ><span
+ class='typecode'>&#x22a6;</span> <span
+ class=wff>&#x1d711;</span></SPAN></TD></TR>
+<TR BGCOLOR=white><TD COLSPAN=3><FONT SIZE=-3>&nbsp;</FONT></TD></TR>
+
+<TR><TD NOWRAP>Theorem</TD><TD ALIGN=CENTER><A
+ HREF="acco.html">acco</A>&nbsp;<SPAN CLASS=r
+ STYLE="color:#D45000">43</SPAN></TD><TD ALIGN=LEFT><A NAME="acco"></A>
+<SPAN >&amp;</SPAN> is commutative.
+
+</TD></TR><TR><TD COLSPAN=3 ALIGN=CENTER><SPAN ><span
+ class='typecode'>&#x22a6;</span> (<span class=wff>&#x1d711;</span> &#x214b;
+ (<span class=wff>&#x1d713;</span> &amp; <span
+ class=wff>&#x1d712;</span>))</SPAN>&nbsp;&nbsp;&nbsp; <FONT
+ FACE=sans-serif>&#8658;</FONT>&nbsp;&nbsp;&nbsp;<SPAN ><span
+ class='typecode'>&#x22a6;</span> (<span class=wff>&#x1d711;</span> &#x214b;
+ (<span class=wff>&#x1d712;</span> &amp; <span
+ class=wff>&#x1d713;</span>))</SPAN></TD></TR>
+<TR BGCOLOR=white><TD COLSPAN=3><FONT SIZE=-3>&nbsp;</FONT></TD></TR>
+
+<TR><TD NOWRAP>Theorem</TD><TD ALIGN=CENTER><A
+ HREF="acas.html">acas</A>&nbsp;<SPAN CLASS=r
+ STYLE="color:#D25100">44</SPAN></TD><TD ALIGN=LEFT><A NAME="acas"></A>
+<SPAN >&amp;</SPAN> is associative.
+
+</TD></TR><TR><TD COLSPAN=3 ALIGN=CENTER><SPAN ><span
+ class='typecode'>&#x22a6;</span> (<span class=wff>&#x1d711;</span> &#x214b;
+ ((<span class=wff>&#x1d713;</span> &amp; <span class=wff>&#x1d712;</span>)
+ &amp; <span class=wff>&#x1d703;</span>))</SPAN>&nbsp;&nbsp;&nbsp; <FONT
+ FACE=sans-serif>&#8658;</FONT>&nbsp;&nbsp;&nbsp;<SPAN ><span
+ class='typecode'>&#x22a6;</span> (<span class=wff>&#x1d711;</span> &#x214b;
+ (<span class=wff>&#x1d713;</span> &amp; (<span class=wff>&#x1d712;</span>
+ &amp; <span class=wff>&#x1d703;</span>)))</SPAN></TD></TR>
+<TR BGCOLOR=white><TD COLSPAN=3><FONT SIZE=-3>&nbsp;</FONT></TD></TR>
+
+<TR><TD NOWRAP>Theorem</TD><TD ALIGN=CENTER><A
+ HREF="acasr.html">acasr</A>&nbsp;<SPAN CLASS=r
+ STYLE="color:#D15300">45</SPAN></TD><TD ALIGN=LEFT><A NAME="acasr"></A>
+<SPAN >&amp;</SPAN> is associative. Reverse of <A
+HREF="acas.html">acas</A>&nbsp;<SPAN CLASS=r STYLE="color:#D25100">44</SPAN>.
+
+</TD></TR><TR><TD COLSPAN=3 ALIGN=CENTER><SPAN ><span
+ class='typecode'>&#x22a6;</span> (<span class=wff>&#x1d711;</span> &#x214b;
+ (<span class=wff>&#x1d713;</span> &amp; (<span class=wff>&#x1d712;</span>
+ &amp; <span class=wff>&#x1d703;</span>)))</SPAN>&nbsp;&nbsp;&nbsp; <FONT
+ FACE=sans-serif>&#8658;</FONT>&nbsp;&nbsp;&nbsp;<SPAN ><span
+ class='typecode'>&#x22a6;</span> (<span class=wff>&#x1d711;</span> &#x214b;
+ ((<span class=wff>&#x1d713;</span> &amp; <span class=wff>&#x1d712;</span>)
+ &amp; <span class=wff>&#x1d703;</span>))</SPAN></TD></TR>
+<TR BGCOLOR=white><TD COLSPAN=3><FONT SIZE=-3>&nbsp;</FONT></TD></TR>
+
+<TR><TD NOWRAP>Theorem</TD><TD ALIGN=CENTER><A
+ HREF="dismdac.html">dismdac</A>&nbsp;<SPAN CLASS=r
+ STYLE="color:#CF5400">46</SPAN></TD><TD ALIGN=LEFT><A NAME="dismdac"></A>
+<SPAN >&#x214b;</SPAN> distributes over <SPAN >&amp;</SPAN>.
+
+</TD></TR><TR><TD COLSPAN=3 ALIGN=CENTER><SPAN ><span
+ class='typecode'>&#x22a6;</span> (<span class=wff>&#x1d711;</span> &#x214b;
+ (<span class=wff>&#x1d713;</span> &#x214b; (<span class=wff>&#x1d712;</span>
+ &amp; <span class=wff>&#x1d703;</span>)))</SPAN>&nbsp;&nbsp;&nbsp; <FONT
+ FACE=sans-serif>&#8658;</FONT>&nbsp;&nbsp;&nbsp;<SPAN ><span
+ class='typecode'>&#x22a6;</span> (<span class=wff>&#x1d711;</span> &#x214b;
+ ((<span class=wff>&#x1d713;</span> &#x214b; <span class=wff>&#x1d712;</span>)
+ &amp; (<span class=wff>&#x1d713;</span> &#x214b; <span
+ class=wff>&#x1d703;</span>)))</SPAN></TD></TR>
+<TR BGCOLOR=white><TD COLSPAN=3><FONT SIZE=-3>&nbsp;</FONT></TD></TR>
+
+<TR><TD NOWRAP>Theorem</TD><TD ALIGN=CENTER><A
+ HREF="extmdac.html">extmdac</A>&nbsp;<SPAN CLASS=r
+ STYLE="color:#CD5600">47</SPAN></TD><TD ALIGN=LEFT><A NAME="extmdac"></A>
+<SPAN >&#x214b;</SPAN> extracts out of <SPAN >&amp;</SPAN>. Converse of <A
+HREF="dismdac.html">dismdac</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#CF5400">46</SPAN>.
+
+</TD></TR><TR><TD COLSPAN=3 ALIGN=CENTER><SPAN ><span
+ class='typecode'>&#x22a6;</span> (<span class=wff>&#x1d711;</span> &#x214b;
+ ((<span class=wff>&#x1d713;</span> &#x214b; <span class=wff>&#x1d712;</span>)
+ &amp; (<span class=wff>&#x1d713;</span> &#x214b; <span
+ class=wff>&#x1d703;</span>)))</SPAN>&nbsp;&nbsp;&nbsp; <FONT
+ FACE=sans-serif>&#8658;</FONT>&nbsp;&nbsp;&nbsp;<SPAN ><span
+ class='typecode'>&#x22a6;</span> (<span class=wff>&#x1d711;</span> &#x214b;
+ (<span class=wff>&#x1d713;</span> &#x214b; (<span class=wff>&#x1d712;</span>
+ &amp; <span class=wff>&#x1d703;</span>)))</SPAN></TD></TR>
+<TR BGCOLOR=white><TD COLSPAN=3><FONT SIZE=-3>&nbsp;</FONT></TD></TR>
+
+<TR BGCOLOR="#FFFFF2"><TD COLSPAN=3><CENTER><B><A
+ NAME="mm48s"></A>1.1.3&nbsp;&nbsp;Exponentials</B></CENTER>
+<P STYLE="margin-bottom:0em">
+There are two exponential connectives: <SPAN >?</SPAN> and <SPAN >!</SPAN>.
+These allow expressions to be duplicated and deleted. Here we characterize
+<SPAN >?</SPAN>, and <A HREF="df-pe.html">df-pe</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#009224">149</SPAN> will define <SPAN >!</SPAN> as its dual.
+
+</TD></TR>
+<TR BGCOLOR=white><TD COLSPAN=3><FONT SIZE=-3>&nbsp;</FONT></TD></TR>
+<TR><TD NOWRAP><B><FONT COLOR="#00CC00">Syntax</FONT></B></TD><TD
+ ALIGN=CENTER><A HREF="wne.html">wne</A>&nbsp;<SPAN CLASS=r
+ STYLE="color:#CC5700">48</SPAN></TD><TD ALIGN=LEFT><A NAME="wne"></A>
+&quot;Why not&quot;, negative exponential. Characterized by <A
+HREF="ax-ipe.html">ax-ipe</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#CA5900">49</SPAN>, <A HREF="ax-epe.html">ax-epe</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#C85A00">50</SPAN>, <A
+HREF="ax-weak.html">ax-weak</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#C65C00">51</SPAN>, <A
+HREF="ax-contr.html">ax-contr</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#C45D00">52</SPAN>, <A HREF="ax-pemc.html">ax-pemc</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#C25F00">53</SPAN>, <A
+HREF="ax-dig.html">ax-dig</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#C06100">54</SPAN>.
+
+</TD></TR><TR><TD COLSPAN=3 ALIGN=CENTER><SPAN ><span
+ class='typecode'>wff</span> ? <span
+ class=wff>&#x1d711;</span></SPAN></TD></TR>
+<TR BGCOLOR=white><TD COLSPAN=3><FONT SIZE=-3>&nbsp;</FONT></TD></TR>
+
+<TR><TD NOWRAP><B><FONT COLOR=red>Axiom</FONT></B></TD><TD ALIGN=CENTER><A
+ HREF="ax-ipe.html">ax-ipe</A>&nbsp;<SPAN CLASS=r
+ STYLE="color:#CA5900">49</SPAN></TD><TD ALIGN=LEFT><A NAME="ax-ipe"></A>
+Add a <SPAN >?</SPAN> (secretly a <SPAN >!</SPAN>). Inverse of <A
+HREF="ax-epe.html">ax-epe</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#C85A00">50</SPAN>.
+
+</TD></TR><TR><TD COLSPAN=3 ALIGN=CENTER><SPAN ><span
+ class='typecode'>&#x22a6;</span> (~ <span class=wff>&#x1d711;</span> &#x214b;
+ ? <span class=wff>&#x1d713;</span>)</SPAN>&nbsp;&nbsp;&nbsp; <FONT
+ FACE=sans-serif>&#8658;</FONT>&nbsp;&nbsp;&nbsp;<SPAN ><span
+ class='typecode'>&#x22a6;</span> (~ ? <span class=wff>&#x1d711;</span>
+ &#x214b; ? <span class=wff>&#x1d713;</span>)</SPAN></TD></TR>
+<TR BGCOLOR=white><TD COLSPAN=3><FONT SIZE=-3>&nbsp;</FONT></TD></TR>
+
+<TR><TD NOWRAP><B><FONT COLOR=red>Axiom</FONT></B></TD><TD ALIGN=CENTER><A
+ HREF="ax-epe.html">ax-epe</A>&nbsp;<SPAN CLASS=r
+ STYLE="color:#C85A00">50</SPAN></TD><TD ALIGN=LEFT><A NAME="ax-epe"></A>
+Remove a <SPAN >?</SPAN> (secretly a <SPAN >!</SPAN>). Inverse of <A
+HREF="ax-ipe.html">ax-ipe</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#CA5900">49</SPAN>.
+
+</TD></TR><TR><TD COLSPAN=3 ALIGN=CENTER><SPAN ><span
+ class='typecode'>&#x22a6;</span> (~ ? <span class=wff>&#x1d711;</span>
+ &#x214b; ? <span class=wff>&#x1d713;</span>)</SPAN>&nbsp;&nbsp;&nbsp; <FONT
+ FACE=sans-serif>&#8658;</FONT>&nbsp;&nbsp;&nbsp;<SPAN ><span
+ class='typecode'>&#x22a6;</span> (~ <span class=wff>&#x1d711;</span> &#x214b;
+ ? <span class=wff>&#x1d713;</span>)</SPAN></TD></TR>
+<TR BGCOLOR=white><TD COLSPAN=3><FONT SIZE=-3>&nbsp;</FONT></TD></TR>
+
+<TR><TD NOWRAP><B><FONT COLOR=red>Axiom</FONT></B></TD><TD ALIGN=CENTER><A
+ HREF="ax-weak.html">ax-weak</A>&nbsp;<SPAN CLASS=r
+ STYLE="color:#C65C00">51</SPAN></TD><TD ALIGN=LEFT><A NAME="ax-weak"></A>
+<SPAN >? <span class=wff>&#x1d711;</span></SPAN> can be added into any
+statement.
+
+</TD></TR><TR><TD COLSPAN=3 ALIGN=CENTER><SPAN ><span
+ class='typecode'>&#x22a6;</span> (~ &#x22a5; &#x214b; ? <span
+ class=wff>&#x1d711;</span>)</SPAN></TD></TR>
+<TR BGCOLOR=white><TD COLSPAN=3><FONT SIZE=-3>&nbsp;</FONT></TD></TR>
+
+<TR><TD NOWRAP><B><FONT COLOR=red>Axiom</FONT></B></TD><TD ALIGN=CENTER><A
+ HREF="ax-contr.html">ax-contr</A>&nbsp;<SPAN CLASS=r
+ STYLE="color:#C45D00">52</SPAN></TD><TD ALIGN=LEFT><A NAME="ax-contr"></A>
+<SPAN >? <span class=wff>&#x1d711;</span></SPAN> can be contracted.
+
+</TD></TR><TR><TD COLSPAN=3 ALIGN=CENTER><SPAN ><span
+ class='typecode'>&#x22a6;</span> (~ (? <span class=wff>&#x1d711;</span>
+ &#x214b; ? <span class=wff>&#x1d711;</span>) &#x214b; ? <span
+ class=wff>&#x1d711;</span>)</SPAN></TD></TR>
+<TR BGCOLOR=white><TD COLSPAN=3><FONT SIZE=-3>&nbsp;</FONT></TD></TR>
+
+<TR><TD NOWRAP><B><FONT COLOR=red>Axiom</FONT></B></TD><TD ALIGN=CENTER><A
+ HREF="ax-pemc.html">ax-pemc</A>&nbsp;<SPAN CLASS=r
+ STYLE="color:#C25F00">53</SPAN></TD><TD ALIGN=LEFT><A NAME="ax-pemc"></A>
+<SPAN >! 1</SPAN>. This is needed to let <A
+HREF="ax-ipe.html">ax-ipe</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#CA5900">49</SPAN> and <A HREF="ax-epe.html">ax-epe</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#C85A00">50</SPAN> work on single items.
+
+</TD></TR><TR><TD COLSPAN=3 ALIGN=CENTER><SPAN ><span
+ class='typecode'>&#x22a6;</span> ~ ? &#x22a5;</SPAN></TD></TR>
+<TR BGCOLOR=white><TD COLSPAN=3><FONT SIZE=-3>&nbsp;</FONT></TD></TR>
+
+<TR><TD NOWRAP><B><FONT COLOR=red>Axiom</FONT></B></TD><TD ALIGN=CENTER><A
+ HREF="ax-dig.html">ax-dig</A>&nbsp;<SPAN CLASS=r
+ STYLE="color:#C06100">54</SPAN></TD><TD ALIGN=LEFT><A NAME="ax-dig"></A>
+If all the elements of a multiplicative disjunction have <SPAN >?</SPAN>, then
+<SPAN >?</SPAN> can be removed from that disjunction.
+
+</TD></TR><TR><TD COLSPAN=3 ALIGN=CENTER><SPAN ><span
+ class='typecode'>&#x22a6;</span> (~ ? (? <span class=wff>&#x1d711;</span>
+ &#x214b; ? <span class=wff>&#x1d713;</span>) &#x214b; (? <span
+ class=wff>&#x1d711;</span> &#x214b; ? <span
+ class=wff>&#x1d713;</span>))</SPAN></TD></TR>
+<TR BGCOLOR=white><TD COLSPAN=3><FONT SIZE=-3>&nbsp;</FONT></TD></TR>
+
+<TR BGCOLOR="#FFFFF2"><TD COLSPAN=3><CENTER><B><A
+ NAME="mm55s"></A>1.1.4&nbsp;&nbsp;Implication</B></CENTER>
+<P STYLE="margin-bottom:0em">
+Yay, implication!
+<P STYLE="margin-bottom:0em">
+The linear implication operator <SPAN ><span class=wff>&#x1d711;</span>
+&#x22b8; <span class=wff>&#x1d713;</span></SPAN> reads as, &quot;Given a <SPAN
+><span class=wff>&#x1d711;</span></SPAN>, I can exchange it for a <SPAN ><span
+class=wff>&#x1d713;</span></SPAN>.&quot; This is closely related to the logical
+implication <SPAN >&rarr;</SPAN> which can be interpreted as, &quot;Given a
+proof of <SPAN ><span class=wff>&#x1d711;</span></SPAN>, I can prove <SPAN
+><span class=wff>&#x1d713;</span></SPAN>.&quot; The important difference is
+that the linear implication and the antecedent are both consumed by this
+action. The linear biconditional can work either way; the choice is given to
+you by the <SPAN >&amp;</SPAN> in its definition.
+<P STYLE="margin-bottom:0em">
+The linear biconditional is used to write all definitions, except itself (<A
+HREF="df-lb.html">df-lb</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#BC6400">56</SPAN>).
+
+</TD></TR>
+<TR BGCOLOR=white><TD COLSPAN=3><FONT SIZE=-3>&nbsp;</FONT></TD></TR>
+<TR><TD NOWRAP><B><FONT COLOR="#00CC00">Syntax</FONT></B></TD><TD
+ ALIGN=CENTER><A HREF="wlb.html">wlb</A>&nbsp;<SPAN CLASS=r
+ STYLE="color:#BE6200">55</SPAN></TD><TD ALIGN=LEFT><A NAME="wlb"></A>
+Linear biconditional, defined by <A HREF="df-lb.html">df-lb</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#BC6400">56</SPAN>. This is the operator used for
+definitions, so its definition will be a little unusual...
+
+</TD></TR><TR><TD COLSPAN=3 ALIGN=CENTER><SPAN ><span
+ class='typecode'>wff</span> (<span class=wff>&#x1d711;</span> &#x29df; <span
+ class=wff>&#x1d713;</span>)</SPAN></TD></TR>
+<TR BGCOLOR=white><TD COLSPAN=3><FONT SIZE=-3>&nbsp;</FONT></TD></TR>
+
+<TR><TD NOWRAP><B><FONT COLOR=blue>Definition</FONT></B></TD><TD
+ ALIGN=CENTER><A HREF="df-lb.html">df-lb</A>&nbsp;<SPAN CLASS=r
+ STYLE="color:#BC6400">56</SPAN></TD><TD ALIGN=LEFT><A NAME="df-lb"></A>
+Definition of linear biconditional. Since the linear implication has not been
+defined, this is a mouthfull. The good news is, once the properties of the
+linear biconditional are proven, it will be much easier to express other
+definitions. See <A HREF="dflb.html">dflb</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#738600">93</SPAN> for a cleaner form of the definition.
+
+</TD></TR><TR><TD COLSPAN=3 ALIGN=CENTER><SPAN ><span
+ class='typecode'>&#x22a6;</span> ((~ (<span class=wff>&#x1d711;</span>
+ &#x29df; <span class=wff>&#x1d713;</span>) &#x214b; ((~ <span
+ class=wff>&#x1d711;</span> &#x214b; <span class=wff>&#x1d713;</span>) &amp; (~
+ <span class=wff>&#x1d713;</span> &#x214b; <span class=wff>&#x1d711;</span>)))
+ &amp; (~ ((~ <span class=wff>&#x1d711;</span> &#x214b; <span
+ class=wff>&#x1d713;</span>) &amp; (~ <span class=wff>&#x1d713;</span> &#x214b;
+ <span class=wff>&#x1d711;</span>)) &#x214b; (<span class=wff>&#x1d711;</span>
+ &#x29df; <span class=wff>&#x1d713;</span>)))</SPAN></TD></TR>
+<TR BGCOLOR=white><TD COLSPAN=3><FONT SIZE=-3>&nbsp;</FONT></TD></TR>
+
+<TR><TD NOWRAP>Theorem</TD><TD ALIGN=CENTER><A
+ HREF="lb1d.html">lb1d</A>&nbsp;<SPAN CLASS=r
+ STYLE="color:#B96500">57</SPAN></TD><TD ALIGN=LEFT><A NAME="lb1d"></A>
+Forward deduction using <SPAN >&#x29df;</SPAN>.
+
+</TD></TR><TR><TD COLSPAN=3 ALIGN=CENTER><SPAN ><span
+ class='typecode'>&#x22a6;</span> (<span class=wff>&#x1d711;</span> &#x214b;
+ <span class=wff>&#x1d713;</span>)</SPAN><SPAN >&nbsp;&nbsp;&nbsp;
+ &amp;&nbsp;&nbsp;&nbsp;</SPAN><SPAN ><span class='typecode'>&#x22a6;</span>
+ (<span class=wff>&#x1d713;</span> &#x29df; <span
+ class=wff>&#x1d712;</span>)</SPAN>&nbsp;&nbsp;&nbsp; <FONT
+ FACE=sans-serif>&#8658;</FONT>&nbsp;&nbsp;&nbsp;<SPAN ><span
+ class='typecode'>&#x22a6;</span> (<span class=wff>&#x1d711;</span> &#x214b;
+ <span class=wff>&#x1d712;</span>)</SPAN></TD></TR>
+<TR BGCOLOR=white><TD COLSPAN=3><FONT SIZE=-3>&nbsp;</FONT></TD></TR>
+
+<TR><TD NOWRAP>Theorem</TD><TD ALIGN=CENTER><A
+ HREF="lb2d.html">lb2d</A>&nbsp;<SPAN CLASS=r
+ STYLE="color:#B76700">58</SPAN></TD><TD ALIGN=LEFT><A NAME="lb2d"></A>
+Reverse deduction using <SPAN >&#x29df;</SPAN>.
+
+</TD></TR><TR><TD COLSPAN=3 ALIGN=CENTER><SPAN ><span
+ class='typecode'>&#x22a6;</span> (<span class=wff>&#x1d711;</span> &#x214b;
+ <span class=wff>&#x1d712;</span>)</SPAN><SPAN >&nbsp;&nbsp;&nbsp;
+ &amp;&nbsp;&nbsp;&nbsp;</SPAN><SPAN ><span class='typecode'>&#x22a6;</span>
+ (<span class=wff>&#x1d713;</span> &#x29df; <span
+ class=wff>&#x1d712;</span>)</SPAN>&nbsp;&nbsp;&nbsp; <FONT
+ FACE=sans-serif>&#8658;</FONT>&nbsp;&nbsp;&nbsp;<SPAN ><span
+ class='typecode'>&#x22a6;</span> (<span class=wff>&#x1d711;</span> &#x214b;
+ <span class=wff>&#x1d713;</span>)</SPAN></TD></TR>
+<TR BGCOLOR=white><TD COLSPAN=3><FONT SIZE=-3>&nbsp;</FONT></TD></TR>
+
+<TR><TD NOWRAP>Theorem</TD><TD ALIGN=CENTER><A
+ HREF="lb1i.html">lb1i</A>&nbsp;<SPAN CLASS=r
+ STYLE="color:#B56900">59</SPAN></TD><TD ALIGN=LEFT><A NAME="lb1i"></A>
+Forward inference using <SPAN >&#x29df;</SPAN>.
+
+</TD></TR><TR><TD COLSPAN=3 ALIGN=CENTER><SPAN ><span
+ class='typecode'>&#x22a6;</span> <span class=wff>&#x1d711;</span></SPAN><SPAN
+ >&nbsp;&nbsp;&nbsp; &amp;&nbsp;&nbsp;&nbsp;</SPAN><SPAN ><span
+ class='typecode'>&#x22a6;</span> (<span class=wff>&#x1d711;</span> &#x29df;
+ <span class=wff>&#x1d713;</span>)</SPAN>&nbsp;&nbsp;&nbsp; <FONT
+ FACE=sans-serif>&#8658;</FONT>&nbsp;&nbsp;&nbsp;<SPAN ><span
+ class='typecode'>&#x22a6;</span> <span
+ class=wff>&#x1d713;</span></SPAN></TD></TR>
+<TR BGCOLOR=white><TD COLSPAN=3><FONT SIZE=-3>&nbsp;</FONT></TD></TR>
+
+<TR><TD NOWRAP>Theorem</TD><TD ALIGN=CENTER><A
+ HREF="lb2i.html">lb2i</A>&nbsp;<SPAN CLASS=r
+ STYLE="color:#B36A00">60</SPAN></TD><TD ALIGN=LEFT><A NAME="lb2i"></A>
+Reverse inference using <SPAN >&#x29df;</SPAN>.
+
+</TD></TR><TR><TD COLSPAN=3 ALIGN=CENTER><SPAN ><span
+ class='typecode'>&#x22a6;</span> <span class=wff>&#x1d713;</span></SPAN><SPAN
+ >&nbsp;&nbsp;&nbsp; &amp;&nbsp;&nbsp;&nbsp;</SPAN><SPAN ><span
+ class='typecode'>&#x22a6;</span> (<span class=wff>&#x1d711;</span> &#x29df;
+ <span class=wff>&#x1d713;</span>)</SPAN>&nbsp;&nbsp;&nbsp; <FONT
+ FACE=sans-serif>&#8658;</FONT>&nbsp;&nbsp;&nbsp;<SPAN ><span
+ class='typecode'>&#x22a6;</span> <span
+ class=wff>&#x1d711;</span></SPAN></TD></TR>
+<TR BGCOLOR=white><TD COLSPAN=3><FONT SIZE=-3>&nbsp;</FONT></TD></TR>
+
+<TR><TD NOWRAP><B><FONT COLOR="#00CC00">Syntax</FONT></B></TD><TD
+ ALIGN=CENTER><A HREF="wli.html">wli</A>&nbsp;<SPAN CLASS=r
+ STYLE="color:#B16C00">61</SPAN></TD><TD ALIGN=LEFT><A NAME="wli"></A>
+Linear implication, defined by <A HREF="df-li.html">df-li</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#AF6D00">62</SPAN>. Now that linear implication exists, we
+can finally put things in syllogism form from here on.
+
+</TD></TR><TR><TD COLSPAN=3 ALIGN=CENTER><SPAN ><span
+ class='typecode'>wff</span> (<span class=wff>&#x1d711;</span> &#x22b8; <span
+ class=wff>&#x1d713;</span>)</SPAN></TD></TR>
+<TR BGCOLOR=white><TD COLSPAN=3><FONT SIZE=-3>&nbsp;</FONT></TD></TR>
+
+<TR><TD NOWRAP><B><FONT COLOR=blue>Definition</FONT></B></TD><TD
+ ALIGN=CENTER><A HREF="df-li.html">df-li</A>&nbsp;<SPAN CLASS=r
+ STYLE="color:#AF6D00">62</SPAN></TD><TD ALIGN=LEFT><A NAME="df-li"></A>
+Definition of linear implication.
+
+</TD></TR><TR><TD COLSPAN=3 ALIGN=CENTER><SPAN ><span
+ class='typecode'>&#x22a6;</span> ((<span class=wff>&#x1d711;</span> &#x22b8;
+ <span class=wff>&#x1d713;</span>) &#x29df; (~ <span class=wff>&#x1d711;</span>
+ &#x214b; <span class=wff>&#x1d713;</span>))</SPAN></TD></TR>
+<TR BGCOLOR=white><TD COLSPAN=3><FONT SIZE=-3>&nbsp;</FONT></TD></TR>
+
+<TR><TD NOWRAP>Theorem</TD><TD ALIGN=CENTER><A
+ HREF="dfli1.html">dfli1</A>&nbsp;<SPAN CLASS=r
+ STYLE="color:#AD6E00">63</SPAN></TD><TD ALIGN=LEFT><A NAME="dfli1"></A>
+Convert from linear implication.
+
+</TD></TR><TR><TD COLSPAN=3 ALIGN=CENTER><SPAN ><span
+ class='typecode'>&#x22a6;</span> (<span class=wff>&#x1d711;</span> &#x214b;
+ (<span class=wff>&#x1d713;</span> &#x22b8; <span
+ class=wff>&#x1d712;</span>))</SPAN>&nbsp;&nbsp;&nbsp; <FONT
+ FACE=sans-serif>&#8658;</FONT>&nbsp;&nbsp;&nbsp;<SPAN ><span
+ class='typecode'>&#x22a6;</span> (<span class=wff>&#x1d711;</span> &#x214b; (~
+ <span class=wff>&#x1d713;</span> &#x214b; <span
+ class=wff>&#x1d712;</span>))</SPAN></TD></TR>
+<TR BGCOLOR=white><TD COLSPAN=3><FONT SIZE=-3>&nbsp;</FONT></TD></TR>
+
+<TR><TD NOWRAP>Theorem</TD><TD ALIGN=CENTER><A
+ HREF="dfli2.html">dfli2</A>&nbsp;<SPAN CLASS=r
+ STYLE="color:#AB6F00">64</SPAN></TD><TD ALIGN=LEFT><A NAME="dfli2"></A>
+Convert to linear implication.
+
+</TD></TR><TR><TD COLSPAN=3 ALIGN=CENTER><SPAN ><span
+ class='typecode'>&#x22a6;</span> (<span class=wff>&#x1d711;</span> &#x214b; (~
+ <span class=wff>&#x1d713;</span> &#x214b; <span
+ class=wff>&#x1d712;</span>))</SPAN>&nbsp;&nbsp;&nbsp; <FONT
+ FACE=sans-serif>&#8658;</FONT>&nbsp;&nbsp;&nbsp;<SPAN ><span
+ class='typecode'>&#x22a6;</span> (<span class=wff>&#x1d711;</span> &#x214b;
+ (<span class=wff>&#x1d713;</span> &#x22b8; <span
+ class=wff>&#x1d712;</span>))</SPAN></TD></TR>
+<TR BGCOLOR=white><TD COLSPAN=3><FONT SIZE=-3>&nbsp;</FONT></TD></TR>
+
+<TR><TD NOWRAP>Theorem</TD><TD ALIGN=CENTER><A
+ HREF="dfli1i.html">dfli1i</A>&nbsp;<SPAN CLASS=r
+ STYLE="color:#A97000">65</SPAN></TD><TD ALIGN=LEFT><A NAME="dfli1i"></A>
+Convert from linear implication. Inference for <A
+HREF="dfli1.html">dfli1</A>&nbsp;<SPAN CLASS=r STYLE="color:#AD6E00">63</SPAN>.
+
+</TD></TR><TR><TD COLSPAN=3 ALIGN=CENTER><SPAN ><span
+ class='typecode'>&#x22a6;</span> (<span class=wff>&#x1d713;</span> &#x22b8;
+ <span class=wff>&#x1d712;</span>)</SPAN>&nbsp;&nbsp;&nbsp; <FONT
+ FACE=sans-serif>&#8658;</FONT>&nbsp;&nbsp;&nbsp;<SPAN ><span
+ class='typecode'>&#x22a6;</span> (~ <span class=wff>&#x1d713;</span> &#x214b;
+ <span class=wff>&#x1d712;</span>)</SPAN></TD></TR>
+<TR BGCOLOR=white><TD COLSPAN=3><FONT SIZE=-3>&nbsp;</FONT></TD></TR>
+
+<TR><TD NOWRAP>Theorem</TD><TD ALIGN=CENTER><A
+ HREF="dfli2i.html">dfli2i</A>&nbsp;<SPAN CLASS=r
+ STYLE="color:#A77200">66</SPAN></TD><TD ALIGN=LEFT><A NAME="dfli2i"></A>
+Convert to linear implication. Inference for <A
+HREF="dfli2.html">dfli2</A>&nbsp;<SPAN CLASS=r STYLE="color:#AB6F00">64</SPAN>.
+
+</TD></TR><TR><TD COLSPAN=3 ALIGN=CENTER><SPAN ><span
+ class='typecode'>&#x22a6;</span> (~ <span class=wff>&#x1d713;</span> &#x214b;
+ <span class=wff>&#x1d712;</span>)</SPAN>&nbsp;&nbsp;&nbsp; <FONT
+ FACE=sans-serif>&#8658;</FONT>&nbsp;&nbsp;&nbsp;<SPAN ><span
+ class='typecode'>&#x22a6;</span> (<span class=wff>&#x1d713;</span> &#x22b8;
+ <span class=wff>&#x1d712;</span>)</SPAN></TD></TR>
+<TR BGCOLOR=white><TD COLSPAN=3><FONT SIZE=-3>&nbsp;</FONT></TD></TR>
+
+<TR><TD NOWRAP>Theorem</TD><TD ALIGN=CENTER><A
+ HREF="lb1s.html">lb1s</A>&nbsp;<SPAN CLASS=r
+ STYLE="color:#A57300">67</SPAN></TD><TD ALIGN=LEFT><A NAME="lb1s"></A>
+Forward syllogism using <SPAN >&#x29df;</SPAN>.
+
+</TD></TR><TR><TD COLSPAN=3 ALIGN=CENTER><SPAN ><span
+ class='typecode'>&#x22a6;</span> (<span class=wff>&#x1d711;</span> &#x22b8;
+ <span class=wff>&#x1d713;</span>)</SPAN><SPAN >&nbsp;&nbsp;&nbsp;
+ &amp;&nbsp;&nbsp;&nbsp;</SPAN><SPAN ><span class='typecode'>&#x22a6;</span>
+ (<span class=wff>&#x1d713;</span> &#x29df; <span
+ class=wff>&#x1d712;</span>)</SPAN>&nbsp;&nbsp;&nbsp; <FONT
+ FACE=sans-serif>&#8658;</FONT>&nbsp;&nbsp;&nbsp;<SPAN ><span
+ class='typecode'>&#x22a6;</span> (<span class=wff>&#x1d711;</span> &#x22b8;
+ <span class=wff>&#x1d712;</span>)</SPAN></TD></TR>
+<TR BGCOLOR=white><TD COLSPAN=3><FONT SIZE=-3>&nbsp;</FONT></TD></TR>
+
+<TR><TD NOWRAP>Theorem</TD><TD ALIGN=CENTER><A
+ HREF="lb2s.html">lb2s</A>&nbsp;<SPAN CLASS=r
+ STYLE="color:#A37400">68</SPAN></TD><TD ALIGN=LEFT><A NAME="lb2s"></A>
+Reverse syllogism using <SPAN >&#x29df;</SPAN>.
+
+</TD></TR><TR><TD COLSPAN=3 ALIGN=CENTER><SPAN ><span
+ class='typecode'>&#x22a6;</span> (<span class=wff>&#x1d711;</span> &#x22b8;
+ <span class=wff>&#x1d712;</span>)</SPAN><SPAN >&nbsp;&nbsp;&nbsp;
+ &amp;&nbsp;&nbsp;&nbsp;</SPAN><SPAN ><span class='typecode'>&#x22a6;</span>
+ (<span class=wff>&#x1d713;</span> &#x29df; <span
+ class=wff>&#x1d712;</span>)</SPAN>&nbsp;&nbsp;&nbsp; <FONT
+ FACE=sans-serif>&#8658;</FONT>&nbsp;&nbsp;&nbsp;<SPAN ><span
+ class='typecode'>&#x22a6;</span> (<span class=wff>&#x1d711;</span> &#x22b8;
+ <span class=wff>&#x1d713;</span>)</SPAN></TD></TR>
+<TR BGCOLOR=white><TD COLSPAN=3><FONT SIZE=-3>&nbsp;</FONT></TD></TR>
+
+<TR><TD NOWRAP>Theorem</TD><TD ALIGN=CENTER><A
+ HREF="mdm2.html">mdm2</A>&nbsp;<SPAN CLASS=r
+ STYLE="color:#A17500">69</SPAN></TD><TD ALIGN=LEFT><A NAME="mdm2"></A>
+Par is monotone in its second argument.
+
+</TD></TR><TR><TD COLSPAN=3 ALIGN=CENTER><SPAN ><span
+ class='typecode'>&#x22a6;</span> (<span class=wff>&#x1d703;</span> &#x214b;
+ (<span class=wff>&#x1d711;</span> &#x214b; <span
+ class=wff>&#x1d713;</span>))</SPAN><SPAN >&nbsp;&nbsp;&nbsp;
+ &amp;&nbsp;&nbsp;&nbsp;</SPAN><SPAN ><span class='typecode'>&#x22a6;</span>
+ (<span class=wff>&#x1d713;</span> &#x22b8; <span
+ class=wff>&#x1d712;</span>)</SPAN>&nbsp;&nbsp;&nbsp; <FONT
+ FACE=sans-serif>&#8658;</FONT>&nbsp;&nbsp;&nbsp;<SPAN ><span
+ class='typecode'>&#x22a6;</span> (<span class=wff>&#x1d703;</span> &#x214b;
+ (<span class=wff>&#x1d711;</span> &#x214b; <span
+ class=wff>&#x1d712;</span>))</SPAN></TD></TR>
+<TR BGCOLOR=white><TD COLSPAN=3><FONT SIZE=-3>&nbsp;</FONT></TD></TR>
+
+<TR><TD NOWRAP>Theorem</TD><TD ALIGN=CENTER><A
+ HREF="mdm1.html">mdm1</A>&nbsp;<SPAN CLASS=r
+ STYLE="color:#9F7600">70</SPAN></TD><TD ALIGN=LEFT><A NAME="mdm1"></A>
+Par is monotone in its first argument.
+
+</TD></TR><TR><TD COLSPAN=3 ALIGN=CENTER><SPAN ><span
+ class='typecode'>&#x22a6;</span> (<span class=wff>&#x1d703;</span> &#x214b;
+ (<span class=wff>&#x1d711;</span> &#x214b; <span
+ class=wff>&#x1d713;</span>))</SPAN><SPAN >&nbsp;&nbsp;&nbsp;
+ &amp;&nbsp;&nbsp;&nbsp;</SPAN><SPAN ><span class='typecode'>&#x22a6;</span>
+ (<span class=wff>&#x1d711;</span> &#x22b8; <span
+ class=wff>&#x1d712;</span>)</SPAN>&nbsp;&nbsp;&nbsp; <FONT
+ FACE=sans-serif>&#8658;</FONT>&nbsp;&nbsp;&nbsp;<SPAN ><span
+ class='typecode'>&#x22a6;</span> (<span class=wff>&#x1d703;</span> &#x214b;
+ (<span class=wff>&#x1d712;</span> &#x214b; <span
+ class=wff>&#x1d713;</span>))</SPAN></TD></TR>
+<TR BGCOLOR=white><TD COLSPAN=3><FONT SIZE=-3>&nbsp;</FONT></TD></TR>
+
+<TR><TD NOWRAP>Theorem</TD><TD ALIGN=CENTER><A
+ HREF="mdm1i.html">mdm1i</A>&nbsp;<SPAN CLASS=r
+ STYLE="color:#9D7700">71</SPAN></TD><TD ALIGN=LEFT><A NAME="mdm1i"></A>
+Par is monotone in its first argument. Inference form of <A
+HREF="mdm1.html">mdm1</A>&nbsp;<SPAN CLASS=r STYLE="color:#9F7600">70</SPAN>.
+
+</TD></TR><TR><TD COLSPAN=3 ALIGN=CENTER><SPAN ><span
+ class='typecode'>&#x22a6;</span> (<span class=wff>&#x1d711;</span> &#x214b;
+ <span class=wff>&#x1d713;</span>)</SPAN><SPAN >&nbsp;&nbsp;&nbsp;
+ &amp;&nbsp;&nbsp;&nbsp;</SPAN><SPAN ><span class='typecode'>&#x22a6;</span>
+ (<span class=wff>&#x1d711;</span> &#x22b8; <span
+ class=wff>&#x1d712;</span>)</SPAN>&nbsp;&nbsp;&nbsp; <FONT
+ FACE=sans-serif>&#8658;</FONT>&nbsp;&nbsp;&nbsp;<SPAN ><span
+ class='typecode'>&#x22a6;</span> (<span class=wff>&#x1d712;</span> &#x214b;
+ <span class=wff>&#x1d713;</span>)</SPAN></TD></TR>
+<TR BGCOLOR=white><TD COLSPAN=3><FONT SIZE=-3>&nbsp;</FONT></TD></TR>
+
+<TR><TD NOWRAP>Theorem</TD><TD ALIGN=CENTER><A
+ HREF="mdm2i.html">mdm2i</A>&nbsp;<SPAN CLASS=r
+ STYLE="color:#9B7900">72</SPAN></TD><TD ALIGN=LEFT><A NAME="mdm2i"></A>
+Par is monotone in its second argument. Inference form of <A
+HREF="mdm2.html">mdm2</A>&nbsp;<SPAN CLASS=r STYLE="color:#A17500">69</SPAN>.
+Essentially <A HREF="ax-cut.html">ax-cut</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#F90500">6</SPAN> using linear implication.
+
+</TD></TR><TR><TD COLSPAN=3 ALIGN=CENTER><SPAN ><span
+ class='typecode'>&#x22a6;</span> (<span class=wff>&#x1d711;</span> &#x214b;
+ <span class=wff>&#x1d713;</span>)</SPAN><SPAN >&nbsp;&nbsp;&nbsp;
+ &amp;&nbsp;&nbsp;&nbsp;</SPAN><SPAN ><span class='typecode'>&#x22a6;</span>
+ (<span class=wff>&#x1d713;</span> &#x22b8; <span
+ class=wff>&#x1d712;</span>)</SPAN>&nbsp;&nbsp;&nbsp; <FONT
+ FACE=sans-serif>&#8658;</FONT>&nbsp;&nbsp;&nbsp;<SPAN ><span
+ class='typecode'>&#x22a6;</span> (<span class=wff>&#x1d711;</span> &#x214b;
+ <span class=wff>&#x1d712;</span>)</SPAN></TD></TR>
+<TR BGCOLOR=white><TD COLSPAN=3><FONT SIZE=-3>&nbsp;</FONT></TD></TR>
+
+<TR><TD NOWRAP>Theorem</TD><TD ALIGN=CENTER><A
+ HREF="mdm1s.html">mdm1s</A>&nbsp;<SPAN CLASS=r
+ STYLE="color:#997A00">73</SPAN></TD><TD ALIGN=LEFT><A NAME="mdm1s"></A>
+Par is monotone in its first argument. Syllogism form of <A
+HREF="mdm1.html">mdm1</A>&nbsp;<SPAN CLASS=r STYLE="color:#9F7600">70</SPAN>.
+
+</TD></TR><TR><TD COLSPAN=3 ALIGN=CENTER><SPAN ><span
+ class='typecode'>&#x22a6;</span> (<span class=wff>&#x1d711;</span> &#x22b8;
+ <span class=wff>&#x1d712;</span>)</SPAN>&nbsp;&nbsp;&nbsp; <FONT
+ FACE=sans-serif>&#8658;</FONT>&nbsp;&nbsp;&nbsp;<SPAN ><span
+ class='typecode'>&#x22a6;</span> ((<span class=wff>&#x1d711;</span> &#x214b;
+ <span class=wff>&#x1d713;</span>) &#x22b8; (<span class=wff>&#x1d712;</span>
+ &#x214b; <span class=wff>&#x1d713;</span>))</SPAN></TD></TR>
+<TR BGCOLOR=white><TD COLSPAN=3><FONT SIZE=-3>&nbsp;</FONT></TD></TR>
+
+<TR><TD NOWRAP>Theorem</TD><TD ALIGN=CENTER><A
+ HREF="mdm2s.html">mdm2s</A>&nbsp;<SPAN CLASS=r
+ STYLE="color:#977A00">74</SPAN></TD><TD ALIGN=LEFT><A NAME="mdm2s"></A>
+Par is monotone in its second argument. Syllogism form of <A
+HREF="mdm2.html">mdm2</A>&nbsp;<SPAN CLASS=r STYLE="color:#A17500">69</SPAN>.
+
+</TD></TR><TR><TD COLSPAN=3 ALIGN=CENTER><SPAN ><span
+ class='typecode'>&#x22a6;</span> (<span class=wff>&#x1d713;</span> &#x22b8;
+ <span class=wff>&#x1d712;</span>)</SPAN>&nbsp;&nbsp;&nbsp; <FONT
+ FACE=sans-serif>&#8658;</FONT>&nbsp;&nbsp;&nbsp;<SPAN ><span
+ class='typecode'>&#x22a6;</span> ((<span class=wff>&#x1d711;</span> &#x214b;
+ <span class=wff>&#x1d713;</span>) &#x22b8; (<span class=wff>&#x1d711;</span>
+ &#x214b; <span class=wff>&#x1d712;</span>))</SPAN></TD></TR>
+<TR BGCOLOR=white><TD COLSPAN=3><FONT SIZE=-3>&nbsp;</FONT></TD></TR>
+
+<TR><TD NOWRAP>Theorem</TD><TD ALIGN=CENTER><A
+ HREF="syl.html">syl</A>&nbsp;<SPAN CLASS=r
+ STYLE="color:#957B00">75</SPAN></TD><TD ALIGN=LEFT><A NAME="syl"></A>
+Syllogism using linear implication.
+
+</TD></TR><TR><TD COLSPAN=3 ALIGN=CENTER><SPAN ><span
+ class='typecode'>&#x22a6;</span> (<span class=wff>&#x1d711;</span> &#x22b8;
+ <span class=wff>&#x1d713;</span>)</SPAN><SPAN >&nbsp;&nbsp;&nbsp;
+ &amp;&nbsp;&nbsp;&nbsp;</SPAN><SPAN ><span class='typecode'>&#x22a6;</span>
+ (<span class=wff>&#x1d713;</span> &#x22b8; <span
+ class=wff>&#x1d712;</span>)</SPAN>&nbsp;&nbsp;&nbsp; <FONT
+ FACE=sans-serif>&#8658;</FONT>&nbsp;&nbsp;&nbsp;<SPAN ><span
+ class='typecode'>&#x22a6;</span> (<span class=wff>&#x1d711;</span> &#x22b8;
+ <span class=wff>&#x1d712;</span>)</SPAN></TD></TR>
+<TR BGCOLOR=white><TD COLSPAN=3><FONT SIZE=-3>&nbsp;</FONT></TD></TR>
+
+<TR><TD NOWRAP>Theorem</TD><TD ALIGN=CENTER><A
+ HREF="lmp.html">lmp</A>&nbsp;<SPAN CLASS=r
+ STYLE="color:#927C00">76</SPAN></TD><TD ALIGN=LEFT><A NAME="lmp"></A>
+Modus ponens like inference using linear implication.
+
+</TD></TR><TR><TD COLSPAN=3 ALIGN=CENTER><SPAN ><span
+ class='typecode'>&#x22a6;</span> <span class=wff>&#x1d711;</span></SPAN><SPAN
+ >&nbsp;&nbsp;&nbsp; &amp;&nbsp;&nbsp;&nbsp;</SPAN><SPAN ><span
+ class='typecode'>&#x22a6;</span> (<span class=wff>&#x1d711;</span> &#x22b8;
+ <span class=wff>&#x1d713;</span>)</SPAN>&nbsp;&nbsp;&nbsp; <FONT
+ FACE=sans-serif>&#8658;</FONT>&nbsp;&nbsp;&nbsp;<SPAN ><span
+ class='typecode'>&#x22a6;</span> <span
+ class=wff>&#x1d713;</span></SPAN></TD></TR>
+<TR BGCOLOR=white><TD COLSPAN=3><FONT SIZE=-3>&nbsp;</FONT></TD></TR>
+
+<TR><TD NOWRAP>Theorem</TD><TD ALIGN=CENTER><A HREF="id.html">id</A>&nbsp;<SPAN
+ CLASS=r STYLE="color:#907D00">77</SPAN></TD><TD ALIGN=LEFT><A NAME="id"></A>
+Identity rule for linear implication. Syllogism form of <A
+HREF="ax-init.html">ax-init</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#F80600">7</SPAN>.
+
+</TD></TR><TR><TD COLSPAN=3 ALIGN=CENTER><SPAN ><span
+ class='typecode'>&#x22a6;</span> (<span class=wff>&#x1d711;</span> &#x22b8;
+ <span class=wff>&#x1d711;</span>)</SPAN></TD></TR>
+<TR BGCOLOR=white><TD COLSPAN=3><FONT SIZE=-3>&nbsp;</FONT></TD></TR>
+
+<TR><TD NOWRAP>Theorem</TD><TD ALIGN=CENTER><A
+ HREF="dnis.html">dnis</A>&nbsp;<SPAN CLASS=r
+ STYLE="color:#8E7D00">78</SPAN></TD><TD ALIGN=LEFT><A NAME="dnis"></A>
+Double negation introduction. Syllogism form of <A
+HREF="dnid.html">dnid</A>&nbsp;<SPAN CLASS=r STYLE="color:#EF2600">23</SPAN>.
+
+</TD></TR><TR><TD COLSPAN=3 ALIGN=CENTER><SPAN ><span
+ class='typecode'>&#x22a6;</span> (<span class=wff>&#x1d711;</span> &#x22b8; ~
+ ~ <span class=wff>&#x1d711;</span>)</SPAN></TD></TR>
+<TR BGCOLOR=white><TD COLSPAN=3><FONT SIZE=-3>&nbsp;</FONT></TD></TR>
+
+<TR><TD NOWRAP>Theorem</TD><TD ALIGN=CENTER><A
+ HREF="dnes.html">dnes</A>&nbsp;<SPAN CLASS=r
+ STYLE="color:#8B7E00">79</SPAN></TD><TD ALIGN=LEFT><A NAME="dnes"></A>
+Double negation elimination. Syllogism form of <A
+HREF="dned.html">dned</A>&nbsp;<SPAN CLASS=r STYLE="color:#EE2900">24</SPAN>.
+
+</TD></TR><TR><TD COLSPAN=3 ALIGN=CENTER><SPAN ><span
+ class='typecode'>&#x22a6;</span> (~ ~ <span class=wff>&#x1d711;</span>
+ &#x22b8; <span class=wff>&#x1d711;</span>)</SPAN></TD></TR>
+<TR BGCOLOR=white><TD COLSPAN=3><FONT SIZE=-3>&nbsp;</FONT></TD></TR>
+
+<TR><TD NOWRAP>Theorem</TD><TD ALIGN=CENTER><A
+ HREF="acm1.html">acm1</A>&nbsp;<SPAN CLASS=r
+ STYLE="color:#897F00">80</SPAN></TD><TD ALIGN=LEFT><A NAME="acm1"></A>
+With is monotone in its first argument.
+
+</TD></TR><TR><TD COLSPAN=3 ALIGN=CENTER><SPAN ><span
+ class='typecode'>&#x22a6;</span> (<span class=wff>&#x1d703;</span> &#x214b;
+ (<span class=wff>&#x1d711;</span> &amp; <span
+ class=wff>&#x1d713;</span>))</SPAN><SPAN >&nbsp;&nbsp;&nbsp;
+ &amp;&nbsp;&nbsp;&nbsp;</SPAN><SPAN ><span class='typecode'>&#x22a6;</span>
+ (<span class=wff>&#x1d711;</span> &#x22b8; <span
+ class=wff>&#x1d712;</span>)</SPAN>&nbsp;&nbsp;&nbsp; <FONT
+ FACE=sans-serif>&#8658;</FONT>&nbsp;&nbsp;&nbsp;<SPAN ><span
+ class='typecode'>&#x22a6;</span> (<span class=wff>&#x1d703;</span> &#x214b;
+ (<span class=wff>&#x1d712;</span> &amp; <span
+ class=wff>&#x1d713;</span>))</SPAN></TD></TR>
+<TR BGCOLOR=white><TD COLSPAN=3><FONT SIZE=-3>&nbsp;</FONT></TD></TR>
+
+<TR><TD NOWRAP>Theorem</TD><TD ALIGN=CENTER><A
+ HREF="acm2.html">acm2</A>&nbsp;<SPAN CLASS=r
+ STYLE="color:#878000">81</SPAN></TD><TD ALIGN=LEFT><A NAME="acm2"></A>
+With is monotone in its second argument.
+
+</TD></TR><TR><TD COLSPAN=3 ALIGN=CENTER><SPAN ><span
+ class='typecode'>&#x22a6;</span> (<span class=wff>&#x1d703;</span> &#x214b;
+ (<span class=wff>&#x1d711;</span> &amp; <span
+ class=wff>&#x1d713;</span>))</SPAN><SPAN >&nbsp;&nbsp;&nbsp;
+ &amp;&nbsp;&nbsp;&nbsp;</SPAN><SPAN ><span class='typecode'>&#x22a6;</span>
+ (<span class=wff>&#x1d713;</span> &#x22b8; <span
+ class=wff>&#x1d712;</span>)</SPAN>&nbsp;&nbsp;&nbsp; <FONT
+ FACE=sans-serif>&#8658;</FONT>&nbsp;&nbsp;&nbsp;<SPAN ><span
+ class='typecode'>&#x22a6;</span> (<span class=wff>&#x1d703;</span> &#x214b;
+ (<span class=wff>&#x1d711;</span> &amp; <span
+ class=wff>&#x1d712;</span>))</SPAN></TD></TR>
+<TR BGCOLOR=white><TD COLSPAN=3><FONT SIZE=-3>&nbsp;</FONT></TD></TR>
+
+<TR><TD NOWRAP>Theorem</TD><TD ALIGN=CENTER><A
+ HREF="acm1i.html">acm1i</A>&nbsp;<SPAN CLASS=r
+ STYLE="color:#858000">82</SPAN></TD><TD ALIGN=LEFT><A NAME="acm1i"></A>
+With is monotone in its first argument. Inference form of <A
+HREF="acm1.html">acm1</A>&nbsp;<SPAN CLASS=r STYLE="color:#897F00">80</SPAN>.
+
+</TD></TR><TR><TD COLSPAN=3 ALIGN=CENTER><SPAN ><span
+ class='typecode'>&#x22a6;</span> (<span class=wff>&#x1d711;</span> &amp; <span
+ class=wff>&#x1d713;</span>)</SPAN><SPAN >&nbsp;&nbsp;&nbsp;
+ &amp;&nbsp;&nbsp;&nbsp;</SPAN><SPAN ><span class='typecode'>&#x22a6;</span>
+ (<span class=wff>&#x1d711;</span> &#x22b8; <span
+ class=wff>&#x1d712;</span>)</SPAN>&nbsp;&nbsp;&nbsp; <FONT
+ FACE=sans-serif>&#8658;</FONT>&nbsp;&nbsp;&nbsp;<SPAN ><span
+ class='typecode'>&#x22a6;</span> (<span class=wff>&#x1d712;</span> &amp; <span
+ class=wff>&#x1d713;</span>)</SPAN></TD></TR>
+<TR BGCOLOR=white><TD COLSPAN=3><FONT SIZE=-3>&nbsp;</FONT></TD></TR>
+
+<TR><TD NOWRAP>Theorem</TD><TD ALIGN=CENTER><A
+ HREF="acm2i.html">acm2i</A>&nbsp;<SPAN CLASS=r
+ STYLE="color:#828100">83</SPAN></TD><TD ALIGN=LEFT><A NAME="acm2i"></A>
+With is monotone in its second argument. Inference form of <A
+HREF="acm2.html">acm2</A>&nbsp;<SPAN CLASS=r STYLE="color:#878000">81</SPAN>.
+
+</TD></TR><TR><TD COLSPAN=3 ALIGN=CENTER><SPAN ><span
+ class='typecode'>&#x22a6;</span> (<span class=wff>&#x1d711;</span> &amp; <span
+ class=wff>&#x1d713;</span>)</SPAN><SPAN >&nbsp;&nbsp;&nbsp;
+ &amp;&nbsp;&nbsp;&nbsp;</SPAN><SPAN ><span class='typecode'>&#x22a6;</span>
+ (<span class=wff>&#x1d713;</span> &#x22b8; <span
+ class=wff>&#x1d712;</span>)</SPAN>&nbsp;&nbsp;&nbsp; <FONT
+ FACE=sans-serif>&#8658;</FONT>&nbsp;&nbsp;&nbsp;<SPAN ><span
+ class='typecode'>&#x22a6;</span> (<span class=wff>&#x1d711;</span> &amp; <span
+ class=wff>&#x1d712;</span>)</SPAN></TD></TR>
+<TR BGCOLOR=white><TD COLSPAN=3><FONT SIZE=-3>&nbsp;</FONT></TD></TR>
+
+<TR><TD NOWRAP>Theorem</TD><TD ALIGN=CENTER><A
+ HREF="acm1s.html">acm1s</A>&nbsp;<SPAN CLASS=r
+ STYLE="color:#808200">84</SPAN></TD><TD ALIGN=LEFT><A NAME="acm1s"></A>
+With is monotone in its first argument. Syllogism form of <A
+HREF="acm1.html">acm1</A>&nbsp;<SPAN CLASS=r STYLE="color:#897F00">80</SPAN>.
+
+</TD></TR><TR><TD COLSPAN=3 ALIGN=CENTER><SPAN ><span
+ class='typecode'>&#x22a6;</span> (<span class=wff>&#x1d711;</span> &#x22b8;
+ <span class=wff>&#x1d712;</span>)</SPAN>&nbsp;&nbsp;&nbsp; <FONT
+ FACE=sans-serif>&#8658;</FONT>&nbsp;&nbsp;&nbsp;<SPAN ><span
+ class='typecode'>&#x22a6;</span> ((<span class=wff>&#x1d711;</span> &amp;
+ <span class=wff>&#x1d713;</span>) &#x22b8; (<span class=wff>&#x1d712;</span>
+ &amp; <span class=wff>&#x1d713;</span>))</SPAN></TD></TR>
+<TR BGCOLOR=white><TD COLSPAN=3><FONT SIZE=-3>&nbsp;</FONT></TD></TR>
+
+<TR><TD NOWRAP>Theorem</TD><TD ALIGN=CENTER><A
+ HREF="acm2s.html">acm2s</A>&nbsp;<SPAN CLASS=r
+ STYLE="color:#7E8300">85</SPAN></TD><TD ALIGN=LEFT><A NAME="acm2s"></A>
+With is monotone in its second argument. Syllogism form of <A
+HREF="acm2.html">acm2</A>&nbsp;<SPAN CLASS=r STYLE="color:#878000">81</SPAN>.
+
+</TD></TR><TR><TD COLSPAN=3 ALIGN=CENTER><SPAN ><span
+ class='typecode'>&#x22a6;</span> (<span class=wff>&#x1d713;</span> &#x22b8;
+ <span class=wff>&#x1d712;</span>)</SPAN>&nbsp;&nbsp;&nbsp; <FONT
+ FACE=sans-serif>&#8658;</FONT>&nbsp;&nbsp;&nbsp;<SPAN ><span
+ class='typecode'>&#x22a6;</span> ((<span class=wff>&#x1d711;</span> &amp;
+ <span class=wff>&#x1d713;</span>) &#x22b8; (<span class=wff>&#x1d711;</span>
+ &amp; <span class=wff>&#x1d712;</span>))</SPAN></TD></TR>
+<TR BGCOLOR=white><TD COLSPAN=3><FONT SIZE=-3>&nbsp;</FONT></TD></TR>
+
+<TR><TD NOWRAP>Theorem</TD><TD ALIGN=CENTER><A
+ HREF="nems.html">nems</A>&nbsp;<SPAN CLASS=r
+ STYLE="color:#7D8300">86</SPAN></TD><TD ALIGN=LEFT><A NAME="nems"></A>
+&quot;Why not&quot; is monotone.
+
+</TD></TR><TR><TD COLSPAN=3 ALIGN=CENTER><SPAN ><span
+ class='typecode'>&#x22a6;</span> (<span class=wff>&#x1d711;</span> &#x22b8;
+ <span class=wff>&#x1d713;</span>)</SPAN>&nbsp;&nbsp;&nbsp; <FONT
+ FACE=sans-serif>&#8658;</FONT>&nbsp;&nbsp;&nbsp;<SPAN ><span
+ class='typecode'>&#x22a6;</span> (? <span class=wff>&#x1d711;</span> &#x22b8;
+ ? <span class=wff>&#x1d713;</span>)</SPAN></TD></TR>
+<TR BGCOLOR=white><TD COLSPAN=3><FONT SIZE=-3>&nbsp;</FONT></TD></TR>
+
+<TR><TD NOWRAP>Theorem</TD><TD ALIGN=CENTER><A
+ HREF="lbi1s.html">lbi1s</A>&nbsp;<SPAN CLASS=r
+ STYLE="color:#7B8300">87</SPAN></TD><TD ALIGN=LEFT><A NAME="lbi1s"></A>
+Extract forward implication from biconditional. Syllogism form of <A
+HREF="lb1i.html">lb1i</A>&nbsp;<SPAN CLASS=r STYLE="color:#B56900">59</SPAN>.
+
+</TD></TR><TR><TD COLSPAN=3 ALIGN=CENTER><SPAN ><span
+ class='typecode'>&#x22a6;</span> ((<span class=wff>&#x1d711;</span> &#x29df;
+ <span class=wff>&#x1d713;</span>) &#x22b8; (<span class=wff>&#x1d711;</span>
+ &#x22b8; <span class=wff>&#x1d713;</span>))</SPAN></TD></TR>
+<TR BGCOLOR=white><TD COLSPAN=3><FONT SIZE=-3>&nbsp;</FONT></TD></TR>
+
+<TR><TD NOWRAP>Theorem</TD><TD ALIGN=CENTER><A
+ HREF="lbi2s.html">lbi2s</A>&nbsp;<SPAN CLASS=r
+ STYLE="color:#7A8400">88</SPAN></TD><TD ALIGN=LEFT><A NAME="lbi2s"></A>
+Extract reverse implication from biconditional. Syllogism form of <A
+HREF="lb2i.html">lb2i</A>&nbsp;<SPAN CLASS=r STYLE="color:#B36A00">60</SPAN>.
+
+</TD></TR><TR><TD COLSPAN=3 ALIGN=CENTER><SPAN ><span
+ class='typecode'>&#x22a6;</span> ((<span class=wff>&#x1d711;</span> &#x29df;
+ <span class=wff>&#x1d713;</span>) &#x22b8; (<span class=wff>&#x1d713;</span>
+ &#x22b8; <span class=wff>&#x1d711;</span>))</SPAN></TD></TR>
+<TR BGCOLOR=white><TD COLSPAN=3><FONT SIZE=-3>&nbsp;</FONT></TD></TR>
+
+<TR><TD NOWRAP>Theorem</TD><TD ALIGN=CENTER><A
+ HREF="lbi1.html">lbi1</A>&nbsp;<SPAN CLASS=r
+ STYLE="color:#788400">89</SPAN></TD><TD ALIGN=LEFT><A NAME="lbi1"></A>
+Extract forward implication from biconditional. Alternate form of <A
+HREF="lb1i.html">lb1i</A>&nbsp;<SPAN CLASS=r STYLE="color:#B56900">59</SPAN>.
+
+</TD></TR><TR><TD COLSPAN=3 ALIGN=CENTER><SPAN ><span
+ class='typecode'>&#x22a6;</span> (<span class=wff>&#x1d711;</span> &#x29df;
+ <span class=wff>&#x1d713;</span>)</SPAN>&nbsp;&nbsp;&nbsp; <FONT
+ FACE=sans-serif>&#8658;</FONT>&nbsp;&nbsp;&nbsp;<SPAN ><span
+ class='typecode'>&#x22a6;</span> (<span class=wff>&#x1d711;</span> &#x22b8;
+ <span class=wff>&#x1d713;</span>)</SPAN></TD></TR>
+<TR BGCOLOR=white><TD COLSPAN=3><FONT SIZE=-3>&nbsp;</FONT></TD></TR>
+
+<TR><TD NOWRAP>Theorem</TD><TD ALIGN=CENTER><A
+ HREF="lbi2.html">lbi2</A>&nbsp;<SPAN CLASS=r
+ STYLE="color:#778500">90</SPAN></TD><TD ALIGN=LEFT><A NAME="lbi2"></A>
+Extract reverse implication from biconditional. Alternate form of <A
+HREF="lb2i.html">lb2i</A>&nbsp;<SPAN CLASS=r STYLE="color:#B36A00">60</SPAN>.
+
+</TD></TR><TR><TD COLSPAN=3 ALIGN=CENTER><SPAN ><span
+ class='typecode'>&#x22a6;</span> (<span class=wff>&#x1d711;</span> &#x29df;
+ <span class=wff>&#x1d713;</span>)</SPAN>&nbsp;&nbsp;&nbsp; <FONT
+ FACE=sans-serif>&#8658;</FONT>&nbsp;&nbsp;&nbsp;<SPAN ><span
+ class='typecode'>&#x22a6;</span> (<span class=wff>&#x1d713;</span> &#x22b8;
+ <span class=wff>&#x1d711;</span>)</SPAN></TD></TR>
+<TR BGCOLOR=white><TD COLSPAN=3><FONT SIZE=-3>&nbsp;</FONT></TD></TR>
+
+<TR><TD NOWRAP>Theorem</TD><TD ALIGN=CENTER><A
+ HREF="dflb1s.html">dflb1s</A>&nbsp;<SPAN CLASS=r
+ STYLE="color:#768500">91</SPAN></TD><TD ALIGN=LEFT><A NAME="dflb1s"></A>
+Forward implication of biconditional definition.
+
+</TD></TR><TR><TD COLSPAN=3 ALIGN=CENTER><SPAN ><span
+ class='typecode'>&#x22a6;</span> ((<span class=wff>&#x1d711;</span> &#x29df;
+ <span class=wff>&#x1d713;</span>) &#x22b8; ((<span class=wff>&#x1d711;</span>
+ &#x22b8; <span class=wff>&#x1d713;</span>) &amp; (<span
+ class=wff>&#x1d713;</span> &#x22b8; <span
+ class=wff>&#x1d711;</span>)))</SPAN></TD></TR>
+<TR BGCOLOR=white><TD COLSPAN=3><FONT SIZE=-3>&nbsp;</FONT></TD></TR>
+
+<TR><TD NOWRAP>Theorem</TD><TD ALIGN=CENTER><A
+ HREF="dflb2s.html">dflb2s</A>&nbsp;<SPAN CLASS=r
+ STYLE="color:#748600">92</SPAN></TD><TD ALIGN=LEFT><A NAME="dflb2s"></A>
+Reverse implication of biconditional definition.
+
+</TD></TR><TR><TD COLSPAN=3 ALIGN=CENTER><SPAN ><span
+ class='typecode'>&#x22a6;</span> (((<span class=wff>&#x1d711;</span> &#x22b8;
+ <span class=wff>&#x1d713;</span>) &amp; (<span class=wff>&#x1d713;</span>
+ &#x22b8; <span class=wff>&#x1d711;</span>)) &#x22b8; (<span
+ class=wff>&#x1d711;</span> &#x29df; <span
+ class=wff>&#x1d713;</span>))</SPAN></TD></TR>
+<TR BGCOLOR=white><TD COLSPAN=3><FONT SIZE=-3>&nbsp;</FONT></TD></TR>
+
+<TR><TD NOWRAP>Theorem</TD><TD ALIGN=CENTER><A
+ HREF="dflb.html">dflb</A>&nbsp;<SPAN CLASS=r
+ STYLE="color:#738600">93</SPAN></TD><TD ALIGN=LEFT><A NAME="dflb"></A>
+Nicer definition of biconditional. Uses <SPAN >&#x29df;</SPAN> and <SPAN
+>&#x22b8;</SPAN>.
+
+</TD></TR><TR><TD COLSPAN=3 ALIGN=CENTER><SPAN ><span
+ class='typecode'>&#x22a6;</span> ((<span class=wff>&#x1d711;</span> &#x29df;
+ <span class=wff>&#x1d713;</span>) &#x29df; ((<span class=wff>&#x1d711;</span>
+ &#x22b8; <span class=wff>&#x1d713;</span>) &amp; (<span
+ class=wff>&#x1d713;</span> &#x22b8; <span
+ class=wff>&#x1d711;</span>)))</SPAN></TD></TR>
+<TR BGCOLOR=white><TD COLSPAN=3><FONT SIZE=-3>&nbsp;</FONT></TD></TR>
+
+<TR><TD NOWRAP>Theorem</TD><TD ALIGN=CENTER><A
+ HREF="licon.html">licon</A>&nbsp;<SPAN CLASS=r
+ STYLE="color:#718600">94</SPAN></TD><TD ALIGN=LEFT><A NAME="licon"></A>
+Contrapositive rule for linear implication. This follows quite neatly from <A
+HREF="df-li.html">df-li</A>&nbsp;<SPAN CLASS=r STYLE="color:#AF6D00">62</SPAN>.
+
+</TD></TR><TR><TD COLSPAN=3 ALIGN=CENTER><SPAN ><span
+ class='typecode'>&#x22a6;</span> ((<span class=wff>&#x1d711;</span> &#x22b8;
+ <span class=wff>&#x1d713;</span>) &#x22b8; (~ <span class=wff>&#x1d713;</span>
+ &#x22b8; ~ <span class=wff>&#x1d711;</span>))</SPAN></TD></TR>
+<TR BGCOLOR=white><TD COLSPAN=3><FONT SIZE=-3>&nbsp;</FONT></TD></TR>
+
+<TR><TD NOWRAP>Theorem</TD><TD ALIGN=CENTER><A
+ HREF="licond.html">licond</A>&nbsp;<SPAN CLASS=r
+ STYLE="color:#708700">95</SPAN></TD><TD ALIGN=LEFT><A NAME="licond"></A>
+Deduction form of <A HREF="licon.html">licon</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#718600">94</SPAN>.
+
+</TD></TR><TR><TD COLSPAN=3 ALIGN=CENTER><SPAN ><span
+ class='typecode'>&#x22a6;</span> (<span class=wff>&#x1d712;</span> &#x214b;
+ (<span class=wff>&#x1d711;</span> &#x22b8; <span
+ class=wff>&#x1d713;</span>))</SPAN>&nbsp;&nbsp;&nbsp; <FONT
+ FACE=sans-serif>&#8658;</FONT>&nbsp;&nbsp;&nbsp;<SPAN ><span
+ class='typecode'>&#x22a6;</span> (<span class=wff>&#x1d712;</span> &#x214b; (~
+ <span class=wff>&#x1d713;</span> &#x22b8; ~ <span
+ class=wff>&#x1d711;</span>))</SPAN></TD></TR>
+<TR BGCOLOR=white><TD COLSPAN=3><FONT SIZE=-3>&nbsp;</FONT></TD></TR>
+
+<TR><TD NOWRAP>Theorem</TD><TD ALIGN=CENTER><A
+ HREF="ilb.html">ilb</A>&nbsp;<SPAN CLASS=r
+ STYLE="color:#6F8700">96</SPAN></TD><TD ALIGN=LEFT><A NAME="ilb"></A>
+Construct a biconditional from its forward and reverse implications.
+
+</TD></TR><TR><TD COLSPAN=3 ALIGN=CENTER><SPAN ><span
+ class='typecode'>&#x22a6;</span> (<span class=wff>&#x1d711;</span> &#x22b8;
+ <span class=wff>&#x1d713;</span>)</SPAN><SPAN >&nbsp;&nbsp;&nbsp;
+ &amp;&nbsp;&nbsp;&nbsp;</SPAN><SPAN ><span class='typecode'>&#x22a6;</span>
+ (<span class=wff>&#x1d713;</span> &#x22b8; <span
+ class=wff>&#x1d711;</span>)</SPAN>&nbsp;&nbsp;&nbsp; <FONT
+ FACE=sans-serif>&#8658;</FONT>&nbsp;&nbsp;&nbsp;<SPAN ><span
+ class='typecode'>&#x22a6;</span> (<span class=wff>&#x1d711;</span> &#x29df;
+ <span class=wff>&#x1d713;</span>)</SPAN></TD></TR>
+<TR BGCOLOR=white><TD COLSPAN=3><FONT SIZE=-3>&nbsp;</FONT></TD></TR>
+
+<TR><TD NOWRAP>Theorem</TD><TD ALIGN=CENTER><A
+ HREF="ilbd.html">ilbd</A>&nbsp;<SPAN CLASS=r
+ STYLE="color:#6D8800">97</SPAN></TD><TD ALIGN=LEFT><A NAME="ilbd"></A>
+Construct a biconditional from its forward and reverse implications.
+
+</TD></TR><TR><TD COLSPAN=3 ALIGN=CENTER><SPAN ><span
+ class='typecode'>&#x22a6;</span> (<span class=wff>&#x1d711;</span> &#x22b8;
+ (<span class=wff>&#x1d713;</span> &#x22b8; <span
+ class=wff>&#x1d712;</span>))</SPAN><SPAN >&nbsp;&nbsp;&nbsp;
+ &amp;&nbsp;&nbsp;&nbsp;</SPAN><SPAN ><span class='typecode'>&#x22a6;</span>
+ (<span class=wff>&#x1d711;</span> &#x22b8; (<span class=wff>&#x1d712;</span>
+ &#x22b8; <span class=wff>&#x1d713;</span>))</SPAN>&nbsp;&nbsp;&nbsp; <FONT
+ FACE=sans-serif>&#8658;</FONT>&nbsp;&nbsp;&nbsp;<SPAN ><span
+ class='typecode'>&#x22a6;</span> (<span class=wff>&#x1d711;</span> &#x22b8;
+ (<span class=wff>&#x1d713;</span> &#x29df; <span
+ class=wff>&#x1d712;</span>))</SPAN></TD></TR>
+<TR BGCOLOR=white><TD COLSPAN=3><FONT SIZE=-3>&nbsp;</FONT></TD></TR>
+
+<TR><TD NOWRAP>Theorem</TD><TD ALIGN=CENTER><A
+ HREF="lbrf.html">lbrf</A>&nbsp;<SPAN CLASS=r
+ STYLE="color:#6B8800">98</SPAN></TD><TD ALIGN=LEFT><A NAME="lbrf"></A>
+Linear biconditional is reflexive. This could be thought of as &quot;both
+directions&quot; of <A HREF="id.html">id</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#907D00">77</SPAN>.
+
+</TD></TR><TR><TD COLSPAN=3 ALIGN=CENTER><SPAN ><span
+ class='typecode'>&#x22a6;</span> (<span class=wff>&#x1d711;</span> &#x29df;
+ <span class=wff>&#x1d711;</span>)</SPAN></TD></TR>
+<TR BGCOLOR=white><TD COLSPAN=3><FONT SIZE=-3>&nbsp;</FONT></TD></TR>
+
+<TR><TD NOWRAP>Theorem</TD><TD ALIGN=CENTER><A
+ HREF="lbeui.html">lbeui</A>&nbsp;<SPAN CLASS=r
+ STYLE="color:#698800">99</SPAN></TD><TD ALIGN=LEFT><A NAME="lbeui"></A>
+Linear biconditional is Euclidean. Inference for <A
+HREF="lbeu.html">lbeu</A>&nbsp;<SPAN CLASS=r STYLE="color:#2E9100">126</SPAN>.
+
+</TD></TR><TR><TD COLSPAN=3 ALIGN=CENTER><SPAN ><span
+ class='typecode'>&#x22a6;</span> (<span class=wff>&#x1d711;</span> &#x29df;
+ <span class=wff>&#x1d713;</span>)</SPAN><SPAN >&nbsp;&nbsp;&nbsp;
+ &amp;&nbsp;&nbsp;&nbsp;</SPAN><SPAN ><span class='typecode'>&#x22a6;</span>
+ (<span class=wff>&#x1d711;</span> &#x29df; <span
+ class=wff>&#x1d712;</span>)</SPAN>&nbsp;&nbsp;&nbsp; <FONT
+ FACE=sans-serif>&#8658;</FONT>&nbsp;&nbsp;&nbsp;<SPAN ><span
+ class='typecode'>&#x22a6;</span> (<span class=wff>&#x1d713;</span> &#x29df;
+ <span class=wff>&#x1d712;</span>)</SPAN></TD></TR>
+<TR BGCOLOR=white><TD COLSPAN=3><FONT SIZE=-3>&nbsp;</FONT></TD></TR>
+
+<TR><TD NOWRAP>Theorem</TD><TD ALIGN=CENTER><A
+ HREF="lbsymi.html">lbsymi</A>&nbsp;<SPAN CLASS=r
+ STYLE="color:#678900">100</SPAN></TD><TD ALIGN=LEFT><A NAME="lbsymi"></A>
+Linear biconditional is symmetric. Inference for <A
+HREF="lbsym.html">lbsym</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#2C9100">127</SPAN>.
+
+</TD></TR><TR><TD COLSPAN=3 ALIGN=CENTER><SPAN ><span
+ class='typecode'>&#x22a6;</span> (<span class=wff>&#x1d711;</span> &#x29df;
+ <span class=wff>&#x1d713;</span>)</SPAN>&nbsp;&nbsp;&nbsp; <FONT
+ FACE=sans-serif>&#8658;</FONT>&nbsp;&nbsp;&nbsp;<SPAN ><span
+ class='typecode'>&#x22a6;</span> (<span class=wff>&#x1d713;</span> &#x29df;
+ <span class=wff>&#x1d711;</span>)</SPAN></TD></TR>
+</TABLE></CENTER>
+
+<TABLE BORDER=0 WIDTH="100%">
+  <TR>
+    <TD ALIGN=LEFT VALIGN=TOP WIDTH="25%">
+      &nbsp;
+    </TD>
+    <TD NOWRAP ALIGN=CENTER>&nbsp;</TD>
+    <TD NOWRAP ALIGN=RIGHT VALIGN=TOP WIDTH="25%"><FONT
+      SIZE=-1 FACE=sans-serif>
+      <A HREF="mmtheorems.html">&lt; Previous</A>&nbsp;&nbsp;<A
+ HREF="mmtheorems2.html">Next &gt;</A>
+      </FONT></TD>
+  </TR>
+</TABLE>
+<HR NOSHADE SIZE=1>
+<A NAME="mmpglst"></A>
+<CENTER>
+<B>Page List</B>
+</CENTER>
+Jump to page: 
+<A HREF="mmtheorems.html">Contents</A>&nbsp;
+1&nbsp;<SPAN CLASS=r STYLE="color:#FB0000">1</SPAN>-<SPAN CLASS=r STYLE="color:#678900">100</SPAN>
+<A HREF="mmtheorems2.html">2</A>&nbsp;<SPAN CLASS=r STYLE="color:#658900">101</SPAN>-<SPAN CLASS=r STYLE="color:#0087C6">200</SPAN>
+<A HREF="mmtheorems3.html">3</A>&nbsp;<SPAN CLASS=r STYLE="color:#0086CA">201</SPAN>-<SPAN CLASS=r STYLE="color:#D410EB">300</SPAN>
+<A HREF="mmtheorems4.html">4</A>&nbsp;<SPAN CLASS=r STYLE="color:#D50EEA">301</SPAN>-<SPAN CLASS=r STYLE="color:#EE0087">335</SPAN>
+<HR NOSHADE SIZE=1>
+<TABLE BORDER=0 WIDTH="100%">
+  <TR>
+    <TD ALIGN=LEFT VALIGN=TOP WIDTH="25%">
+      &nbsp;
+    </TD>
+    <TD NOWRAP ALIGN=CENTER><FONT SIZE=-2
+      FACE=ARIAL>
+Copyright terms:
+<A HREF="../copyright.html#pd">Public domain</A>
+      </FONT></TD>
+    <TD NOWRAP ALIGN=RIGHT VALIGN=TOP WIDTH="25%"><FONT
+      SIZE=-1 FACE=sans-serif>
+      <A HREF="mmtheorems.html">&lt; Previous</A>&nbsp;&nbsp;<A
+ HREF="mmtheorems2.html">Next &gt;</A>
+      </FONT></TD>
+  </TR>
+</TABLE>
+</BODY></HTML>

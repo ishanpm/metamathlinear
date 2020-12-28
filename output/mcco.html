@@ -1,0 +1,303 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+    "http://www.w3.org/TR/html4/loose.dtd">
+<HTML LANG="EN-US">
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
+<STYLE TYPE="text/css">
+<!--
+img { margin-bottom: -4px }
+.r { font-family: "Arial Narrow";
+     font-size: x-small;
+   }
+.i { font-family: "Arial Narrow";
+     font-size: x-small;
+     color: gray;
+   }
+-->
+</STYLE>
+<STYLE TYPE="text/css">
+<!--
+  .wff { color: blue; }
+  .var { color: red; }
+  .nilad { color: #C3C; }
+  .symvar { border-bottom:1px dotted;color:#C3C}
+  .typecode { color: gray }
+  .hidden { color: gray }
+  @font-face {
+    font-family: XITSMath-Regular;
+    src: url(xits-math.woff);
+  }
+  .math { font-family: XITSMath-Regular }
+  .desc-table { border: 1px outset grey }
+  .desc-table td, .desc-table th { border: 1px inset grey }
+  .command {
+    border: 1px solid black;
+    padding: 0em 0.1em;
+    margin: 0em 0.1em;
+    border-radius: 2px;
+  }
+-->
+</STYLE>
+<TITLE>mcco - Linear Logic Proof Explorer</TITLE>
+<LINK REL="shortcut icon" HREF="favicon.ico" TYPE="image/x-icon">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+<TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH="100%">
+  <TR>
+    <TD ALIGN=LEFT VALIGN=TOP WIDTH="25%"><A HREF=
+    "mmset.html"><IMG SRC="mm.gif"
+      BORDER=0
+      ALT="LLPE Home"
+      TITLE="LLPE Home"
+      HEIGHT=32 WIDTH=32 ALIGN=TOP STYLE="margin-bottom:0px"></A>
+    </TD>
+    <TD ALIGN=CENTER VALIGN=TOP><FONT SIZE="+3" COLOR="#006633"><B>
+Linear Logic Proof Explorer
+      </B></FONT></TD>
+    <TD ALIGN=RIGHT VALIGN=TOP WIDTH="25%">
+      <FONT SIZE=-1 FACE=sans-serif>
+      <A HREF="md2.html">
+      &lt; Previous</A>&nbsp;&nbsp;
+      <A HREF="mccob.html">Next &gt;</A>
+      </FONT><FONT FACE=sans-serif SIZE=-2>
+      <BR><A HREF="mmtheorems2.html#mcco">Nearby theorems</A>
+      </FONT>
+    </TD>
+  </TR>
+  <TR>
+    <TD COLSPAN=2 ALIGN=LEFT VALIGN=TOP><FONT SIZE=-2
+      FACE=sans-serif>
+      <A HREF="../mm.html">Mirrors</A>&nbsp; &gt;
+      &nbsp;<A HREF="../index.html">Home</A>&nbsp; &gt;
+      &nbsp;<A HREF="mmset.html">LLPE Home</A>&nbsp; &gt;
+      &nbsp;<A HREF="mmtheorems.html">Th. List</A>&nbsp; &gt;
+      &nbsp;mcco
+      </FONT>
+    </TD>
+    <TD COLSPAN=1 ALIGN=RIGHT VALIGN=TOP>
+      <FONT SIZE=-2 FACE=sans-serif>
+      <A HREF="http://metamath.tirix.org/mcco.html">Structured
+version</A>&nbsp;&nbsp;
+      </FONT>
+    </TD>
+  </TR>
+</TABLE>
+<HR NOSHADE SIZE=1>
+<CENTER><B><FONT SIZE="+1">Theorem <FONT
+COLOR="#006633">mcco</FONT></FONT></B>&nbsp;<SPAN CLASS=r
+STYLE="color:#488E00">115</SPAN></CENTER>
+<CENTER><TABLE><TR><TD ALIGN=LEFT><B>Description: </B><SPAN >&otimes;</SPAN> is
+commutative. TODO extract double negation theorems, <A
+HREF="licon.html">licon</A>&nbsp;<SPAN CLASS=r STYLE="color:#718600">94</SPAN>
+alternate forms</TD></TR></TABLE></CENTER>
+
+<CENTER><TABLE BORDER CELLSPACING=0 BGCOLOR="#EEFFFA"
+SUMMARY="Assertion">
+<CAPTION><B>Assertion</B></CAPTION>
+<TR><TH>Ref
+</TH><TH>Expression</TH></TR>
+<TR ALIGN=LEFT><TD><FONT COLOR="#006633"><B>mcco</B></FONT></TD><TD>
+<SPAN ><span class='typecode'>&#x22a6;</span> ((<span
+class=wff>&#x1d711;</span> &otimes; <span class=wff>&#x1d713;</span>) &#x22b8;
+(<span class=wff>&#x1d713;</span> &otimes; <span
+class=wff>&#x1d711;</span>))</SPAN></TD></TR>
+</TABLE></CENTER>
+
+
+<HR NOSHADE SIZE=1>
+<CENTER><TABLE BORDER CELLSPACING=0 BGCOLOR="#EEFFFA"
+SUMMARY="Proof of theorem">
+<CAPTION><B>Proof of Theorem <FONT
+   COLOR="#006633">mcco</FONT></B></CAPTION>
+<TR><TH>Step</TH><TH>Hyp</TH><TH>Ref
+</TH><TH>Expression</TH></TR>
+<TR ALIGN=LEFT><TD>1</TD><TD>&nbsp;</TD><TD><A HREF="dnis.html"
+TITLE="Double negation introduction. Syllogism form of ~dnid .">dnis</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#8E7D00">78</SPAN></TD><TD><A NAME="1"></A>
+<SPAN CLASS=i>. . 3</SPAN>
+<SPAN ><span class='typecode'>&#x22a6;</span> ((<span
+class=wff>&#x1d711;</span> &otimes; <span class=wff>&#x1d713;</span>) &#x22b8;
+~ ~ (<span class=wff>&#x1d711;</span> &otimes; <span
+class=wff>&#x1d713;</span>))</SPAN></TD></TR>
+<TR ALIGN=LEFT><TD>2</TD><TD>&nbsp;</TD><TD><A HREF="ax-mdco.html"
+TITLE="`%` is commutative.">ax-mdco</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#F80700">8</SPAN></TD><TD><A NAME="2"></A>
+<SPAN CLASS=i>. . . . . 6</SPAN>
+<SPAN ><span class='typecode'>&#x22a6;</span> (~ (~ <span
+class=wff>&#x1d713;</span> &#x214b; ~ <span class=wff>&#x1d711;</span>)
+&#x214b; (~ <span class=wff>&#x1d711;</span> &#x214b; ~ <span
+class=wff>&#x1d713;</span>))</SPAN></TD></TR>
+<TR ALIGN=LEFT><TD>3</TD><TD><A HREF="#2">2</A></TD><TD><A HREF="dfli2i.html"
+TITLE="Convert to linear implication. Inference for ~dfli2 .">dfli2i</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#A77200">66</SPAN></TD><TD><A NAME="3"></A>
+<SPAN CLASS=i>. . . . 5</SPAN>
+<SPAN ><span class='typecode'>&#x22a6;</span> ((~ <span
+class=wff>&#x1d713;</span> &#x214b; ~ <span class=wff>&#x1d711;</span>)
+&#x22b8; (~ <span class=wff>&#x1d711;</span> &#x214b; ~ <span
+class=wff>&#x1d713;</span>))</SPAN></TD></TR>
+<TR ALIGN=LEFT><TD>4</TD><TD>&nbsp;</TD><TD><A HREF="dnis.html"
+TITLE="Double negation introduction. Syllogism form of ~dnid .">dnis</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#8E7D00">78</SPAN></TD><TD><A NAME="4"></A>
+<SPAN CLASS=i>. . . . . 6</SPAN>
+<SPAN ><span class='typecode'>&#x22a6;</span> ((~ <span
+class=wff>&#x1d711;</span> &#x214b; ~ <span class=wff>&#x1d713;</span>)
+&#x22b8; ~ ~ (~ <span class=wff>&#x1d711;</span> &#x214b; ~ <span
+class=wff>&#x1d713;</span>))</SPAN></TD></TR>
+<TR ALIGN=LEFT><TD>5</TD><TD>&nbsp;</TD><TD><A HREF="id.html"
+TITLE="Identity rule for linear implication. Syllogism form of ~ax-init .">id</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#907D00">77</SPAN></TD><TD><A NAME="5"></A>
+<SPAN CLASS=i>. . . . . . . 8</SPAN>
+<SPAN ><span class='typecode'>&#x22a6;</span> ((<span
+class=wff>&#x1d711;</span> &otimes; <span class=wff>&#x1d713;</span>) &#x22b8;
+(<span class=wff>&#x1d711;</span> &otimes; <span
+class=wff>&#x1d713;</span>))</SPAN></TD></TR>
+<TR ALIGN=LEFT><TD>6</TD><TD>&nbsp;</TD><TD><A HREF="df-mc.html"
+TITLE="Times is the dual of Par.">df-mc</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#5B8B00">106</SPAN></TD><TD><A NAME="6"></A>
+<SPAN CLASS=i>. . . . . . . 8</SPAN>
+<SPAN ><span class='typecode'>&#x22a6;</span> ((<span
+class=wff>&#x1d711;</span> &otimes; <span class=wff>&#x1d713;</span>) &#x29df;
+~ (~ <span class=wff>&#x1d711;</span> &#x214b; ~ <span
+class=wff>&#x1d713;</span>))</SPAN></TD></TR>
+<TR ALIGN=LEFT><TD>7</TD><TD><A HREF="#5">5</A>, <A HREF="#6">6</A></TD><TD><A
+HREF="lb1s.html" TITLE="Forward syllogism using `O-O`.">lb1s</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#A57300">67</SPAN></TD><TD><A NAME="7"></A>
+<SPAN CLASS=i>. . . . . . 7</SPAN>
+<SPAN ><span class='typecode'>&#x22a6;</span> ((<span
+class=wff>&#x1d711;</span> &otimes; <span class=wff>&#x1d713;</span>) &#x22b8;
+~ (~ <span class=wff>&#x1d711;</span> &#x214b; ~ <span
+class=wff>&#x1d713;</span>))</SPAN></TD></TR>
+<TR ALIGN=LEFT><TD>8</TD><TD>&nbsp;</TD><TD><A HREF="licon.html"
+TITLE="Contrapositive rule for linear implication. This follows quite neatly from ~df-li .">licon</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#718600">94</SPAN></TD><TD><A NAME="8"></A>
+<SPAN CLASS=i>. . . . . . 7</SPAN>
+<SPAN ><span class='typecode'>&#x22a6;</span> (((<span
+class=wff>&#x1d711;</span> &otimes; <span class=wff>&#x1d713;</span>) &#x22b8;
+~ (~ <span class=wff>&#x1d711;</span> &#x214b; ~ <span
+class=wff>&#x1d713;</span>)) &#x22b8; (~ ~ (~ <span class=wff>&#x1d711;</span>
+&#x214b; ~ <span class=wff>&#x1d713;</span>) &#x22b8; ~ (<span
+class=wff>&#x1d711;</span> &otimes; <span
+class=wff>&#x1d713;</span>)))</SPAN></TD></TR>
+<TR ALIGN=LEFT><TD>9</TD><TD><A HREF="#7">7</A>, <A HREF="#8">8</A></TD><TD><A
+HREF="lmp.html"
+TITLE="Modus ponens like inference using linear implication.">lmp</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#927C00">76</SPAN></TD><TD><A NAME="9"></A>
+<SPAN CLASS=i>. . . . . 6</SPAN>
+<SPAN ><span class='typecode'>&#x22a6;</span> (~ ~ (~ <span
+class=wff>&#x1d711;</span> &#x214b; ~ <span class=wff>&#x1d713;</span>)
+&#x22b8; ~ (<span class=wff>&#x1d711;</span> &otimes; <span
+class=wff>&#x1d713;</span>))</SPAN></TD></TR>
+<TR ALIGN=LEFT><TD>10</TD><TD><A HREF="#4">4</A>, <A HREF="#9">9</A></TD><TD><A
+HREF="syl.html" TITLE="Syllogism using linear implication.">syl</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#957B00">75</SPAN></TD><TD><A NAME="10"></A>
+<SPAN CLASS=i>. . . . 5</SPAN>
+<SPAN ><span class='typecode'>&#x22a6;</span> ((~ <span
+class=wff>&#x1d711;</span> &#x214b; ~ <span class=wff>&#x1d713;</span>)
+&#x22b8; ~ (<span class=wff>&#x1d711;</span> &otimes; <span
+class=wff>&#x1d713;</span>))</SPAN></TD></TR>
+<TR ALIGN=LEFT><TD>11</TD><TD><A HREF="#3">3</A>, <A
+HREF="#10">10</A></TD><TD><A HREF="syl.html"
+TITLE="Syllogism using linear implication.">syl</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#957B00">75</SPAN></TD><TD><A NAME="11"></A>
+<SPAN CLASS=i>. . . 4</SPAN>
+<SPAN ><span class='typecode'>&#x22a6;</span> ((~ <span
+class=wff>&#x1d713;</span> &#x214b; ~ <span class=wff>&#x1d711;</span>)
+&#x22b8; ~ (<span class=wff>&#x1d711;</span> &otimes; <span
+class=wff>&#x1d713;</span>))</SPAN></TD></TR>
+<TR ALIGN=LEFT><TD>12</TD><TD>&nbsp;</TD><TD><A HREF="licon.html"
+TITLE="Contrapositive rule for linear implication. This follows quite neatly from ~df-li .">licon</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#718600">94</SPAN></TD><TD><A NAME="12"></A>
+<SPAN CLASS=i>. . . 4</SPAN>
+<SPAN ><span class='typecode'>&#x22a6;</span> (((~ <span
+class=wff>&#x1d713;</span> &#x214b; ~ <span class=wff>&#x1d711;</span>)
+&#x22b8; ~ (<span class=wff>&#x1d711;</span> &otimes; <span
+class=wff>&#x1d713;</span>)) &#x22b8; (~ ~ (<span class=wff>&#x1d711;</span>
+&otimes; <span class=wff>&#x1d713;</span>) &#x22b8; ~ (~ <span
+class=wff>&#x1d713;</span> &#x214b; ~ <span
+class=wff>&#x1d711;</span>)))</SPAN></TD></TR>
+<TR ALIGN=LEFT><TD>13</TD><TD><A HREF="#11">11</A>, <A
+HREF="#12">12</A></TD><TD><A HREF="lmp.html"
+TITLE="Modus ponens like inference using linear implication.">lmp</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#927C00">76</SPAN></TD><TD><A NAME="13"></A>
+<SPAN CLASS=i>. . 3</SPAN>
+<SPAN ><span class='typecode'>&#x22a6;</span> (~ ~ (<span
+class=wff>&#x1d711;</span> &otimes; <span class=wff>&#x1d713;</span>) &#x22b8;
+~ (~ <span class=wff>&#x1d713;</span> &#x214b; ~ <span
+class=wff>&#x1d711;</span>))</SPAN></TD></TR>
+<TR ALIGN=LEFT><TD>14</TD><TD><A HREF="#1">1</A>, <A
+HREF="#13">13</A></TD><TD><A HREF="syl.html"
+TITLE="Syllogism using linear implication.">syl</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#957B00">75</SPAN></TD><TD><A NAME="14"></A>
+<SPAN CLASS=i>. 2</SPAN>
+<SPAN ><span class='typecode'>&#x22a6;</span> ((<span
+class=wff>&#x1d711;</span> &otimes; <span class=wff>&#x1d713;</span>) &#x22b8;
+~ (~ <span class=wff>&#x1d713;</span> &#x214b; ~ <span
+class=wff>&#x1d711;</span>))</SPAN></TD></TR>
+<TR ALIGN=LEFT><TD>15</TD><TD>&nbsp;</TD><TD><A HREF="df-mc.html"
+TITLE="Times is the dual of Par.">df-mc</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#5B8B00">106</SPAN></TD><TD><A NAME="15"></A>
+<SPAN CLASS=i>. 2</SPAN>
+<SPAN ><span class='typecode'>&#x22a6;</span> ((<span
+class=wff>&#x1d713;</span> &otimes; <span class=wff>&#x1d711;</span>) &#x29df;
+~ (~ <span class=wff>&#x1d713;</span> &#x214b; ~ <span
+class=wff>&#x1d711;</span>))</SPAN></TD></TR>
+<TR ALIGN=LEFT><TD>16</TD><TD><A HREF="#14">14</A>, <A
+HREF="#15">15</A></TD><TD><A HREF="lb2s.html"
+TITLE="Reverse syllogism using `O-O`.">lb2s</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#A37400">68</SPAN></TD><TD><A NAME="16"></A>
+<SPAN CLASS=i>1</SPAN>
+<SPAN ><span class='typecode'>&#x22a6;</span> ((<span
+class=wff>&#x1d711;</span> &otimes; <span class=wff>&#x1d713;</span>) &#x22b8;
+(<span class=wff>&#x1d713;</span> &otimes; <span
+class=wff>&#x1d711;</span>))</SPAN></TD></TR>
+</TABLE></CENTER>
+<CENTER><TABLE CELLSPACING=5><TR><TD ALIGN=LEFT><FONT SIZE=-1><B>Colors of
+variables:</B>  <SPAN CLASS=wff>wff</SPAN> <SPAN CLASS=var>var</SPAN> <SPAN
+CLASS=nilad>nilad</SPAN> </FONT></TD></TR>
+<TR><TD ALIGN=LEFT><FONT SIZE=-1><B>Syntax hints:</B>  &nbsp;<SPAN > &#x214b;
+</SPAN><A HREF="wmd.html">wmd</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#FA0100">2</SPAN> &nbsp;<SPAN >~ </SPAN><A
+HREF="wneg.html">wneg</A>&nbsp;<SPAN CLASS=r STYLE="color:#FA0200">3</SPAN>
+&nbsp;<SPAN > &#x22b8; </SPAN><A HREF="wli.html">wli</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#B16C00">61</SPAN> &nbsp;<SPAN > &otimes; </SPAN><A
+HREF="wmc.html">wmc</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#5D8B00">105</SPAN></FONT></TD></TR>
+<TR><TD ALIGN=LEFT><FONT SIZE=-1><B>This theorem was proved from axioms:</B>
+&nbsp;<A HREF="ax-ibot.html">ax-ibot</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#F90300">4</SPAN> &nbsp;<A
+HREF="ax-ebot.html">ax-ebot</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#F90400">5</SPAN> &nbsp;<A
+HREF="ax-cut.html">ax-cut</A>&nbsp;<SPAN CLASS=r STYLE="color:#F90500">6</SPAN>
+&nbsp;<A HREF="ax-init.html">ax-init</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#F80600">7</SPAN> &nbsp;<A
+HREF="ax-mdco.html">ax-mdco</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#F80700">8</SPAN> &nbsp;<A
+HREF="ax-mdas.html">ax-mdas</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#F80800">9</SPAN> &nbsp;<A
+HREF="ax-eac1.html">ax-eac1</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#E33E00">33</SPAN> &nbsp;<A
+HREF="ax-eac2.html">ax-eac2</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#E14000">34</SPAN></FONT></TD></TR>
+<TR><TD ALIGN=LEFT><FONT SIZE=-1><B>This theorem depends on definitions:</B>
+&nbsp;<A HREF="df-lb.html">df-lb</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#BC6400">56</SPAN> &nbsp;<A HREF="df-li.html">df-li</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#AF6D00">62</SPAN> &nbsp;<A
+HREF="df-mc.html">df-mc</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#5B8B00">106</SPAN></FONT></TD></TR>
+<TR><TD ALIGN=LEFT><FONT SIZE=-1><B>This theorem is referenced by:</B> &nbsp;<A
+HREF="mccob.html">mccob</A>
+&nbsp;<SPAN CLASS=r STYLE="color:#468E00">116</SPAN></FONT></TD></TR>
+</TABLE></CENTER>
+<TABLE BORDER=0 WIDTH="100%">
+<TR><TD WIDTH="25%">&nbsp;</TD>
+<TD ALIGN=CENTER VALIGN=BOTTOM>
+<FONT SIZE=-2 FACE=sans-serif>
+Copyright terms:
+<A HREF="../copyright.html#pd">Public domain</A>
+</FONT></TD><TD ALIGN=RIGHT VALIGN=BOTTOM WIDTH="25%">
+<FONT SIZE=-2 FACE=sans-serif>
+<A HREF="http://validator.w3.org/check?uri=referer">
+W3C validator</A>
+</FONT></TD></TR></TABLE>
+</BODY></HTML>

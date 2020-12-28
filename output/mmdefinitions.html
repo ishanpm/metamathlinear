@@ -1,0 +1,999 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+    "http://www.w3.org/TR/html4/loose.dtd">
+<HTML LANG="EN-US">
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
+<STYLE TYPE="text/css">
+<!--
+img { margin-bottom: -4px }
+.r { font-family: "Arial Narrow";
+     font-size: x-small;
+   }
+.i { font-family: "Arial Narrow";
+     font-size: x-small;
+     color: gray;
+   }
+-->
+</STYLE>
+<STYLE TYPE="text/css">
+<!--
+  .wff { color: blue; }
+  .var { color: red; }
+  .nilad { color: #C3C; }
+  .symvar { border-bottom:1px dotted;color:#C3C}
+  .typecode { color: gray }
+  .hidden { color: gray }
+  @font-face {
+    font-family: XITSMath-Regular;
+    src: url(xits-math.woff);
+  }
+  .math { font-family: XITSMath-Regular }
+  .desc-table { border: 1px outset grey }
+  .desc-table td, .desc-table th { border: 1px inset grey }
+  .command {
+    border: 1px solid black;
+    padding: 0em 0.1em;
+    margin: 0em 0.1em;
+    border-radius: 2px;
+  }
+-->
+</STYLE>
+<TITLE>mmdefinitions - Linear Logic Proof Explorer</TITLE>
+<LINK REL="shortcut icon" HREF="favicon.ico" TYPE="image/x-icon">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+<TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH="100%">
+  <TR>
+    <TD ALIGN=LEFT VALIGN=TOP WIDTH="25%"><A HREF=
+    "mmset.html"><IMG SRC="mm.gif"
+      BORDER=0
+      ALT="LLPE Home"
+      TITLE="LLPE Home"
+      HEIGHT=32 WIDTH=32 ALIGN=TOP STYLE="margin-bottom:0px"></A>
+    </TD>
+    <TD ALIGN=CENTER VALIGN=TOP><FONT SIZE="+3" COLOR="#006633"><B>
+Linear Logic Proof Explorer
+      </B></FONT></TD>
+      </TD><TD ALIGN=RIGHT VALIGN=TOP
+       ><FONT FACE=sans-serif SIZE=-2>
+&nbsp;
+      </FONT>
+    </TD>
+  </TR>
+</TABLE>
+<HR NOSHADE SIZE=1>
+<CENTER>
+<TABLE BORDER CELLSPACING=0 BGCOLOR="#EEFFFA"
+SUMMARY="List of syntax, axioms and definitions">
+<CAPTION><B>List of Syntax, Axioms (<FONT COLOR="#006633">ax-</FONT>) and
+Definitions (<FONT COLOR="#006633">df-</FONT>)</B></CAPTION><TR
+ALIGN=LEFT><TD><B>
+Ref</B></TD><TD><B>Expression (see link for any distinct variable requirements)
+</B></TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="wbot.html">wbot</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#FB0000">1</SPAN></TD><TD><SPAN ><span
+class='typecode'>wff</span> &#x22a5;</SPAN></TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="wmd.html">wmd</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#FA0100">2</SPAN></TD><TD><SPAN ><span
+class='typecode'>wff</span> (<span class=wff>&#x1d711;</span> &#x214b; <span
+class=wff>&#x1d713;</span>)</SPAN></TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="wneg.html">wneg</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#FA0200">3</SPAN></TD><TD><SPAN ><span
+class='typecode'>wff</span> ~ <span class=wff>&#x1d711;</span></SPAN></TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A
+HREF="ax-ibot.html">ax-ibot</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#F90300">4</SPAN></TD><TD><SPAN ><span
+class='typecode'>&#x22a6;</span> <span
+class=wff>&#x1d711;</span></SPAN>&nbsp;&nbsp;&nbsp; <FONT
+FACE=sans-serif>&#8658;</FONT>&nbsp;&nbsp;&nbsp;<SPAN ><span
+class='typecode'>&#x22a6;</span> (&#x22a5; &#x214b; <span
+class=wff>&#x1d711;</span>)</SPAN></TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A
+HREF="ax-ebot.html">ax-ebot</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#F90400">5</SPAN></TD><TD><SPAN ><span
+class='typecode'>&#x22a6;</span> (&#x22a5; &#x214b; <span
+class=wff>&#x1d711;</span>)</SPAN>&nbsp;&nbsp;&nbsp; <FONT
+FACE=sans-serif>&#8658;</FONT>&nbsp;&nbsp;&nbsp;<SPAN ><span
+class='typecode'>&#x22a6;</span> <span
+class=wff>&#x1d711;</span></SPAN></TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A
+HREF="ax-cut.html">ax-cut</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#F90500">6</SPAN></TD><TD><SPAN ><span
+class='typecode'>&#x22a6;</span> (<span class=wff>&#x1d711;</span> &#x214b;
+<span class=wff>&#x1d713;</span>)</SPAN><SPAN >&nbsp;&nbsp;&nbsp;
+&amp;&nbsp;&nbsp;&nbsp;</SPAN><SPAN ><span class='typecode'>&#x22a6;</span> (~
+<span class=wff>&#x1d713;</span> &#x214b; <span
+class=wff>&#x1d712;</span>)</SPAN>&nbsp;&nbsp;&nbsp; <FONT
+FACE=sans-serif>&#8658;</FONT>&nbsp;&nbsp;&nbsp;<SPAN ><span
+class='typecode'>&#x22a6;</span> (<span class=wff>&#x1d711;</span> &#x214b;
+<span class=wff>&#x1d712;</span>)</SPAN></TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A
+HREF="ax-init.html">ax-init</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#F80600">7</SPAN></TD><TD><SPAN ><span
+class='typecode'>&#x22a6;</span> (~ <span class=wff>&#x1d711;</span> &#x214b;
+<span class=wff>&#x1d711;</span>)</SPAN></TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A
+HREF="ax-mdco.html">ax-mdco</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#F80700">8</SPAN></TD><TD><SPAN ><span
+class='typecode'>&#x22a6;</span> (~ (<span class=wff>&#x1d711;</span> &#x214b;
+<span class=wff>&#x1d713;</span>) &#x214b; (<span class=wff>&#x1d713;</span>
+&#x214b; <span class=wff>&#x1d711;</span>))</SPAN></TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A
+HREF="ax-mdas.html">ax-mdas</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#F80800">9</SPAN></TD><TD><SPAN ><span
+class='typecode'>&#x22a6;</span> (~ ((<span class=wff>&#x1d711;</span> &#x214b;
+<span class=wff>&#x1d713;</span>) &#x214b; <span class=wff>&#x1d712;</span>)
+&#x214b; (<span class=wff>&#x1d711;</span> &#x214b; (<span
+class=wff>&#x1d713;</span> &#x214b; <span
+class=wff>&#x1d712;</span>)))</SPAN></TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="wtop.html">wtop</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#E83500">29</SPAN></TD><TD><SPAN ><span
+class='typecode'>wff</span> &#x22a4;</SPAN></TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="wac.html">wac</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#E73700">30</SPAN></TD><TD><SPAN ><span
+class='typecode'>wff</span> (<span class=wff>&#x1d711;</span> &amp; <span
+class=wff>&#x1d713;</span>)</SPAN></TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A
+HREF="ax-top.html">ax-top</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#E53900">31</SPAN></TD><TD><SPAN ><span
+class='typecode'>&#x22a6;</span> (~ <span class=wff>&#x1d711;</span> &#x214b;
+&#x22a4;)</SPAN></TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A
+HREF="ax-iac.html">ax-iac</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#E43B00">32</SPAN></TD><TD><SPAN ><span
+class='typecode'>&#x22a6;</span> (~ <span class=wff>&#x1d711;</span> &#x214b;
+<span class=wff>&#x1d713;</span>)</SPAN><SPAN >&nbsp;&nbsp;&nbsp;
+&amp;&nbsp;&nbsp;&nbsp;</SPAN><SPAN ><span class='typecode'>&#x22a6;</span> (~
+<span class=wff>&#x1d711;</span> &#x214b; <span
+class=wff>&#x1d712;</span>)</SPAN>&nbsp;&nbsp;&nbsp; <FONT
+FACE=sans-serif>&#8658;</FONT>&nbsp;&nbsp;&nbsp;<SPAN ><span
+class='typecode'>&#x22a6;</span> (~ <span class=wff>&#x1d711;</span> &#x214b;
+(<span class=wff>&#x1d713;</span> &amp; <span
+class=wff>&#x1d712;</span>))</SPAN></TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A
+HREF="ax-eac1.html">ax-eac1</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#E33E00">33</SPAN></TD><TD><SPAN ><span
+class='typecode'>&#x22a6;</span> (~ <span class=wff>&#x1d711;</span> &#x214b;
+(<span class=wff>&#x1d713;</span> &amp; <span
+class=wff>&#x1d712;</span>))</SPAN>&nbsp;&nbsp;&nbsp; <FONT
+FACE=sans-serif>&#8658;</FONT>&nbsp;&nbsp;&nbsp;<SPAN ><span
+class='typecode'>&#x22a6;</span> (~ <span class=wff>&#x1d711;</span> &#x214b;
+<span class=wff>&#x1d713;</span>)</SPAN></TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A
+HREF="ax-eac2.html">ax-eac2</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#E14000">34</SPAN></TD><TD><SPAN ><span
+class='typecode'>&#x22a6;</span> (~ <span class=wff>&#x1d711;</span> &#x214b;
+(<span class=wff>&#x1d713;</span> &amp; <span
+class=wff>&#x1d712;</span>))</SPAN>&nbsp;&nbsp;&nbsp; <FONT
+FACE=sans-serif>&#8658;</FONT>&nbsp;&nbsp;&nbsp;<SPAN ><span
+class='typecode'>&#x22a6;</span> (~ <span class=wff>&#x1d711;</span> &#x214b;
+<span class=wff>&#x1d712;</span>)</SPAN></TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="wne.html">wne</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#CC5700">48</SPAN></TD><TD><SPAN ><span
+class='typecode'>wff</span> ? <span class=wff>&#x1d711;</span></SPAN></TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A
+HREF="ax-ipe.html">ax-ipe</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#CA5900">49</SPAN></TD><TD><SPAN ><span
+class='typecode'>&#x22a6;</span> (~ <span class=wff>&#x1d711;</span> &#x214b; ?
+<span class=wff>&#x1d713;</span>)</SPAN>&nbsp;&nbsp;&nbsp; <FONT
+FACE=sans-serif>&#8658;</FONT>&nbsp;&nbsp;&nbsp;<SPAN ><span
+class='typecode'>&#x22a6;</span> (~ ? <span class=wff>&#x1d711;</span> &#x214b;
+? <span class=wff>&#x1d713;</span>)</SPAN></TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A
+HREF="ax-epe.html">ax-epe</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#C85A00">50</SPAN></TD><TD><SPAN ><span
+class='typecode'>&#x22a6;</span> (~ ? <span class=wff>&#x1d711;</span> &#x214b;
+? <span class=wff>&#x1d713;</span>)</SPAN>&nbsp;&nbsp;&nbsp; <FONT
+FACE=sans-serif>&#8658;</FONT>&nbsp;&nbsp;&nbsp;<SPAN ><span
+class='typecode'>&#x22a6;</span> (~ <span class=wff>&#x1d711;</span> &#x214b; ?
+<span class=wff>&#x1d713;</span>)</SPAN></TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A
+HREF="ax-weak.html">ax-weak</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#C65C00">51</SPAN></TD><TD><SPAN ><span
+class='typecode'>&#x22a6;</span> (~ &#x22a5; &#x214b; ? <span
+class=wff>&#x1d711;</span>)</SPAN></TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A
+HREF="ax-contr.html">ax-contr</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#C45D00">52</SPAN></TD><TD><SPAN ><span
+class='typecode'>&#x22a6;</span> (~ (? <span class=wff>&#x1d711;</span>
+&#x214b; ? <span class=wff>&#x1d711;</span>) &#x214b; ? <span
+class=wff>&#x1d711;</span>)</SPAN></TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A
+HREF="ax-pemc.html">ax-pemc</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#C25F00">53</SPAN></TD><TD><SPAN ><span
+class='typecode'>&#x22a6;</span> ~ ? &#x22a5;</SPAN></TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A
+HREF="ax-dig.html">ax-dig</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#C06100">54</SPAN></TD><TD><SPAN ><span
+class='typecode'>&#x22a6;</span> (~ ? (? <span class=wff>&#x1d711;</span>
+&#x214b; ? <span class=wff>&#x1d713;</span>) &#x214b; (? <span
+class=wff>&#x1d711;</span> &#x214b; ? <span
+class=wff>&#x1d713;</span>))</SPAN></TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="wlb.html">wlb</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#BE6200">55</SPAN></TD><TD><SPAN ><span
+class='typecode'>wff</span> (<span class=wff>&#x1d711;</span> &#x29df; <span
+class=wff>&#x1d713;</span>)</SPAN></TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="df-lb.html">df-lb</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#BC6400">56</SPAN></TD><TD><SPAN ><span
+class='typecode'>&#x22a6;</span> ((~ (<span class=wff>&#x1d711;</span> &#x29df;
+<span class=wff>&#x1d713;</span>) &#x214b; ((~ <span class=wff>&#x1d711;</span>
+&#x214b; <span class=wff>&#x1d713;</span>) &amp; (~ <span
+class=wff>&#x1d713;</span> &#x214b; <span class=wff>&#x1d711;</span>))) &amp;
+(~ ((~ <span class=wff>&#x1d711;</span> &#x214b; <span
+class=wff>&#x1d713;</span>) &amp; (~ <span class=wff>&#x1d713;</span> &#x214b;
+<span class=wff>&#x1d711;</span>)) &#x214b; (<span class=wff>&#x1d711;</span>
+&#x29df; <span class=wff>&#x1d713;</span>)))</SPAN></TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="wli.html">wli</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#B16C00">61</SPAN></TD><TD><SPAN ><span
+class='typecode'>wff</span> (<span class=wff>&#x1d711;</span> &#x22b8; <span
+class=wff>&#x1d713;</span>)</SPAN></TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="df-li.html">df-li</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#AF6D00">62</SPAN></TD><TD><SPAN ><span
+class='typecode'>&#x22a6;</span> ((<span class=wff>&#x1d711;</span> &#x22b8;
+<span class=wff>&#x1d713;</span>) &#x29df; (~ <span class=wff>&#x1d711;</span>
+&#x214b; <span class=wff>&#x1d713;</span>))</SPAN></TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="wone.html">wone</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#618A00">103</SPAN></TD><TD><SPAN ><span
+class='typecode'>wff</span> 1</SPAN></TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A
+HREF="df-one.html">df-one</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#5F8B00">104</SPAN></TD><TD><SPAN ><span
+class='typecode'>&#x22a6;</span> (1 &#x29df; ~ &#x22a5;)</SPAN></TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="wmc.html">wmc</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#5D8B00">105</SPAN></TD><TD><SPAN ><span
+class='typecode'>wff</span> (<span class=wff>&#x1d711;</span> &otimes; <span
+class=wff>&#x1d713;</span>)</SPAN></TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="df-mc.html">df-mc</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#5B8B00">106</SPAN></TD><TD><SPAN ><span
+class='typecode'>&#x22a6;</span> ((<span class=wff>&#x1d711;</span> &otimes;
+<span class=wff>&#x1d713;</span>) &#x29df; ~ (~ <span
+class=wff>&#x1d711;</span> &#x214b; ~ <span
+class=wff>&#x1d713;</span>))</SPAN></TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="wzero.html">wzero</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#279200">129</SPAN></TD><TD><SPAN ><span
+class='typecode'>wff</span> 0</SPAN></TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A
+HREF="df-zero.html">df-zero</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#249200">130</SPAN></TD><TD><SPAN ><span
+class='typecode'>&#x22a6;</span> (0 &#x29df; ~ &#x22a4;)</SPAN></TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="wad.html">wad</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#229200">131</SPAN></TD><TD><SPAN ><span
+class='typecode'>wff</span> (<span class=wff>&#x1d711;</span> &oplus; <span
+class=wff>&#x1d713;</span>)</SPAN></TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="df-ad.html">df-ad</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#1F9200">132</SPAN></TD><TD><SPAN ><span
+class='typecode'>&#x22a6;</span> ((<span class=wff>&#x1d711;</span> &oplus;
+<span class=wff>&#x1d713;</span>) &#x29df; ~ (~ <span
+class=wff>&#x1d711;</span> &amp; ~ <span
+class=wff>&#x1d713;</span>))</SPAN></TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="wpe.html">wpe</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#009321">148</SPAN></TD><TD><SPAN ><span
+class='typecode'>wff</span> ! <span class=wff>&#x1d711;</span></SPAN></TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="df-pe.html">df-pe</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#009224">149</SPAN></TD><TD><SPAN ><span
+class='typecode'>&#x22a6;</span> (! <span class=wff>&#x1d711;</span> &#x29df; ~
+? ~ <span class=wff>&#x1d711;</span>)</SPAN></TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="wim.html">wim</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#008F7D">180</SPAN></TD><TD><SPAN ><span
+class='typecode'>wff</span> (<span class=wff>&#x1d711;</span> &rarr; <span
+class=wff>&#x1d713;</span>)</SPAN></TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="df-im.html">df-im</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#008E80">181</SPAN></TD><TD><SPAN ><span
+class='typecode'>&#x22a6;</span> ((<span class=wff>&#x1d711;</span> &rarr;
+<span class=wff>&#x1d713;</span>) &#x29df; (! <span class=wff>&#x1d711;</span>
+&#x22b8; <span class=wff>&#x1d713;</span>))</SPAN></TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="wand.html">wand</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#008E83">182</SPAN></TD><TD><SPAN ><span
+class='typecode'>wff</span> (<span class=wff>&#x1d711;</span> &and; <span
+class=wff>&#x1d713;</span>)</SPAN></TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A
+HREF="df-and.html">df-and</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#008E86">183</SPAN></TD><TD><SPAN ><span
+class='typecode'>&#x22a6;</span> ((<span class=wff>&#x1d711;</span> &and; <span
+class=wff>&#x1d713;</span>) &#x29df; (! <span class=wff>&#x1d711;</span> &amp;
+! <span class=wff>&#x1d713;</span>))</SPAN></TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="wor.html">wor</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#008E89">184</SPAN></TD><TD><SPAN ><span
+class='typecode'>wff</span> (<span class=wff>&#x1d711;</span> &or; <span
+class=wff>&#x1d713;</span>)</SPAN></TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="df-or.html">df-or</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#008D8D">185</SPAN></TD><TD><SPAN ><span
+class='typecode'>&#x22a6;</span> ((<span class=wff>&#x1d711;</span> &or; <span
+class=wff>&#x1d713;</span>) &#x29df; (! <span class=wff>&#x1d711;</span>
+&oplus; ! <span class=wff>&#x1d713;</span>))</SPAN></TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="wnot.html">wnot</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#008D90">186</SPAN></TD><TD><SPAN ><span
+class='typecode'>wff</span> &not; <span
+class=wff>&#x1d711;</span></SPAN></TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A
+HREF="df-not.html">df-not</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#008D93">187</SPAN></TD><TD><SPAN ><span
+class='typecode'>&#x22a6;</span> (&not; <span class=wff>&#x1d711;</span>
+&#x29df; ~ ! <span class=wff>&#x1d711;</span>)</SPAN></TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="wbi.html">wbi</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#008D96">188</SPAN></TD><TD><SPAN ><span
+class='typecode'>wff</span> (<span class=wff>&#x1d711;</span> &harr; <span
+class=wff>&#x1d713;</span>)</SPAN></TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="df-bi.html">df-bi</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#008C99">189</SPAN></TD><TD><SPAN ><span
+class='typecode'>&#x22a6;</span> ((<span class=wff>&#x1d711;</span> &harr;
+<span class=wff>&#x1d713;</span>) &#x29df; ((<span class=wff>&#x1d711;</span>
+&rarr; <span class=wff>&#x1d713;</span>) &and; (<span
+class=wff>&#x1d713;</span> &rarr; <span
+class=wff>&#x1d711;</span>)))</SPAN></TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="nvar.html">nvar</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#0085D3">203</SPAN></TD><TD><SPAN ><span
+class='typecode'>nilad</span> <span class=var>x</span></SPAN></TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="wse.html">wse</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#0085D8">204</SPAN></TD><TD><SPAN ><span
+class='typecode'>wff</span> [<span class=nilad>X</span> &#x226a; <span
+class=nilad>Y</span>] <span class=wff>&#x1d711;</span></SPAN></TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="wre.html">wre</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#0084DB">205</SPAN></TD><TD><SPAN ><span
+class='typecode'>wff</span> [<span class=nilad>X</span> &#x226b; <span
+class=var>y</span>] <span class=wff>&#x1d711;</span></SPAN></TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="wnu.html">wnu</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#0084DE">206</SPAN></TD><TD><SPAN ><span
+class='typecode'>wff</span> &nu;<span class=var>x</span><span
+class=wff>&#x1d711;</span></SPAN></TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="wsub.html">wsub</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#0083E2">207</SPAN></TD><TD><SPAN ><span
+class='typecode'>wff</span> [<span class=var>x</span> &#x2254; <span
+class=nilad>Y</span>] <span class=wff>&#x1d711;</span></SPAN></TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A
+HREF="ax-int.html">ax-int</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#0083E5">208</SPAN></TD><TD><SPAN ><span
+class='typecode'>&#x22a6;</span> <span
+class=wff>&#x1d711;</span></SPAN>&nbsp;&nbsp;&nbsp; <FONT
+FACE=sans-serif>&#8658;</FONT>&nbsp;&nbsp;&nbsp;<SPAN ><span
+class='typecode'>&#x22a6;</span> ~ &nu;<span class=var>x</span>~ <span
+class=wff>&#x1d711;</span></SPAN></TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A
+HREF="ax-nue.html">ax-nue</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#0182E8">209</SPAN></TD><TD><SPAN ><span
+class='typecode'>&#x22a6;</span> (&nu;<span class=var>x</span><span
+class=wff>&#x1d711;</span> &#x22b8; <span
+class=wff>&#x1d711;</span>)</SPAN></TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A
+HREF="ax-nuf.html">ax-nuf</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#0182EB">210</SPAN></TD><TD><SPAN ><span
+class='typecode'>&#x22a6;</span> (&nu;<span class=var>x</span>&nu;<span
+class=var>x</span><span class=wff>&#x1d711;</span> &#x22b8; &nu;<span
+class=var>x</span><span class=wff>&#x1d711;</span>)</SPAN></TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A
+HREF="ax-ref.html">ax-ref</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#0181EE">211</SPAN></TD><TD><SPAN ><span
+class='typecode'>&#x22a6;</span> (&nu;<span class=var>x</span>[<span
+class=var>a</span> &#x226b; <span class=var>x</span>] <span
+class=wff>&#x1d711;</span> &#x22b8; [<span class=var>a</span> &#x226b; <span
+class=var>x</span>] <span class=wff>&#x1d711;</span>)</SPAN></TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A
+HREF="ax-nnuf.html">ax-nnuf</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#0181F1">212</SPAN></TD><TD><SPAN ><span
+class='typecode'>&#x22a6;</span> (&nu;<span class=var>x</span>~ &nu;<span
+class=var>x</span><span class=wff>&#x1d711;</span> &#x22b8; ~ &nu;<span
+class=var>x</span><span class=wff>&#x1d711;</span>)</SPAN></TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A
+HREF="ax-nui.html">ax-nui</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#0280F4">213</SPAN></TD><TD><SPAN ><span
+class='typecode'>&#x22a6;</span> (<span class=wff>&#x1d711;</span> &#x22b8;
+&nu;<span class=var>x</span><span class=wff>&#x1d711;</span>)</SPAN></TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A
+HREF="ax-nur.html">ax-nur</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#0280F7">214</SPAN></TD><TD><SPAN ><span
+class='typecode'>&#x22a6;</span> (&nu;<span class=var>x</span>[<span
+class=var>u</span> &#x226a; <span class=var>x</span>] <span
+class=wff>&#x1d711;</span> &#x22b8; &nu;<span class=var>y</span>[<span
+class=var>u</span> &#x226a; <span class=var>y</span>] <span
+class=wff>&#x1d711;</span>)</SPAN></TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A
+HREF="ax-nuse.html">ax-nuse</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#027FFA">215</SPAN></TD><TD><SPAN ><span
+class='typecode'>&#x22a6;</span> (&nu;<span class=var>x</span>[<span
+class=var>u</span> &#x226a; <span class=var>v</span>] <span
+class=wff>&#x1d711;</span> &#x29df; [<span class=var>u</span> &#x226a; <span
+class=var>v</span>] &nu;<span class=var>x</span><span
+class=wff>&#x1d711;</span>)</SPAN></TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A
+HREF="ax-nure.html">ax-nure</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#027FFD">216</SPAN></TD><TD><SPAN ><span
+class='typecode'>&#x22a6;</span> (&nu;<span class=var>x</span>[<span
+class=var>u</span> &#x226b; <span class=var>v</span>] <span
+class=wff>&#x1d711;</span> &#x29df; [<span class=var>u</span> &#x226b; <span
+class=var>v</span>] &nu;<span class=var>x</span><span
+class=wff>&#x1d711;</span>)</SPAN></TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A
+HREF="ax-nuad.html">ax-nuad</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#067EFF">217</SPAN></TD><TD><SPAN ><span
+class='typecode'>&#x22a6;</span> (&nu;<span class=var>x</span>(<span
+class=wff>&#x1d711;</span> &oplus; <span class=wff>&#x1d713;</span>) &#x29df;
+(&nu;<span class=var>x</span><span class=wff>&#x1d711;</span> &oplus; &nu;<span
+class=var>x</span><span class=wff>&#x1d713;</span>))</SPAN></TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A
+HREF="ax-numc.html">ax-numc</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#0C7DFF">218</SPAN></TD><TD><SPAN ><span
+class='typecode'>&#x22a6;</span> (&nu;<span class=var>x</span>(<span
+class=wff>&#x1d711;</span> &otimes; &nu;<span class=var>x</span><span
+class=wff>&#x1d713;</span>) &#x29df; (&nu;<span class=var>x</span><span
+class=wff>&#x1d711;</span> &otimes; &nu;<span class=var>x</span><span
+class=wff>&#x1d713;</span>))</SPAN></TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A
+HREF="ax-nunu.html">ax-nunu</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#127DFF">219</SPAN></TD><TD><SPAN ><span
+class='typecode'>&#x22a6;</span> (&nu;<span class=var>x</span>&nu;<span
+class=var>y</span><span class=wff>&#x1d711;</span> &#x29df; &nu;<span
+class=var>y</span>&nu;<span class=var>x</span><span
+class=wff>&#x1d711;</span>)</SPAN></TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A
+HREF="ax-subse1.html">ax-subse1</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#177CFF">220</SPAN></TD><TD><SPAN ><span
+class='typecode'>&#x22a6;</span> ([<span class=var>x</span> &#x2254; <span
+class=var>y</span>] [<span class=var>x</span> &#x226a; <span
+class=var>a</span>] <span class=wff>&#x1d711;</span> &#x29df; [<span
+class=var>x</span> &#x2254; <span class=var>y</span>] [<span class=var>y</span>
+&#x226a; <span class=var>a</span>] <span
+class=wff>&#x1d711;</span>)</SPAN></TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A
+HREF="ax-subse2.html">ax-subse2</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#1D7BFF">221</SPAN></TD><TD><SPAN ><span
+class='typecode'>&#x22a6;</span> ([<span class=var>x</span> &#x2254; <span
+class=var>y</span>] [<span class=var>a</span> &#x226a; <span
+class=var>x</span>] <span class=wff>&#x1d711;</span> &#x29df; [<span
+class=var>x</span> &#x2254; <span class=var>y</span>] [<span class=var>a</span>
+&#x226a; <span class=var>y</span>] <span
+class=wff>&#x1d711;</span>)</SPAN></TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A
+HREF="ax-subse3.html">ax-subse3</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#237BFF">222</SPAN></TD><TD><SPAN ><span
+class='typecode'>&#x22a6;</span> ([<span class=var>x</span> &#x2254; <span
+class=var>y</span>] [<span class=var>u</span> &#x226a; <span
+class=var>v</span>] <span class=wff>&#x1d711;</span> &#x29df; [<span
+class=var>u</span> &#x226a; <span class=var>v</span>] [<span class=var>x</span>
+&#x2254; <span class=var>y</span>] <span
+class=wff>&#x1d711;</span>)</SPAN></TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A
+HREF="ax-subre1.html">ax-subre1</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#287AFF">223</SPAN></TD><TD><SPAN ><span
+class='typecode'>&#x22a6;</span> ([<span class=var>x</span> &#x2254; <span
+class=var>y</span>] [<span class=var>x</span> &#x226b; <span
+class=var>a</span>] <span class=wff>&#x1d711;</span> &#x29df; [<span
+class=var>x</span> &#x2254; <span class=var>y</span>] [<span class=var>y</span>
+&#x226b; <span class=var>a</span>] <span
+class=wff>&#x1d711;</span>)</SPAN></TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A
+HREF="ax-subre2.html">ax-subre2</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#2E79FF">224</SPAN></TD><TD><SPAN ><span
+class='typecode'>&#x22a6;</span> ([<span class=var>x</span> &#x2254; <span
+class=var>y</span>] [<span class=var>u</span> &#x226b; <span
+class=var>v</span>] <span class=wff>&#x1d711;</span> &#x29df; [<span
+class=var>u</span> &#x226b; <span class=var>v</span>] [<span class=var>x</span>
+&#x2254; <span class=var>y</span>] <span
+class=wff>&#x1d711;</span>)</SPAN></TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A
+HREF="ax-subnu1.html">ax-subnu1</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#3479FF">225</SPAN></TD><TD><SPAN ><span
+class='typecode'>&#x22a6;</span> ([<span class=var>x</span> &#x2254; <span
+class=var>y</span>] &nu;<span class=var>x</span><span
+class=wff>&#x1d711;</span> &#x29df; &nu;<span class=var>x</span><span
+class=wff>&#x1d711;</span>)</SPAN></TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A
+HREF="ax-subnu2.html">ax-subnu2</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#3978FF">226</SPAN></TD><TD><SPAN ><span
+class='typecode'>&#x22a6;</span> ([<span class=var>x</span> &#x2254; <span
+class=var>y</span>] &nu;<span class=var>u</span><span
+class=wff>&#x1d711;</span> &#x29df; &nu;<span class=var>u</span>[<span
+class=var>x</span> &#x2254; <span class=var>y</span>] <span
+class=wff>&#x1d711;</span>)</SPAN></TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A
+HREF="ax-subid.html">ax-subid</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#3F77FF">227</SPAN></TD><TD><SPAN ><span
+class='typecode'>&#x22a6;</span> ([<span class=var>x</span> &#x2254; <span
+class=var>x</span>] <span class=wff>&#x1d711;</span> &#x29df; <span
+class=wff>&#x1d711;</span>)</SPAN></TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A
+HREF="ax-send.html">ax-send</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#4577FF">228</SPAN></TD><TD><SPAN ><span
+class='typecode'>&#x22a6;</span> (([<span class=var>z</span> &#x226a; <span
+class=var>y</span>] <span class=wff>&#x1d711;</span> &otimes; [<span
+class=var>z</span> &#x226b; <span class=var>x</span>] <span
+class=wff>&#x1d713;</span>) &#x22b8; (<span class=wff>&#x1d711;</span> &otimes;
+[<span class=var>x</span> &#x2254; <span class=var>y</span>] <span
+class=wff>&#x1d713;</span>))</SPAN></TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A
+HREF="ax-lock1.html">ax-lock1</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#4976FF">229</SPAN></TD><TD><SPAN ><span
+class='typecode'>&#x22a6;</span> (&nu;<span class=var>x</span>? [<span
+class=var>x</span> &#x226b; <span class=var>a</span>] 1 &#x22b8;
+0)</SPAN></TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A
+HREF="ax-lock2.html">ax-lock2</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#4C75FF">230</SPAN></TD><TD><SPAN ><span
+class='typecode'>&#x22a6;</span> (&nu;<span class=var>x</span>? [<span
+class=var>x</span> &#x226a; <span class=var>a</span>] 1 &#x22b8;
+0)</SPAN></TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="wnse.html">wnse</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#6D6DFF">240</SPAN></TD><TD><SPAN ><span
+class='typecode'>wff</span> [<span class=nilad>X</span> &#x25c1; <span
+class=nilad>Y</span>] <span class=wff>&#x1d711;</span></SPAN></TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="wnre.html">wnre</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#6F6CFF">241</SPAN></TD><TD><SPAN ><span
+class='typecode'>wff</span> [<span class=nilad>X</span> &#x25b7; <span
+class=var>y</span>] <span class=wff>&#x1d711;</span></SPAN></TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="wnnu.html">wnnu</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#716BFF">242</SPAN></TD><TD><SPAN ><span
+class='typecode'>wff</span> &nabla;<span class=var>x</span><span
+class=wff>&#x1d711;</span></SPAN></TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A
+HREF="df-nse.html">df-nse</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#746AFF">243</SPAN></TD><TD><SPAN ><span
+class='typecode'>&#x22a6;</span> ([<span class=nilad>X</span> &#x25c1; <span
+class=nilad>Y</span>] <span class=wff>&#x1d711;</span> &#x29df; ~ [<span
+class=nilad>X</span> &#x226a; <span class=nilad>Y</span>] ~ <span
+class=wff>&#x1d711;</span>)</SPAN></TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A
+HREF="df-nre.html">df-nre</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#7669FF">244</SPAN></TD><TD><SPAN ><span
+class='typecode'>&#x22a6;</span> ([<span class=nilad>X</span> &#x25b7; <span
+class=var>y</span>] <span class=wff>&#x1d711;</span> &#x29df; ~ [<span
+class=nilad>X</span> &#x226b; <span class=var>y</span>] ~ <span
+class=wff>&#x1d711;</span>)</SPAN></TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A
+HREF="df-nnu.html">df-nnu</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#7869FF">245</SPAN></TD><TD><SPAN ><span
+class='typecode'>&#x22a6;</span> (&nabla;<span class=var>x</span><span
+class=wff>&#x1d711;</span> &#x29df; ~ &nu;<span class=var>x</span>~ <span
+class=wff>&#x1d711;</span>)</SPAN></TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="weq.html">weq</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#7A68FF">246</SPAN></TD><TD><SPAN ><span
+class='typecode'>wff</span> <span class=nilad>X</span> = <span
+class=nilad>Y</span></SPAN></TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="df-eq.html">df-eq</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#7D67FF">247</SPAN></TD><TD><SPAN ><span
+class='typecode'>&#x22a6;</span> (<span class=nilad>X</span> = <span
+class=nilad>Y</span> &#x29df; &nabla;<span class=var>a</span>([<span
+class=var>a</span> &#x226a; <span class=nilad>X</span>] [<span
+class=var>a</span> &#x226b; <span class=var>b</span>] 1 &#x29df; [<span
+class=var>a</span> &#x226a; <span class=nilad>Y</span>] [<span
+class=var>a</span> &#x226b; <span class=var>b</span>] 1))</SPAN></TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="nnab.html">nnab</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#AB4AFF">266</SPAN></TD><TD><SPAN ><span
+class='typecode'>nilad</span> {<span class=var>x</span> | <span
+class=wff>&#x1d711;</span>}</SPAN></TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A
+HREF="df-nab.html">df-nab</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#AC49FF">267</SPAN></TD><TD><SPAN ><span
+class='typecode'>&#x22a6;</span> ([<span class=var>x</span> &#x226a; {<span
+class=var>y</span> | <span class=wff>&#x1d711;</span>}] <span
+class=wff>&#x1d713;</span> &#x29df; (<span class=wff>&#x1d711;</span> &otimes;
+[<span class=var>y</span> &#x226b; <span class=var>a</span>] [<span
+class=var>x</span> &#x226a; <span class=var>a</span>] <span
+class=wff>&#x1d713;</span>))</SPAN></TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="nvnab.html">nvnab</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#B242FF">271</SPAN></TD><TD><SPAN ><span
+class='typecode'>nilad</span> {&nu;<span class=var>x</span> | <span
+class=wff>&#x1d711;</span>}</SPAN></TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A
+HREF="df-vnab.html">df-vnab</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#B440FF">272</SPAN></TD><TD><SPAN ><span
+class='typecode'>&#x22a6;</span> {&nu;<span class=var>x</span> | <span
+class=wff>&#x1d711;</span>} = {<span class=var>r</span> | &nu;<span
+class=var>x</span>[<span class=var>r</span> &#x226a; <span class=var>x</span>]
+<span class=wff>&#x1d711;</span>}</SPAN></TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="nsub.html">nsub</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#BB37FE">277</SPAN></TD><TD><SPAN ><span
+class='typecode'>nilad</span> [<span class=var>x</span> &#x2254; <span
+class=nilad>Y</span>] <span class=nilad>A</span></SPAN></TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A
+HREF="df-nsub.html">df-nsub</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#BC35FE">278</SPAN></TD><TD><SPAN ><span
+class='typecode'>&#x22a6;</span> [<span class=var>x</span> &#x2254; <span
+class=nilad>Y</span>] <span class=nilad>F</span> = {<span class=var>r</span> |
+&nu;<span class=var>a</span>[<span class=var>x</span> &#x2254; <span
+class=var>y</span>] [<span class=nilad>F</span> &#x226b; <span
+class=var>f</span>] [<span class=var>r</span> &#x226a; <span
+class=var>f</span>] 1}</SPAN></TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="nla.html">nla</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#BE33FD">279</SPAN></TD><TD><SPAN ><span
+class='typecode'>nilad</span> &lambda;<span class=var>x</span><span
+class=nilad>Y</span></SPAN></TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="df-la.html">df-la</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#BF31FD">280</SPAN></TD><TD><SPAN ><span
+class='typecode'>&#x22a6;</span> &lambda;<span class=var>x</span><span
+class=nilad>Y</span> = {&nu;<span class=var>f</span> | ! [<span
+class=var>f</span> &#x226b; <span class=var>a</span>] [<span class=var>a</span>
+&#x226b; <span class=var>x</span>] [<span class=var>a</span> &#x226a; <span
+class=nilad>Y</span>] 1}</SPAN></TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="nfv.html">nfv</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#C12FFC">281</SPAN></TD><TD><SPAN ><span
+class='typecode'>nilad</span> (<span class=nilad>F</span>' <span
+class=nilad>X</span>)</SPAN></TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="df-fv.html">df-fv</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#C22DFC">282</SPAN></TD><TD><SPAN ><span
+class='typecode'>&#x22a6;</span> (<span class=nilad>F</span>' <span
+class=nilad>X</span>) = {<span class=var>r</span> | &nu;<span
+class=var>a</span>[<span class=nilad>F</span> &#x226a; <span
+class=var>a</span>] [<span class=var>a</span> &#x226a; <span
+class=nilad>X</span>] [<span class=var>a</span> &#x226b; <span
+class=var>y</span>] [<span class=var>r</span> &#x226a; <span
+class=var>y</span>] 1}</SPAN></TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="nov.html">nov</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#C529FB">284</SPAN></TD><TD><SPAN ><span
+class='typecode'>nilad</span> (<span class=nilad>A</span><span
+class=nilad>F</span><span class=nilad>B</span>)</SPAN></TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="df-ov.html">df-ov</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#C727FA">285</SPAN></TD><TD><SPAN ><span
+class='typecode'>&#x22a6;</span> (<span class=nilad>A</span><span
+class=nilad>F</span><span class=nilad>B</span>) = ((<span class=nilad>F</span>'
+<span class=nilad>A</span>)' <span class=nilad>B</span>)</SPAN></TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="nss.html">nss</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#C825FA">286</SPAN></TD><TD><SPAN ><span
+class='typecode'>nilad</span> S</SPAN></TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="nkk.html">nkk</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#CA23F9">287</SPAN></TD><TD><SPAN ><span
+class='typecode'>nilad</span> K</SPAN></TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="nii.html">nii</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#CB21F9">288</SPAN></TD><TD><SPAN ><span
+class='typecode'>nilad</span> I</SPAN></TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="niota.html">niota</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#CC1FF7">289</SPAN></TD><TD><SPAN ><span
+class='typecode'>nilad</span> &iota;</SPAN></TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="df-ss.html">df-ss</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#CD1EF6">290</SPAN></TD><TD><SPAN ><span
+class='typecode'>&#x22a6;</span> S = &lambda;<span
+class=var>a</span>&lambda;<span class=var>b</span>&lambda;<span
+class=var>c</span>((<span class=var>b</span>' <span class=var>a</span>)' (<span
+class=var>c</span>' <span class=var>a</span>))</SPAN></TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="df-kk.html">df-kk</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#CE1CF5">291</SPAN></TD><TD><SPAN ><span
+class='typecode'>&#x22a6;</span> K = &lambda;<span
+class=var>a</span>&lambda;<span class=var>b</span><span
+class=var>a</span></SPAN></TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="df-ii.html">df-ii</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#CE1BF4">292</SPAN></TD><TD><SPAN ><span
+class='typecode'>&#x22a6;</span> I = &lambda;<span class=var>a</span><span
+class=var>a</span></SPAN></TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A
+HREF="df-iota.html">df-iota</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#CF1AF3">293</SPAN></TD><TD><SPAN ><span
+class='typecode'>&#x22a6;</span> &iota; = &lambda;<span
+class=var>f</span>((<span class=var>f</span>' S)' K)</SPAN></TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="ntru.html">ntru</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#D214EE">297</SPAN></TD><TD><SPAN ><span
+class='typecode'>nilad</span> True</SPAN></TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="nfal.html">nfal</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#D312ED">298</SPAN></TD><TD><SPAN ><span
+class='typecode'>nilad</span> False</SPAN></TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A
+HREF="df-tru.html">df-tru</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#D411EC">299</SPAN></TD><TD><SPAN ><span
+class='typecode'>&#x22a6;</span> True = &lambda;<span
+class=var>x</span>&lambda;<span class=var>y</span><span
+class=var>x</span></SPAN></TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A
+HREF="df-fal.html">df-fal</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#D410EB">300</SPAN></TD><TD><SPAN ><span
+class='typecode'>&#x22a6;</span> False = &lambda;<span
+class=var>x</span>&lambda;<span class=var>y</span><span
+class=var>y</span></SPAN></TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A
+HREF="weqtru.html">weqtru</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#D50EEA">301</SPAN></TD><TD><SPAN ><span
+class='typecode'>wff</span> &#x22a8; <span
+class=nilad>P</span></SPAN></TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A
+HREF="weqfal.html">weqfal</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#D60DE8">302</SPAN></TD><TD><SPAN ><span
+class='typecode'>wff</span> &#x22ad; <span
+class=nilad>P</span></SPAN></TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A
+HREF="df-eqtru.html">df-eqtru</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#D60CE7">303</SPAN></TD><TD><SPAN ><span
+class='typecode'>&#x22a6;</span> (<span class=nilad>P</span> = True &#x29df;
+&#x22a8; <span class=nilad>P</span>)</SPAN></TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A
+HREF="df-eqfal.html">df-eqfal</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#D70AE6">304</SPAN></TD><TD><SPAN ><span
+class='typecode'>&#x22a6;</span> (<span class=nilad>P</span> = False &#x29df;
+&#x22ad; <span class=nilad>P</span>)</SPAN></TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A
+HREF="nlimpl.html">nlimpl</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#DA05E2">308</SPAN></TD><TD><SPAN ><span
+class='typecode'>nilad</span> Impl</SPAN></TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="nland.html">nland</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#DA04E1">309</SPAN></TD><TD><SPAN ><span
+class='typecode'>nilad</span> And</SPAN></TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="nlor.html">nlor</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#DB02E0">310</SPAN></TD><TD><SPAN ><span
+class='typecode'>nilad</span> Or</SPAN></TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="nlnot.html">nlnot</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#DC01DF">311</SPAN></TD><TD><SPAN ><span
+class='typecode'>nilad</span> Not</SPAN></TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="nliff.html">nliff</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#DC00DE">312</SPAN></TD><TD><SPAN ><span
+class='typecode'>nilad</span> Iff</SPAN></TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A
+HREF="df-limpl.html">df-limpl</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#DD00DA">313</SPAN></TD><TD><SPAN ><span
+class='typecode'>&#x22a6;</span> Impl = &lambda;<span
+class=var>a</span>&lambda;<span class=var>b</span>(<span
+class=var>b</span><span class=var>a</span>True)</SPAN></TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A
+HREF="df-land.html">df-land</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#DE00D5">314</SPAN></TD><TD><SPAN ><span
+class='typecode'>&#x22a6;</span> And = &lambda;<span
+class=var>a</span>&lambda;<span class=var>b</span>(<span
+class=var>b</span><span class=var>a</span>False)</SPAN></TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A
+HREF="df-lor.html">df-lor</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#DF00D1">315</SPAN></TD><TD><SPAN ><span
+class='typecode'>&#x22a6;</span> Or = &lambda;<span
+class=var>a</span>&lambda;<span class=var>b</span>(True<span
+class=var>a</span><span class=var>b</span>)</SPAN></TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A
+HREF="df-lnot.html">df-lnot</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#E000CD">316</SPAN></TD><TD><SPAN ><span
+class='typecode'>&#x22a6;</span> Not = &lambda;<span
+class=var>a</span>&lambda;<span class=var>x</span>&lambda;<span
+class=var>y</span>(<span class=var>y</span><span class=var>a</span><span
+class=var>x</span>)</SPAN></TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A
+HREF="df-liff.html">df-liff</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#E100C9">317</SPAN></TD><TD><SPAN ><span
+class='typecode'>&#x22a6;</span> Iff = &lambda;<span
+class=var>a</span>&lambda;<span class=var>b</span>(<span
+class=var>b</span><span class=var>a</span>(Not' <span
+class=var>b</span>))</SPAN></TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="wal.html">wal</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#E200C5">318</SPAN></TD><TD><SPAN ><span
+class='typecode'>wff</span> &forall;<span class=var>x</span><span
+class=wff>&#x1d711;</span></SPAN></TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="wex.html">wex</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#E300C1">319</SPAN></TD><TD><SPAN ><span
+class='typecode'>wff</span> &exist;<span class=var>x</span><span
+class=wff>&#x1d711;</span></SPAN></TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="wnf.html">wnf</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#E400BC">320</SPAN></TD><TD><SPAN ><span
+class='typecode'>wff</span> &#8498;<span class=var>x</span><span
+class=wff>&#x1d711;</span></SPAN></TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="wel.html">wel</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#E600B4">322</SPAN></TD><TD><SPAN ><span
+class='typecode'>wff</span> <span class=var>x</span> &isin; <span
+class=var>y</span></SPAN></TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A
+HREF="ax-genOLD.html">ax-genOLD</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#E700B0">323</SPAN></TD><TD><SPAN ><span
+class='typecode'>&#x22a6;</span> <span
+class=wff>&#x1d711;</span></SPAN>&nbsp;&nbsp;&nbsp; <FONT
+FACE=sans-serif>&#8658;</FONT>&nbsp;&nbsp;&nbsp;<SPAN ><span
+class='typecode'>&#x22a6;</span> &forall;<span class=var>x</span><span
+class=wff>&#x1d711;</span></SPAN></TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A
+HREF="ax-almd.html">ax-almd</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#E800AC">324</SPAN></TD><TD><SPAN ><span
+class='typecode'>&#x22a6;</span> (&forall;<span class=var>x</span>(<span
+class=wff>&#x1d711;</span> &#x22b8; <span class=wff>&#x1d713;</span>) &#x22b8;
+(&forall;<span class=var>x</span><span class=wff>&#x1d711;</span> &#x22b8;
+&forall;<span class=var>x</span><span
+class=wff>&#x1d713;</span>))</SPAN></TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A
+HREF="ax-dis.html">ax-dis</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#E900A8">325</SPAN></TD><TD><SPAN ><span
+class='typecode'>&#x22a6;</span> (<span class=wff>&#x1d711;</span> &#x22b8;
+&forall;<span class=var>x</span><span
+class=wff>&#x1d711;</span>)</SPAN></TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="ax-ex.html">ax-ex</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#E900A5">326</SPAN></TD><TD><SPAN ><span
+class='typecode'>&#x22a6;</span> ~ &forall;<span class=var>x</span>~ <span
+class=var>x</span> = <span class=var>y</span></SPAN></TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A
+HREF="ax-eqeu.html">ax-eqeu</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#EA00A2">327</SPAN></TD><TD><SPAN ><span
+class='typecode'>&#x22a6;</span> (<span class=var>x</span> = <span
+class=var>y</span> &#x22b8; (<span class=var>x</span> = <span
+class=var>z</span> &#x22b8; <span class=var>y</span> = <span
+class=var>z</span>))</SPAN></TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A
+HREF="ax-eleq1.html">ax-eleq1</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#EA009E">328</SPAN></TD><TD><SPAN ><span
+class='typecode'>&#x22a6;</span> (<span class=var>x</span> = <span
+class=var>y</span> &#x22b8; (<span class=var>x</span> &isin; <span
+class=var>z</span> &#x22b8; <span class=var>y</span> &isin; <span
+class=var>z</span>))</SPAN></TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A
+HREF="ax-eleq2.html">ax-eleq2</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#EB009B">329</SPAN></TD><TD><SPAN ><span
+class='typecode'>&#x22a6;</span> (<span class=var>x</span> = <span
+class=var>y</span> &#x22b8; (<span class=var>z</span> &isin; <span
+class=var>x</span> &#x22b8; <span class=var>z</span> &isin; <span
+class=var>y</span>))</SPAN></TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A
+HREF="ax-negf.html">ax-negf</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#EB0098">330</SPAN></TD><TD><SPAN ><span
+class='typecode'>&#x22a6;</span> (~ &forall;<span class=var>x</span><span
+class=wff>&#x1d711;</span> &#x22b8; &forall;<span class=var>x</span>~
+&forall;<span class=var>x</span><span
+class=wff>&#x1d711;</span>)</SPAN></TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A
+HREF="ax-alcom.html">ax-alcom</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#EC0094">331</SPAN></TD><TD><SPAN ><span
+class='typecode'>&#x22a6;</span> (&forall;<span class=var>x</span>&forall;<span
+class=var>y</span><span class=wff>&#x1d711;</span> &#x22b8; &forall;<span
+class=var>y</span>&forall;<span class=var>x</span><span
+class=wff>&#x1d711;</span>)</SPAN></TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A
+HREF="ax-sub.html">ax-sub</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#EC0091">332</SPAN></TD><TD><SPAN ><span
+class='typecode'>&#x22a6;</span> (<span class=var>x</span> = <span
+class=var>y</span> &#x22b8; (&forall;<span class=var>y</span><span
+class=wff>&#x1d711;</span> &#x22b8; &forall;<span class=var>x</span>(<span
+class=var>x</span> = <span class=var>y</span> &#x22b8; <span
+class=wff>&#x1d711;</span>)))</SPAN></TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A
+HREF="ax-aleq.html">ax-aleq</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#ED008E">333</SPAN></TD><TD><SPAN ><span
+class='typecode'>&#x22a6;</span> (~ <span class=var>x</span> = <span
+class=var>y</span> &#x22b8; (<span class=var>y</span> = <span
+class=var>z</span> &#x22b8; &forall;<span class=var>x</span> <span
+class=var>y</span> = <span class=var>z</span>))</SPAN></TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="df-ex.html">df-ex</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#ED008A">334</SPAN></TD><TD><SPAN ><span
+class='typecode'>&#x22a6;</span> (&exist;<span class=var>x</span><span
+class=wff>&#x1d711;</span> &#x29df; ~ &forall;<span class=var>x</span>~ <span
+class=wff>&#x1d711;</span>)</SPAN></TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="df-nf.html">df-nf</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#EE0087">335</SPAN></TD><TD><SPAN ><span
+class='typecode'>&#x22a6;</span> (&#8498;<span class=var>x</span><span
+class=wff>&#x1d711;</span> &#x29df; (~ <span class=wff>&#x1d711;</span>
+&#x22b8; &forall;<span class=var>x</span><span
+class=wff>&#x1d711;</span>))</SPAN></TD></TR>
+</TABLE></CENTER>
+<TABLE BORDER=0 WIDTH="100%">
+<TR><TD WIDTH="25%">&nbsp;</TD>
+<TD ALIGN=CENTER VALIGN=BOTTOM>
+<FONT SIZE=-2 FACE=sans-serif>
+Copyright terms:
+<A HREF="../copyright.html#pd">Public domain</A>
+</FONT></TD><TD ALIGN=RIGHT VALIGN=BOTTOM WIDTH="25%">
+<FONT SIZE=-2 FACE=sans-serif>
+<A HREF="http://validator.w3.org/check?uri=referer">
+W3C validator</A>
+</FONT></TD></TR></TABLE>
+</BODY></HTML>

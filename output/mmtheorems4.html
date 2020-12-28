@@ -1,0 +1,573 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+    "http://www.w3.org/TR/html4/loose.dtd">
+<HTML LANG="EN-US">
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
+<STYLE TYPE="text/css">
+<!--
+img { margin-bottom: -4px }
+.r { font-family: "Arial Narrow";
+     font-size: x-small;
+   }
+-->
+</STYLE>
+<STYLE TYPE="text/css">
+<!--
+  .wff { color: blue; }
+  .var { color: red; }
+  .nilad { color: #C3C; }
+  .symvar { border-bottom:1px dotted;color:#C3C}
+  .typecode { color: gray }
+  .hidden { color: gray }
+  @font-face {
+    font-family: XITSMath-Regular;
+    src: url(xits-math.woff);
+  }
+  .math { font-family: XITSMath-Regular }
+  .desc-table { border: 1px outset grey }
+  .desc-table td, .desc-table th { border: 1px inset grey }
+  .command {
+    border: 1px solid black;
+    padding: 0em 0.1em;
+    margin: 0em 0.1em;
+    border-radius: 2px;
+  }
+-->
+</STYLE>
+<TITLE>P. 4 of Theorem List - Linear Logic Proof Explorer</TITLE>
+<LINK REL="shortcut icon" HREF="favicon.ico" TYPE="image/x-icon">
+<STYLE TYPE="text/css">
+<!--
+img { margin-bottom: -4px }
+-->
+</STYLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+<TABLE BORDER=0 WIDTH="100%"><TR>
+<TD ALIGN=LEFT VALIGN=TOP WIDTH="25%"
+ROWSPAN=2><A HREF="mmset.html"><FONT SIZE=-2 FACE=sans-serif><IMG SRC="mm.gif"
+BORDER=0 ALT="Home" HEIGHT=32 WIDTH=32 ALIGN=MIDDLE
+STYLE="margin-bottom:0px">Home</FONT></A></TD>
+<TD NOWRAP ALIGN=CENTER ROWSPAN=2><FONT SIZE="+3" COLOR="#006633"><B>Linear
+Logic Proof Explorer</B></FONT><BR><FONT SIZE="+2" COLOR="#006633"><B>Theorem
+List (p. 4 of 4)</B></FONT>
+</TD><TD NOWRAP ALIGN=RIGHT VALIGN=TOP WIDTH="25%"><FONT
+ SIZE=-1 FACE=sans-serif>
+<A HREF="mmtheorems3.html">&lt; Previous</A>&nbsp;&nbsp;<A
+ HREF="mmtheorems.html">Wrap &gt;</A>
+<TR>
+<TD COLSPAN=3 ALIGN=LEFT VALIGN=TOP><FONT SIZE=-2 FACE=sans-serif>
+<BR>
+<A HREF="../mm.html">Mirrors</A>
+&nbsp;&gt;&nbsp;<A HREF="../index.html">
+Metamath Home Page</A>
+&nbsp;&gt;&nbsp;<A HREF="">
+LLPE Home Page</A>
+&nbsp;&gt;&nbsp;<A HREF="mmtheorems.html">
+Theorem List Contents</A>
+&nbsp; &nbsp; &nbsp; <B><FONT COLOR="#006633">
+This page:</FONT></B> 
+<A HREF="#mmpglst">Page List</A>
+</FONT>
+</TD>
+</TR></TABLE>
+<HR NOSHADE SIZE=1>
+<A NAME="mmstmtlst"></A>
+
+<P><CENTER>
+<TABLE BORDER CELLSPACING=0 CELLPADDING=3 BGCOLOR="#EEFFFA"
+SUMMARY="Theorem List for Linear Logic Proof Explorer">
+<CAPTION><B>Theorem List for Linear Logic Proof Explorer - </B><SPAN CLASS=r
+ STYLE="color:#D50EEA">301</SPAN><B>-</B><SPAN CLASS=r
+ STYLE="color:#EE0087">335</SPAN> &nbsp; *Has distinct variable
+ group(s)</CAPTION>
+
+<TR><TH>Type</TH><TH>Label</TH><TH>Description</TH></TR>
+<TR><TH COLSPAN=3>Statement</TH></TR>
+
+<TR BGCOLOR=white><TD COLSPAN=3><FONT SIZE=-3>&nbsp;</FONT></TD></TR>
+
+
+<TR><TD NOWRAP><B><FONT COLOR="#00CC00">Syntax</FONT></B></TD><TD
+ ALIGN=CENTER><A HREF="weqtru.html">weqtru</A>&nbsp;<SPAN CLASS=r
+ STYLE="color:#D50EEA">301</SPAN></TD><TD ALIGN=LEFT><A NAME="weqtru"></A>
+Truth judgement.
+
+</TD></TR><TR><TD COLSPAN=3 ALIGN=CENTER><SPAN ><span
+ class='typecode'>wff</span> &#x22a8; <span
+ class=nilad>P</span></SPAN></TD></TR>
+<TR BGCOLOR=white><TD COLSPAN=3><FONT SIZE=-3>&nbsp;</FONT></TD></TR>
+
+<TR><TD NOWRAP><B><FONT COLOR="#00CC00">Syntax</FONT></B></TD><TD
+ ALIGN=CENTER><A HREF="weqfal.html">weqfal</A>&nbsp;<SPAN CLASS=r
+ STYLE="color:#D60DE8">302</SPAN></TD><TD ALIGN=LEFT><A NAME="weqfal"></A>
+Falsity judgement.
+
+</TD></TR><TR><TD COLSPAN=3 ALIGN=CENTER><SPAN ><span
+ class='typecode'>wff</span> &#x22ad; <span
+ class=nilad>P</span></SPAN></TD></TR>
+<TR BGCOLOR=white><TD COLSPAN=3><FONT SIZE=-3>&nbsp;</FONT></TD></TR>
+
+<TR><TD NOWRAP><B><FONT COLOR=blue>Definition</FONT></B></TD><TD
+ ALIGN=CENTER><A HREF="df-eqtru.html">df-eqtru</A>&nbsp;<SPAN CLASS=r
+ STYLE="color:#D60CE7">303</SPAN></TD><TD ALIGN=LEFT><A NAME="df-eqtru"></A>
+A shorthand way of saying that a church-encoded value is true. I would totally
+use this as a new typecode, so I could prove statements with <SPAN
+>&#x22a8;</SPAN> instead of <SPAN ><span
+class='typecode'>&#x22a6;</span></SPAN>, but it turns out that adds needless
+complexity (and mmj2 doesn't like it).
+
+</TD></TR><TR><TD COLSPAN=3 ALIGN=CENTER><SPAN ><span
+ class='typecode'>&#x22a6;</span> (<span class=nilad>P</span> = True &#x29df;
+ &#x22a8; <span class=nilad>P</span>)</SPAN></TD></TR>
+<TR BGCOLOR=white><TD COLSPAN=3><FONT SIZE=-3>&nbsp;</FONT></TD></TR>
+
+<TR><TD NOWRAP><B><FONT COLOR=blue>Definition</FONT></B></TD><TD
+ ALIGN=CENTER><A HREF="df-eqfal.html">df-eqfal</A>&nbsp;<SPAN CLASS=r
+ STYLE="color:#D70AE6">304</SPAN></TD><TD ALIGN=LEFT><A NAME="df-eqfal"></A>
+A shorthand way of saying that a church-encoded value is false. Note that this
+is not the opposite of <A HREF="df-eqtru.html">df-eqtru</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#D60CE7">303</SPAN> (although they do exclude each other), since
+there are many more things an expression could equal.
+
+</TD></TR><TR><TD COLSPAN=3 ALIGN=CENTER><SPAN ><span
+ class='typecode'>&#x22a6;</span> (<span class=nilad>P</span> = False &#x29df;
+ &#x22ad; <span class=nilad>P</span>)</SPAN></TD></TR>
+<TR BGCOLOR=white><TD COLSPAN=3><FONT SIZE=-3>&nbsp;</FONT></TD></TR>
+
+<TR><TD NOWRAP>Theorem</TD><TD ALIGN=CENTER><A
+ HREF="dfeqtru1i.html">dfeqtru1i</A>&nbsp;<SPAN CLASS=r
+ STYLE="color:#D809E5">305</SPAN></TD><TD ALIGN=LEFT><A NAME="dfeqtru1i"></A>
+Introduce <SPAN >&#x22a8;</SPAN>.
+
+</TD></TR><TR><TD COLSPAN=3 ALIGN=CENTER><SPAN ><span
+ class='typecode'>&#x22a6;</span> <span class=nilad>P</span> =
+ True</SPAN>&nbsp;&nbsp;&nbsp; <FONT
+ FACE=sans-serif>&#8658;</FONT>&nbsp;&nbsp;&nbsp;<SPAN ><span
+ class='typecode'>&#x22a6;</span> &#x22a8; <span
+ class=nilad>P</span></SPAN></TD></TR>
+<TR BGCOLOR=white><TD COLSPAN=3><FONT SIZE=-3>&nbsp;</FONT></TD></TR>
+
+<TR><TD NOWRAP>Theorem</TD><TD ALIGN=CENTER><A
+ HREF="dfeqtru2i.html">dfeqtru2i</A>&nbsp;<SPAN CLASS=r
+ STYLE="color:#D808E4">306</SPAN></TD><TD ALIGN=LEFT><A NAME="dfeqtru2i"></A>
+Eliminate <SPAN >&#x22a8;</SPAN>.
+
+</TD></TR><TR><TD COLSPAN=3 ALIGN=CENTER><SPAN ><span
+ class='typecode'>&#x22a6;</span> &#x22a8; <span
+ class=nilad>P</span></SPAN>&nbsp;&nbsp;&nbsp; <FONT
+ FACE=sans-serif>&#8658;</FONT>&nbsp;&nbsp;&nbsp;<SPAN ><span
+ class='typecode'>&#x22a6;</span> <span class=nilad>P</span> =
+ True</SPAN></TD></TR>
+<TR BGCOLOR=white><TD COLSPAN=3><FONT SIZE=-3>&nbsp;</FONT></TD></TR>
+
+<TR><TD NOWRAP>Theorem</TD><TD ALIGN=CENTER><A
+ HREF="tru.html">tru</A>&nbsp;<SPAN CLASS=r
+ STYLE="color:#D906E3">307</SPAN></TD><TD ALIGN=LEFT><A NAME="tru"></A>
+<SPAN >True</SPAN> is true. Who'd've thunk it.
+
+</TD></TR><TR><TD COLSPAN=3 ALIGN=CENTER><SPAN ><span
+ class='typecode'>&#x22a6;</span> &#x22a8; True</SPAN></TD></TR>
+<TR BGCOLOR=white><TD COLSPAN=3><FONT SIZE=-3>&nbsp;</FONT></TD></TR>
+
+<TR><TD NOWRAP><B><FONT COLOR="#00CC00">Syntax</FONT></B></TD><TD
+ ALIGN=CENTER><A HREF="nlimpl.html">nlimpl</A>&nbsp;<SPAN CLASS=r
+ STYLE="color:#DA05E2">308</SPAN></TD><TD ALIGN=LEFT><A NAME="nlimpl"></A>
+Function representing logical implication.
+
+</TD></TR><TR><TD COLSPAN=3 ALIGN=CENTER><SPAN ><span
+ class='typecode'>nilad</span> Impl</SPAN></TD></TR>
+<TR BGCOLOR=white><TD COLSPAN=3><FONT SIZE=-3>&nbsp;</FONT></TD></TR>
+
+<TR><TD NOWRAP><B><FONT COLOR="#00CC00">Syntax</FONT></B></TD><TD
+ ALIGN=CENTER><A HREF="nland.html">nland</A>&nbsp;<SPAN CLASS=r
+ STYLE="color:#DA04E1">309</SPAN></TD><TD ALIGN=LEFT><A NAME="nland"></A>
+Function representing logical conjunction.
+
+</TD></TR><TR><TD COLSPAN=3 ALIGN=CENTER><SPAN ><span
+ class='typecode'>nilad</span> And</SPAN></TD></TR>
+<TR BGCOLOR=white><TD COLSPAN=3><FONT SIZE=-3>&nbsp;</FONT></TD></TR>
+
+<TR><TD NOWRAP><B><FONT COLOR="#00CC00">Syntax</FONT></B></TD><TD
+ ALIGN=CENTER><A HREF="nlor.html">nlor</A>&nbsp;<SPAN CLASS=r
+ STYLE="color:#DB02E0">310</SPAN></TD><TD ALIGN=LEFT><A NAME="nlor"></A>
+Function representing logical disjunction.
+
+</TD></TR><TR><TD COLSPAN=3 ALIGN=CENTER><SPAN ><span
+ class='typecode'>nilad</span> Or</SPAN></TD></TR>
+<TR BGCOLOR=white><TD COLSPAN=3><FONT SIZE=-3>&nbsp;</FONT></TD></TR>
+
+<TR><TD NOWRAP><B><FONT COLOR="#00CC00">Syntax</FONT></B></TD><TD
+ ALIGN=CENTER><A HREF="nlnot.html">nlnot</A>&nbsp;<SPAN CLASS=r
+ STYLE="color:#DC01DF">311</SPAN></TD><TD ALIGN=LEFT><A NAME="nlnot"></A>
+Function representing logical negation.
+
+</TD></TR><TR><TD COLSPAN=3 ALIGN=CENTER><SPAN ><span
+ class='typecode'>nilad</span> Not</SPAN></TD></TR>
+<TR BGCOLOR=white><TD COLSPAN=3><FONT SIZE=-3>&nbsp;</FONT></TD></TR>
+
+<TR><TD NOWRAP><B><FONT COLOR="#00CC00">Syntax</FONT></B></TD><TD
+ ALIGN=CENTER><A HREF="nliff.html">nliff</A>&nbsp;<SPAN CLASS=r
+ STYLE="color:#DC00DE">312</SPAN></TD><TD ALIGN=LEFT><A NAME="nliff"></A>
+Function representing logical biconditional.
+
+</TD></TR><TR><TD COLSPAN=3 ALIGN=CENTER><SPAN ><span
+ class='typecode'>nilad</span> Iff</SPAN></TD></TR>
+<TR BGCOLOR=white><TD COLSPAN=3><FONT SIZE=-3>&nbsp;</FONT></TD></TR>
+
+<TR><TD NOWRAP><B><FONT COLOR=blue>Definition</FONT></B></TD><TD
+ ALIGN=CENTER><A HREF="df-limpl.html">df-limpl</A>&nbsp;<SPAN CLASS=r
+ STYLE="color:#DD00DA">313</SPAN>*</TD><TD ALIGN=LEFT><A NAME="df-limpl"></A>
+Church-encoding of logical conjunction.
+
+</TD></TR><TR><TD COLSPAN=3 ALIGN=CENTER><SPAN ><span
+ class='typecode'>&#x22a6;</span> Impl = &lambda;<span
+ class=var>a</span>&lambda;<span class=var>b</span>(<span
+ class=var>b</span><span class=var>a</span>True)</SPAN></TD></TR>
+<TR BGCOLOR=white><TD COLSPAN=3><FONT SIZE=-3>&nbsp;</FONT></TD></TR>
+
+<TR><TD NOWRAP><B><FONT COLOR=blue>Definition</FONT></B></TD><TD
+ ALIGN=CENTER><A HREF="df-land.html">df-land</A>&nbsp;<SPAN CLASS=r
+ STYLE="color:#DE00D5">314</SPAN>*</TD><TD ALIGN=LEFT><A NAME="df-land"></A>
+Church-encoding of logical conjunction.
+
+</TD></TR><TR><TD COLSPAN=3 ALIGN=CENTER><SPAN ><span
+ class='typecode'>&#x22a6;</span> And = &lambda;<span
+ class=var>a</span>&lambda;<span class=var>b</span>(<span
+ class=var>b</span><span class=var>a</span>False)</SPAN></TD></TR>
+<TR BGCOLOR=white><TD COLSPAN=3><FONT SIZE=-3>&nbsp;</FONT></TD></TR>
+
+<TR><TD NOWRAP><B><FONT COLOR=blue>Definition</FONT></B></TD><TD
+ ALIGN=CENTER><A HREF="df-lor.html">df-lor</A>&nbsp;<SPAN CLASS=r
+ STYLE="color:#DF00D1">315</SPAN>*</TD><TD ALIGN=LEFT><A NAME="df-lor"></A>
+Church-encoding of logical disjunction.
+
+</TD></TR><TR><TD COLSPAN=3 ALIGN=CENTER><SPAN ><span
+ class='typecode'>&#x22a6;</span> Or = &lambda;<span
+ class=var>a</span>&lambda;<span class=var>b</span>(True<span
+ class=var>a</span><span class=var>b</span>)</SPAN></TD></TR>
+<TR BGCOLOR=white><TD COLSPAN=3><FONT SIZE=-3>&nbsp;</FONT></TD></TR>
+
+<TR><TD NOWRAP><B><FONT COLOR=blue>Definition</FONT></B></TD><TD
+ ALIGN=CENTER><A HREF="df-lnot.html">df-lnot</A>&nbsp;<SPAN CLASS=r
+ STYLE="color:#E000CD">316</SPAN>*</TD><TD ALIGN=LEFT><A NAME="df-lnot"></A>
+Church-encoding of logical negation.
+
+</TD></TR><TR><TD COLSPAN=3 ALIGN=CENTER><SPAN ><span
+ class='typecode'>&#x22a6;</span> Not = &lambda;<span
+ class=var>a</span>&lambda;<span class=var>x</span>&lambda;<span
+ class=var>y</span>(<span class=var>y</span><span class=var>a</span><span
+ class=var>x</span>)</SPAN></TD></TR>
+<TR BGCOLOR=white><TD COLSPAN=3><FONT SIZE=-3>&nbsp;</FONT></TD></TR>
+
+<TR><TD NOWRAP><B><FONT COLOR=blue>Definition</FONT></B></TD><TD
+ ALIGN=CENTER><A HREF="df-liff.html">df-liff</A>&nbsp;<SPAN CLASS=r
+ STYLE="color:#E100C9">317</SPAN>*</TD><TD ALIGN=LEFT><A NAME="df-liff"></A>
+Church-encoding of logical biconditional.
+
+</TD></TR><TR><TD COLSPAN=3 ALIGN=CENTER><SPAN ><span
+ class='typecode'>&#x22a6;</span> Iff = &lambda;<span
+ class=var>a</span>&lambda;<span class=var>b</span>(<span
+ class=var>b</span><span class=var>a</span>(Not' <span
+ class=var>b</span>))</SPAN></TD></TR>
+<TR BGCOLOR=white><TD COLSPAN=3><FONT SIZE=-3>&nbsp;</FONT></TD></TR>
+
+<TR BGCOLOR="#FFFFF2"><TD COLSPAN=3><CENTER><FONT SIZE="+1"><B><A
+ NAME="mm318b"></A>1.5&nbsp;&nbsp;Quantifiers and equality</B></FONT></CENTER>
+<P STYLE="margin-bottom:0em">
+Oh boy. This is unexplored territory for me.
+<P STYLE="margin-bottom:0em">
+I'm just going to copy all the FOL axioms from set.mm and hope that works. I'm
+preeety sure that all those are valid theorems in linear logic; I'm just not
+sure whether they're sufficient. I think they are. Probably.
+
+</TD></TR>
+<TR BGCOLOR=white><TD COLSPAN=3><FONT SIZE=-3>&nbsp;</FONT></TD></TR>
+<TR BGCOLOR="#FFFFF2"><TD COLSPAN=3><CENTER><B><A
+ NAME="mm318s"></A>1.5.1&nbsp;&nbsp;Axioms for predicate logic with
+ equality</B></CENTER>
+</TD></TR>
+<TR BGCOLOR=white><TD COLSPAN=3><FONT SIZE=-3>&nbsp;</FONT></TD></TR>
+<TR><TD NOWRAP><B><FONT COLOR="#00CC00">Syntax</FONT></B></TD><TD
+ ALIGN=CENTER><A HREF="wal.html">wal</A>&nbsp;<SPAN CLASS=r
+ STYLE="color:#E200C5">318</SPAN></TD><TD ALIGN=LEFT><A NAME="wal"></A>
+Universal quantifier. Characterized by <A
+HREF="ax-genOLD.html">ax-genOLD</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#E700B0">323</SPAN>, <A HREF="ax-almd.html">ax-almd</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#E800AC">324</SPAN>, <A
+HREF="ax-dis.html">ax-dis</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#E900A8">325</SPAN>, <A HREF="ax-ex.html">ax-ex</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#E900A5">326</SPAN>, <A
+HREF="ax-negf.html">ax-negf</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#EB0098">330</SPAN>, <A
+HREF="ax-alcom.html">ax-alcom</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#EC0094">331</SPAN>.
+
+</TD></TR><TR><TD COLSPAN=3 ALIGN=CENTER><SPAN ><span
+ class='typecode'>wff</span> &forall;<span class=var>x</span><span
+ class=wff>&#x1d711;</span></SPAN></TD></TR>
+<TR BGCOLOR=white><TD COLSPAN=3><FONT SIZE=-3>&nbsp;</FONT></TD></TR>
+
+<TR><TD NOWRAP><B><FONT COLOR="#00CC00">Syntax</FONT></B></TD><TD
+ ALIGN=CENTER><A HREF="wex.html">wex</A>&nbsp;<SPAN CLASS=r
+ STYLE="color:#E300C1">319</SPAN></TD><TD ALIGN=LEFT><A NAME="wex"></A>
+Existential quantifier. Defined by <A HREF="df-ex.html">df-ex</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#ED008A">334</SPAN>.
+
+</TD></TR><TR><TD COLSPAN=3 ALIGN=CENTER><SPAN ><span
+ class='typecode'>wff</span> &exist;<span class=var>x</span><span
+ class=wff>&#x1d711;</span></SPAN></TD></TR>
+<TR BGCOLOR=white><TD COLSPAN=3><FONT SIZE=-3>&nbsp;</FONT></TD></TR>
+
+<TR><TD NOWRAP><B><FONT COLOR="#00CC00">Syntax</FONT></B></TD><TD
+ ALIGN=CENTER><A HREF="wnf.html">wnf</A>&nbsp;<SPAN CLASS=r
+ STYLE="color:#E400BC">320</SPAN></TD><TD ALIGN=LEFT><A NAME="wnf"></A>
+Not-free predicate. Defined by <A HREF="df-nf.html">df-nf</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#EE0087">335</SPAN>.
+
+</TD></TR><TR><TD COLSPAN=3 ALIGN=CENTER><SPAN ><span
+ class='typecode'>wff</span> &#8498;<span class=var>x</span><span
+ class=wff>&#x1d711;</span></SPAN></TD></TR>
+<TR BGCOLOR=white><TD COLSPAN=3><FONT SIZE=-3>&nbsp;</FONT></TD></TR>
+
+<TR><TD NOWRAP>Theorem</TD><TD ALIGN=CENTER><A
+ HREF="weqOLD.html">weqOLD</A>&nbsp;<SPAN CLASS=r
+ STYLE="color:#E500B8">321</SPAN></TD><TD ALIGN=LEFT><A NAME="weqOLD"></A>
+Equality. Charactrized by <A HREF="ax-ex.html">ax-ex</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#E900A5">326</SPAN>, <A HREF="ax-sub.html">ax-sub</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#EC0091">332</SPAN>, <A
+HREF="ax-aleq.html">ax-aleq</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#ED008E">333</SPAN>, <A HREF="ax-eqeu.html">ax-eqeu</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#EA00A2">327</SPAN>.
+
+</TD></TR><TR><TD COLSPAN=3 ALIGN=CENTER><SPAN ><span
+ class='typecode'>&#x22a6;</span> (<span class=wff>&#x1d711;</span> &#x22b8;
+ <span class=wff>&#x1d711;</span>)</SPAN></TD></TR>
+<TR BGCOLOR=white><TD COLSPAN=3><FONT SIZE=-3>&nbsp;</FONT></TD></TR>
+
+<TR><TD NOWRAP><B><FONT COLOR="#00CC00">Syntax</FONT></B></TD><TD
+ ALIGN=CENTER><A HREF="wel.html">wel</A>&nbsp;<SPAN CLASS=r
+ STYLE="color:#E600B4">322</SPAN></TD><TD ALIGN=LEFT><A NAME="wel"></A>
+Set element predicate. For the purposes of predicate logic, it's just an
+arbitrary operator.
+
+</TD></TR><TR><TD COLSPAN=3 ALIGN=CENTER><SPAN ><span
+ class='typecode'>wff</span> <span class=var>x</span> &isin; <span
+ class=var>y</span></SPAN></TD></TR>
+<TR BGCOLOR=white><TD COLSPAN=3><FONT SIZE=-3>&nbsp;</FONT></TD></TR>
+
+<TR><TD NOWRAP><B><FONT COLOR=red>Axiom</FONT></B></TD><TD ALIGN=CENTER><A
+ HREF="ax-genOLD.html">ax-genOLD</A>&nbsp;<SPAN CLASS=r
+ STYLE="color:#E700B0">323</SPAN></TD><TD ALIGN=LEFT><A NAME="ax-genOLD"></A>
+Axiom of generalization. Universal quantifiers can be freely added to the start
+of an expression.
+
+</TD></TR><TR><TD COLSPAN=3 ALIGN=CENTER><SPAN ><span
+ class='typecode'>&#x22a6;</span> <span
+ class=wff>&#x1d711;</span></SPAN>&nbsp;&nbsp;&nbsp; <FONT
+ FACE=sans-serif>&#8658;</FONT>&nbsp;&nbsp;&nbsp;<SPAN ><span
+ class='typecode'>&#x22a6;</span> &forall;<span class=var>x</span><span
+ class=wff>&#x1d711;</span></SPAN></TD></TR>
+<TR BGCOLOR=white><TD COLSPAN=3><FONT SIZE=-3>&nbsp;</FONT></TD></TR>
+
+<TR><TD NOWRAP><B><FONT COLOR=red>Axiom</FONT></B></TD><TD ALIGN=CENTER><A
+ HREF="ax-almd.html">ax-almd</A>&nbsp;<SPAN CLASS=r
+ STYLE="color:#E800AC">324</SPAN></TD><TD ALIGN=LEFT><A NAME="ax-almd"></A>
+Quantified multiplicative disjunction. This &quot;distributes&quot; a
+quantifier over linear implication.
+
+</TD></TR><TR><TD COLSPAN=3 ALIGN=CENTER><SPAN ><span
+ class='typecode'>&#x22a6;</span> (&forall;<span class=var>x</span>(<span
+ class=wff>&#x1d711;</span> &#x22b8; <span class=wff>&#x1d713;</span>) &#x22b8;
+ (&forall;<span class=var>x</span><span class=wff>&#x1d711;</span> &#x22b8;
+ &forall;<span class=var>x</span><span
+ class=wff>&#x1d713;</span>))</SPAN></TD></TR>
+<TR BGCOLOR=white><TD COLSPAN=3><FONT SIZE=-3>&nbsp;</FONT></TD></TR>
+
+<TR><TD NOWRAP><B><FONT COLOR=red>Axiom</FONT></B></TD><TD ALIGN=CENTER><A
+ HREF="ax-dis.html">ax-dis</A>&nbsp;<SPAN CLASS=r
+ STYLE="color:#E900A8">325</SPAN>*</TD><TD ALIGN=LEFT><A NAME="ax-dis"></A>
+Distinctness principle. When the value of <SPAN ><span
+class=wff>&#x1d711;</span></SPAN> is independent of <SPAN ><span
+class=var>x</span></SPAN>, a quantifier can be added.
+
+</TD></TR><TR><TD COLSPAN=3 ALIGN=CENTER><SPAN ><span
+ class='typecode'>&#x22a6;</span> (<span class=wff>&#x1d711;</span> &#x22b8;
+ &forall;<span class=var>x</span><span
+ class=wff>&#x1d711;</span>)</SPAN></TD></TR>
+<TR BGCOLOR=white><TD COLSPAN=3><FONT SIZE=-3>&nbsp;</FONT></TD></TR>
+
+<TR><TD NOWRAP><B><FONT COLOR=red>Axiom</FONT></B></TD><TD ALIGN=CENTER><A
+ HREF="ax-ex.html">ax-ex</A>&nbsp;<SPAN CLASS=r
+ STYLE="color:#E900A5">326</SPAN></TD><TD ALIGN=LEFT><A NAME="ax-ex"></A>
+Axiom of existence. This axiom is secretly two useful axioms in one. It states
+that any <SPAN ><span class=var>y</span></SPAN> has an <SPAN ><span
+class=var>x</span></SPAN> that is equal to it. It also states that there exists
+something equal to itself, when <SPAN ><span class=var>y</span></SPAN> is
+substituted for <SPAN ><span class=var>x</span></SPAN>.
+
+</TD></TR><TR><TD COLSPAN=3 ALIGN=CENTER><SPAN ><span
+ class='typecode'>&#x22a6;</span> ~ &forall;<span class=var>x</span>~ <span
+ class=var>x</span> = <span class=var>y</span></SPAN></TD></TR>
+<TR BGCOLOR=white><TD COLSPAN=3><FONT SIZE=-3>&nbsp;</FONT></TD></TR>
+
+<TR><TD NOWRAP><B><FONT COLOR=red>Axiom</FONT></B></TD><TD ALIGN=CENTER><A
+ HREF="ax-eqeu.html">ax-eqeu</A>&nbsp;<SPAN CLASS=r
+ STYLE="color:#EA00A2">327</SPAN></TD><TD ALIGN=LEFT><A NAME="ax-eqeu"></A>
+Equality is Euclidean. Combined with <A HREF="ax-ex.html">ax-ex</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#E900A5">326</SPAN>, this implies that equality is
+symmetric and transitive.
+
+</TD></TR><TR><TD COLSPAN=3 ALIGN=CENTER><SPAN ><span
+ class='typecode'>&#x22a6;</span> (<span class=var>x</span> = <span
+ class=var>y</span> &#x22b8; (<span class=var>x</span> = <span
+ class=var>z</span> &#x22b8; <span class=var>y</span> = <span
+ class=var>z</span>))</SPAN></TD></TR>
+<TR BGCOLOR=white><TD COLSPAN=3><FONT SIZE=-3>&nbsp;</FONT></TD></TR>
+
+<TR><TD NOWRAP><B><FONT COLOR=red>Axiom</FONT></B></TD><TD ALIGN=CENTER><A
+ HREF="ax-eleq1.html">ax-eleq1</A>&nbsp;<SPAN CLASS=r
+ STYLE="color:#EA009E">328</SPAN></TD><TD ALIGN=LEFT><A NAME="ax-eleq1"></A>
+Left equality for binary predicate. This consumes the equality.
+
+</TD></TR><TR><TD COLSPAN=3 ALIGN=CENTER><SPAN ><span
+ class='typecode'>&#x22a6;</span> (<span class=var>x</span> = <span
+ class=var>y</span> &#x22b8; (<span class=var>x</span> &isin; <span
+ class=var>z</span> &#x22b8; <span class=var>y</span> &isin; <span
+ class=var>z</span>))</SPAN></TD></TR>
+<TR BGCOLOR=white><TD COLSPAN=3><FONT SIZE=-3>&nbsp;</FONT></TD></TR>
+
+<TR><TD NOWRAP><B><FONT COLOR=red>Axiom</FONT></B></TD><TD ALIGN=CENTER><A
+ HREF="ax-eleq2.html">ax-eleq2</A>&nbsp;<SPAN CLASS=r
+ STYLE="color:#EB009B">329</SPAN></TD><TD ALIGN=LEFT><A NAME="ax-eleq2"></A>
+Right equality for binary predicate. This consumes the equality.
+
+</TD></TR><TR><TD COLSPAN=3 ALIGN=CENTER><SPAN ><span
+ class='typecode'>&#x22a6;</span> (<span class=var>x</span> = <span
+ class=var>y</span> &#x22b8; (<span class=var>z</span> &isin; <span
+ class=var>x</span> &#x22b8; <span class=var>z</span> &isin; <span
+ class=var>y</span>))</SPAN></TD></TR>
+<TR BGCOLOR=white><TD COLSPAN=3><FONT SIZE=-3>&nbsp;</FONT></TD></TR>
+
+<TR BGCOLOR="#FFFFF2"><TD COLSPAN=3><CENTER><B><A
+ NAME="mm330s"></A>1.5.2&nbsp;&nbsp;Auxiliary axioms for predicate logic with
+ equality</B></CENTER>
+</TD></TR>
+<TR BGCOLOR=white><TD COLSPAN=3><FONT SIZE=-3>&nbsp;</FONT></TD></TR>
+<TR><TD NOWRAP><B><FONT COLOR=red>Axiom</FONT></B></TD><TD ALIGN=CENTER><A
+ HREF="ax-negf.html">ax-negf</A>&nbsp;<SPAN CLASS=r
+ STYLE="color:#EB0098">330</SPAN></TD><TD ALIGN=LEFT><A NAME="ax-negf"></A>
+Axiom of quantified negation.
+
+</TD></TR><TR><TD COLSPAN=3 ALIGN=CENTER><SPAN ><span
+ class='typecode'>&#x22a6;</span> (~ &forall;<span class=var>x</span><span
+ class=wff>&#x1d711;</span> &#x22b8; &forall;<span class=var>x</span>~
+ &forall;<span class=var>x</span><span
+ class=wff>&#x1d711;</span>)</SPAN></TD></TR>
+<TR BGCOLOR=white><TD COLSPAN=3><FONT SIZE=-3>&nbsp;</FONT></TD></TR>
+
+<TR><TD NOWRAP><B><FONT COLOR=red>Axiom</FONT></B></TD><TD ALIGN=CENTER><A
+ HREF="ax-alcom.html">ax-alcom</A>&nbsp;<SPAN CLASS=r
+ STYLE="color:#EC0094">331</SPAN></TD><TD ALIGN=LEFT><A NAME="ax-alcom"></A>
+Quantifier commutation.
+
+</TD></TR><TR><TD COLSPAN=3 ALIGN=CENTER><SPAN ><span
+ class='typecode'>&#x22a6;</span> (&forall;<span
+ class=var>x</span>&forall;<span class=var>y</span><span
+ class=wff>&#x1d711;</span> &#x22b8; &forall;<span
+ class=var>y</span>&forall;<span class=var>x</span><span
+ class=wff>&#x1d711;</span>)</SPAN></TD></TR>
+<TR BGCOLOR=white><TD COLSPAN=3><FONT SIZE=-3>&nbsp;</FONT></TD></TR>
+
+<TR><TD NOWRAP><B><FONT COLOR=red>Axiom</FONT></B></TD><TD ALIGN=CENTER><A
+ HREF="ax-sub.html">ax-sub</A>&nbsp;<SPAN CLASS=r
+ STYLE="color:#EC0091">332</SPAN></TD><TD ALIGN=LEFT><A NAME="ax-sub"></A>
+Axiom of variable substitution.
+
+</TD></TR><TR><TD COLSPAN=3 ALIGN=CENTER><SPAN ><span
+ class='typecode'>&#x22a6;</span> (<span class=var>x</span> = <span
+ class=var>y</span> &#x22b8; (&forall;<span class=var>y</span><span
+ class=wff>&#x1d711;</span> &#x22b8; &forall;<span class=var>x</span>(<span
+ class=var>x</span> = <span class=var>y</span> &#x22b8; <span
+ class=wff>&#x1d711;</span>)))</SPAN></TD></TR>
+<TR BGCOLOR=white><TD COLSPAN=3><FONT SIZE=-3>&nbsp;</FONT></TD></TR>
+
+<TR><TD NOWRAP><B><FONT COLOR=red>Axiom</FONT></B></TD><TD ALIGN=CENTER><A
+ HREF="ax-aleq.html">ax-aleq</A>&nbsp;<SPAN CLASS=r
+ STYLE="color:#ED008E">333</SPAN></TD><TD ALIGN=LEFT><A NAME="ax-aleq"></A>
+Quantified equality.
+
+</TD></TR><TR><TD COLSPAN=3 ALIGN=CENTER><SPAN ><span
+ class='typecode'>&#x22a6;</span> (~ <span class=var>x</span> = <span
+ class=var>y</span> &#x22b8; (<span class=var>y</span> = <span
+ class=var>z</span> &#x22b8; &forall;<span class=var>x</span> <span
+ class=var>y</span> = <span class=var>z</span>))</SPAN></TD></TR>
+<TR BGCOLOR=white><TD COLSPAN=3><FONT SIZE=-3>&nbsp;</FONT></TD></TR>
+
+<TR><TD NOWRAP><B><FONT COLOR=blue>Definition</FONT></B></TD><TD
+ ALIGN=CENTER><A HREF="df-ex.html">df-ex</A>&nbsp;<SPAN CLASS=r
+ STYLE="color:#ED008A">334</SPAN></TD><TD ALIGN=LEFT><A NAME="df-ex"></A>
+Definition of existential quantifier. Dual of <SPAN >&forall;</SPAN>.
+
+</TD></TR><TR><TD COLSPAN=3 ALIGN=CENTER><SPAN ><span
+ class='typecode'>&#x22a6;</span> (&exist;<span class=var>x</span><span
+ class=wff>&#x1d711;</span> &#x29df; ~ &forall;<span class=var>x</span>~ <span
+ class=wff>&#x1d711;</span>)</SPAN></TD></TR>
+<TR BGCOLOR=white><TD COLSPAN=3><FONT SIZE=-3>&nbsp;</FONT></TD></TR>
+
+<TR><TD NOWRAP><B><FONT COLOR=blue>Definition</FONT></B></TD><TD
+ ALIGN=CENTER><A HREF="df-nf.html">df-nf</A>&nbsp;<SPAN CLASS=r
+ STYLE="color:#EE0087">335</SPAN></TD><TD ALIGN=LEFT><A NAME="df-nf"></A>
+Definition of not-free predicate.
+
+</TD></TR><TR><TD COLSPAN=3 ALIGN=CENTER><SPAN ><span
+ class='typecode'>&#x22a6;</span> (&#8498;<span class=var>x</span><span
+ class=wff>&#x1d711;</span> &#x29df; (~ <span class=wff>&#x1d711;</span>
+ &#x22b8; &forall;<span class=var>x</span><span
+ class=wff>&#x1d711;</span>))</SPAN></TD></TR>
+</TABLE></CENTER>
+
+<TABLE BORDER=0 WIDTH="100%">
+  <TR>
+    <TD ALIGN=LEFT VALIGN=TOP WIDTH="25%">
+      &nbsp;
+    </TD>
+    <TD NOWRAP ALIGN=CENTER>&nbsp;</TD>
+    <TD NOWRAP ALIGN=RIGHT VALIGN=TOP WIDTH="25%"><FONT
+      SIZE=-1 FACE=sans-serif>
+      <A HREF="mmtheorems3.html">&lt; Previous</A>&nbsp;&nbsp;<A
+ HREF="mmtheorems.html">Wrap &gt;</A>
+      </FONT></TD>
+  </TR>
+</TABLE>
+<HR NOSHADE SIZE=1>
+<A NAME="mmpglst"></A>
+<CENTER>
+<B>Page List</B>
+</CENTER>
+Jump to page: 
+<A HREF="mmtheorems.html">Contents</A>&nbsp;
+<A HREF="mmtheorems1.html">1</A>&nbsp;<SPAN CLASS=r STYLE="color:#FB0000">1</SPAN>-<SPAN CLASS=r STYLE="color:#678900">100</SPAN>
+<A HREF="mmtheorems2.html">2</A>&nbsp;<SPAN CLASS=r STYLE="color:#658900">101</SPAN>-<SPAN CLASS=r STYLE="color:#0087C6">200</SPAN>
+<A HREF="mmtheorems3.html">3</A>&nbsp;<SPAN CLASS=r STYLE="color:#0086CA">201</SPAN>-<SPAN CLASS=r STYLE="color:#D410EB">300</SPAN>
+4&nbsp;<SPAN CLASS=r STYLE="color:#D50EEA">301</SPAN>-<SPAN CLASS=r STYLE="color:#EE0087">335</SPAN>
+<HR NOSHADE SIZE=1>
+<TABLE BORDER=0 WIDTH="100%">
+  <TR>
+    <TD ALIGN=LEFT VALIGN=TOP WIDTH="25%">
+      &nbsp;
+    </TD>
+    <TD NOWRAP ALIGN=CENTER><FONT SIZE=-2
+      FACE=ARIAL>
+Copyright terms:
+<A HREF="../copyright.html#pd">Public domain</A>
+      </FONT></TD>
+    <TD NOWRAP ALIGN=RIGHT VALIGN=TOP WIDTH="25%"><FONT
+      SIZE=-1 FACE=sans-serif>
+      <A HREF="mmtheorems3.html">&lt; Previous</A>&nbsp;&nbsp;<A
+ HREF="mmtheorems.html">Wrap &gt;</A>
+      </FONT></TD>
+  </TR>
+</TABLE>
+</BODY></HTML>

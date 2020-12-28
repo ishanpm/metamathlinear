@@ -1,0 +1,913 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+    "http://www.w3.org/TR/html4/loose.dtd">
+<HTML LANG="EN-US">
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
+<STYLE TYPE="text/css">
+<!--
+img { margin-bottom: -4px }
+.r { font-family: "Arial Narrow";
+     font-size: x-small;
+   }
+.i { font-family: "Arial Narrow";
+     font-size: x-small;
+     color: gray;
+   }
+-->
+</STYLE>
+<STYLE TYPE="text/css">
+<!--
+  .wff { color: blue; }
+  .var { color: red; }
+  .nilad { color: #C3C; }
+  .symvar { border-bottom:1px dotted;color:#C3C}
+  .typecode { color: gray }
+  .hidden { color: gray }
+  @font-face {
+    font-family: XITSMath-Regular;
+    src: url(xits-math.woff);
+  }
+  .math { font-family: XITSMath-Regular }
+  .desc-table { border: 1px outset grey }
+  .desc-table td, .desc-table th { border: 1px inset grey }
+  .command {
+    border: 1px solid black;
+    padding: 0em 0.1em;
+    margin: 0em 0.1em;
+    border-radius: 2px;
+  }
+-->
+</STYLE>
+<TITLE>mmtheoremsall - Linear Logic Proof Explorer</TITLE>
+<LINK REL="shortcut icon" HREF="favicon.ico" TYPE="image/x-icon">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+<TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH="100%">
+  <TR>
+    <TD ALIGN=LEFT VALIGN=TOP WIDTH="25%"><A HREF=
+    "mmset.html"><IMG SRC="mm.gif"
+      BORDER=0
+      ALT="LLPE Home"
+      TITLE="LLPE Home"
+      HEIGHT=32 WIDTH=32 ALIGN=TOP STYLE="margin-bottom:0px"></A>
+    </TD>
+    <TD ALIGN=CENTER VALIGN=TOP><FONT SIZE="+3" COLOR="#006633"><B>
+Linear Logic Proof Explorer
+      </B></FONT></TD>
+      </TD><TD ALIGN=RIGHT VALIGN=TOP
+       ><FONT FACE=sans-serif SIZE=-2>
+&nbsp;
+      </FONT>
+    </TD>
+  </TR>
+</TABLE>
+<HR NOSHADE SIZE=1>
+<CENTER>
+<TABLE BORDER CELLSPACING=0 BGCOLOR="#EEFFFA"
+SUMMARY="List of theorems">
+<CAPTION><B>List of Theorems</B></CAPTION><TR ALIGN=LEFT><TD><B>
+Ref</B></TD><TD><B>Description
+</B></TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="cut1.html">cut1</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#F70900">10</SPAN></TD><TD>
+Modus ponens like inference.</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="mdcod.html">mdcod</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#F70A00">11</SPAN></TD><TD>
+`%` is commutative. Deduct...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="mdcoi.html">mdcoi</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#F70B00">12</SPAN></TD><TD>
+`%` is commutative. Infere...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="mdasd.html">mdasd</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#F60C00">13</SPAN></TD><TD>
+`%` is associative. Deduct...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="mdasi.html">mdasi</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#F60E00">14</SPAN></TD><TD>
+`%` is associative. Infere...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="mdasr.html">mdasr</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#F51100">15</SPAN></TD><TD>
+`%` is associative. Revers...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A
+HREF="mdasrd.html">mdasrd</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#F41400">16</SPAN></TD><TD>
+`%` is associative. Deduct...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A
+HREF="mdasri.html">mdasri</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#F31600">17</SPAN></TD><TD>
+`%` is associative. Infere...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="ibotr.html">ibotr</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#F31900">18</SPAN></TD><TD>
+Add a `_|_`, right hand si...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="ebotr.html">ebotr</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#F21C00">19</SPAN></TD><TD>
+Remove a `_|_`, right hand...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="nebot.html">nebot</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#F11E00">20</SPAN></TD><TD>
+Infer `~ _|_` (secretly `1`).</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A
+HREF="cutneg.html">cutneg</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#F02100">21</SPAN></TD><TD>
+Negated version of ~ax-cut .</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="cutf.html">cutf</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#F02400">22</SPAN></TD><TD>
+Left-hand version of ~ax-c...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="dnid.html">dnid</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#EF2600">23</SPAN></TD><TD>
+Double negation introduction.</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="dned.html">dned</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#EE2900">24</SPAN></TD><TD>
+Double negation elimination.</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="dni1.html">dni1</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#ED2C00">25</SPAN></TD><TD>
+Double negation introducti...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="dne1.html">dne1</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#EC2E00">26</SPAN></TD><TD>
+Double negation eliminatio...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A
+HREF="inenebot.html">inenebot</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#EB3000">27</SPAN></TD><TD>
+Add a `~ ~ _|_`. See ~ax-i...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A
+HREF="enenebot.html">enenebot</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#E93200">28</SPAN></TD><TD>
+Remove a `~ ~ _|_`. Invers...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="iac.html">iac</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#E04200">35</SPAN></TD><TD>
+`&` introduction rule. ~ax...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="iaci.html">iaci</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#DF4400">36</SPAN></TD><TD>
+`&` introduction rule. Inf...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="eac1d.html">eac1d</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#DD4700">37</SPAN></TD><TD>
+`&` elimination rule, left...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="eac1i.html">eac1i</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#DC4800">38</SPAN></TD><TD>
+`&` elimination rule, left...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="eac2d.html">eac2d</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#DA4A00">39</SPAN></TD><TD>
+`&` elimination rule, righ...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="eac2i.html">eac2i</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#D94B00">40</SPAN></TD><TD>
+`&` elimination rule, righ...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="itopi.html">itopi</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#D74D00">41</SPAN></TD><TD>
+Insert Top into With. Inve...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="etopi.html">etopi</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#D54E00">42</SPAN></TD><TD>
+Remove Top from With. This...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="acco.html">acco</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#D45000">43</SPAN></TD><TD>
+`&` is commutative.</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="acas.html">acas</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#D25100">44</SPAN></TD><TD>
+`&` is associative.</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="acasr.html">acasr</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#D15300">45</SPAN></TD><TD>
+`&` is associative. Revers...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A
+HREF="dismdac.html">dismdac</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#CF5400">46</SPAN></TD><TD>
+`%` distributes over `&`.</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A
+HREF="extmdac.html">extmdac</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#CD5600">47</SPAN></TD><TD>
+`%` extracts out of `&`. C...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="lb1d.html">lb1d</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#B96500">57</SPAN></TD><TD>
+Forward deduction using `O...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="lb2d.html">lb2d</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#B76700">58</SPAN></TD><TD>
+Reverse deduction using `O...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="lb1i.html">lb1i</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#B56900">59</SPAN></TD><TD>
+Forward inference using `O...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="lb2i.html">lb2i</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#B36A00">60</SPAN></TD><TD>
+Reverse inference using `O...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="dfli1.html">dfli1</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#AD6E00">63</SPAN></TD><TD>
+Convert from linear implic...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="dfli2.html">dfli2</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#AB6F00">64</SPAN></TD><TD>
+Convert to linear implicat...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A
+HREF="dfli1i.html">dfli1i</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#A97000">65</SPAN></TD><TD>
+Convert from linear implic...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A
+HREF="dfli2i.html">dfli2i</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#A77200">66</SPAN></TD><TD>
+Convert to linear implicat...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="lb1s.html">lb1s</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#A57300">67</SPAN></TD><TD>
+Forward syllogism using `O...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="lb2s.html">lb2s</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#A37400">68</SPAN></TD><TD>
+Reverse syllogism using `O...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="mdm2.html">mdm2</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#A17500">69</SPAN></TD><TD>
+Par is monotone in its sec...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="mdm1.html">mdm1</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#9F7600">70</SPAN></TD><TD>
+Par is monotone in its fir...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="mdm1i.html">mdm1i</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#9D7700">71</SPAN></TD><TD>
+Par is monotone in its fir...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="mdm2i.html">mdm2i</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#9B7900">72</SPAN></TD><TD>
+Par is monotone in its sec...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="mdm1s.html">mdm1s</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#997A00">73</SPAN></TD><TD>
+Par is monotone in its fir...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="mdm2s.html">mdm2s</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#977A00">74</SPAN></TD><TD>
+Par is monotone in its sec...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="syl.html">syl</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#957B00">75</SPAN></TD><TD>
+Syllogism using linear imp...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="lmp.html">lmp</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#927C00">76</SPAN></TD><TD>
+Modus ponens like inferenc...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="id.html">id</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#907D00">77</SPAN></TD><TD>
+Identity rule for linear i...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="dnis.html">dnis</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#8E7D00">78</SPAN></TD><TD>
+Double negation introducti...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="dnes.html">dnes</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#8B7E00">79</SPAN></TD><TD>
+Double negation eliminatio...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="acm1.html">acm1</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#897F00">80</SPAN></TD><TD>
+With is monotone in its fi...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="acm2.html">acm2</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#878000">81</SPAN></TD><TD>
+With is monotone in its se...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="acm1i.html">acm1i</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#858000">82</SPAN></TD><TD>
+With is monotone in its fi...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="acm2i.html">acm2i</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#828100">83</SPAN></TD><TD>
+With is monotone in its se...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="acm1s.html">acm1s</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#808200">84</SPAN></TD><TD>
+With is monotone in its fi...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="acm2s.html">acm2s</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#7E8300">85</SPAN></TD><TD>
+With is monotone in its se...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="nems.html">nems</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#7D8300">86</SPAN></TD><TD>
+"Why not" is monotone.</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="lbi1s.html">lbi1s</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#7B8300">87</SPAN></TD><TD>
+Extract forward implicatio...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="lbi2s.html">lbi2s</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#7A8400">88</SPAN></TD><TD>
+Extract reverse implicatio...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="lbi1.html">lbi1</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#788400">89</SPAN></TD><TD>
+Extract forward implicatio...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="lbi2.html">lbi2</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#778500">90</SPAN></TD><TD>
+Extract reverse implicatio...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A
+HREF="dflb1s.html">dflb1s</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#768500">91</SPAN></TD><TD>
+Forward implication of bic...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A
+HREF="dflb2s.html">dflb2s</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#748600">92</SPAN></TD><TD>
+Reverse implication of bic...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="dflb.html">dflb</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#738600">93</SPAN></TD><TD>
+Nicer definition of bicond...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="licon.html">licon</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#718600">94</SPAN></TD><TD>
+Contrapositive rule for li...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A
+HREF="licond.html">licond</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#708700">95</SPAN></TD><TD>
+Deduction form of ~licon .</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="ilb.html">ilb</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#6F8700">96</SPAN></TD><TD>
+Construct a biconditional ...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="ilbd.html">ilbd</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#6D8800">97</SPAN></TD><TD>
+Construct a biconditional ...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="lbrf.html">lbrf</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#6B8800">98</SPAN></TD><TD>
+Linear biconditional is re...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="lbeui.html">lbeui</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#698800">99</SPAN></TD><TD>
+Linear biconditional is Eu...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A
+HREF="lbsymi.html">lbsymi</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#678900">100</SPAN></TD><TD>
+Linear biconditional is sy...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="lbtri.html">lbtri</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#658900">101</SPAN></TD><TD>
+Linear biconditional is tr...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A
+HREF="lbsymd.html">lbsymd</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#638A00">102</SPAN></TD><TD>
+Linear biconditional is sy...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="dn.html">dn</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#598C00">107</SPAN></TD><TD>
+Double negation eliminatio...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="mdco.html">mdco</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#578C00">108</SPAN></TD><TD>
+`%` is commutative.</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="mdcob.html">mdcob</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#558D00">109</SPAN></TD><TD>
+`%` is commutative. Bicond...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="mdas.html">mdas</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#538D00">110</SPAN></TD><TD>
+`%` is associative.</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A
+HREF="mdasrNEW.html">mdasrNEW</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#508D00">111</SPAN></TD><TD>
+`%` is associative. Revers...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="mdasb.html">mdasb</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#4E8D00">112</SPAN></TD><TD>
+</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="md1.html">md1</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#4C8E00">113</SPAN></TD><TD>
+`_|_` is the unit of `%` (...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="md2.html">md2</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#4A8E00">114</SPAN></TD><TD>
+`_|_` is the unit of `%` (...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="mcco.html">mcco</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#488E00">115</SPAN></TD><TD>
+`(X)` is commutative. TODO...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="mccob.html">mccob</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#468E00">116</SPAN></TD><TD>
+`(X)` is commutative. Bico...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="mcas.html">mcas</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#438F00">117</SPAN></TD><TD>
+`(X)` is associative.</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="mcasb.html">mcasb</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#418F00">118</SPAN></TD><TD>
+`(X)` is associative.</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="mc1.html">mc1</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#3F8F00">119</SPAN></TD><TD>
+`1` is the unit of `(X)` (...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="mc2.html">mc2</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#3D8F00">120</SPAN></TD><TD>
+`1` is the unit of `(X)` (...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="one.html">one</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#3B9000">121</SPAN></TD><TD>
+`1`. It's very true, but i...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="init.html">init</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#389000">122</SPAN></TD><TD>
+Creation of `ph` and its d...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="initr.html">initr</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#369000">123</SPAN></TD><TD>
+Annihilation of `ph` and i...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="mcmd.html">mcmd</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#339000">124</SPAN></TD><TD>
+Association of `(X)` into ...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="merge.html">merge</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#319100">125</SPAN></TD><TD>
+Combine `%` statements by ...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="lbeu.html">lbeu</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#2E9100">126</SPAN></TD><TD>
+Linear biconditional is Eu...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="lbsym.html">lbsym</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#2C9100">127</SPAN></TD><TD>
+Linear biconditional is sy...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="lbtr.html">lbtr</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#299100">128</SPAN></TD><TD>
+Linear biconditional is tr...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="adcob.html">adcob</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#1D9300">133</SPAN></TD><TD>
+`(+)` is commutative.</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="adasb.html">adasb</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#1A9302">134</SPAN></TD><TD>
+`(+)` is associative.</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="ad1.html">ad1</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#179304">135</SPAN></TD><TD>
+`0` is the unit of `(+)` (...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="ad2.html">ad2</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#159306">136</SPAN></TD><TD>
+`0` is the unit of `(+)` (...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="accob.html">accob</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#129308">137</SPAN></TD><TD>
+`&` is commutative.</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="acasb.html">acasb</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#109309">138</SPAN></TD><TD>
+`&` is associative.</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="ac1.html">ac1</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#0D930B">139</SPAN></TD><TD>
+` ``|`` ` is the unit of `...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="ac2.html">ac2</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#0B930D">140</SPAN></TD><TD>
+` ``|`` ` is the unit of `...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="eac1.html">eac1</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#08930F">141</SPAN></TD><TD>
+Select the left side of `&...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="eac2.html">eac2</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#069311">142</SPAN></TD><TD>
+Select the left side of `&...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="iad1.html">iad1</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#039313">143</SPAN></TD><TD>
+Introduce a `(+)` (left si...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="iad2.html">iad2</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#019314">144</SPAN></TD><TD>
+Introduce a `(+)` (right s...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="ezer.html">ezer</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#009317">145</SPAN></TD><TD>
+From `0`, infer all.</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="itop.html">itop</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#00931A">146</SPAN></TD><TD>
+Everything can be turned i...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="top.html">top</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#00931D">147</SPAN></TD><TD>
+Hey, that's ` ``|`` `. A d...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="weak.html">weak</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#009227">150</SPAN></TD><TD>
+Create `? ph` from `_|_`.</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="dupr.html">dupr</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#00922A">151</SPAN></TD><TD>
+Unduplicate `? ph`.</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="dig.html">dig</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#00922E">152</SPAN></TD><TD>
+Dig out a `?` from `%`.</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="dig1.html">dig1</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#009131">153</SPAN></TD><TD>
+Dig out a `?` from a singl...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="ine.html">ine</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#009134">154</SPAN></TD><TD>
+Promote `ph` to `? ph`.</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="weakr.html">weakr</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#009137">155</SPAN></TD><TD>
+Destroy `! ph`.</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="dup.html">dup</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#00913B">156</SPAN></TD><TD>
+Duplicate `! ph`.</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="bury.html">bury</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#00913E">157</SPAN></TD><TD>
+Bury `%` with `!`.</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="bury1.html">bury1</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#009141">158</SPAN></TD><TD>
+Bury a single term with `!`.</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="epe.html">epe</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#009143">159</SPAN></TD><TD>
+Demote `! ph` to `ph`.</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="peone.html">peone</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#009146">160</SPAN></TD><TD>
+`! 1`. It's like `1` but e...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="petop.html">petop</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#009149">161</SPAN></TD><TD>
+`! ``|`` `. It's like ` ``...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="ipe.html">ipe</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#00914C">162</SPAN></TD><TD>
+Introduce positive exponen...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="ionei.html">ionei</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#00914E">163</SPAN></TD><TD>
+Insert One into Times.</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="eonei.html">eonei</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#009151">164</SPAN></TD><TD>
+Remove One from Times.</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="mcasd.html">mcasd</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#009154">165</SPAN></TD><TD>
+Times is associative.</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A
+HREF="mcasrd.html">mcasrd</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#009157">166</SPAN></TD><TD>
+Times is associative.</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="mccod.html">mccod</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#009159">167</SPAN></TD><TD>
+Times is commutative.</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="mcm1s.html">mcm1s</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#00915C">168</SPAN></TD><TD>
+Times is monotone in its f...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="mcm2s.html">mcm2s</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#00905F">169</SPAN></TD><TD>
+Times is monotone in its s...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A
+HREF="izerOLD.html">izerOLD</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#009062">170</SPAN></TD><TD>
+Insert Zero into Plus.</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A
+HREF="ezerOLD.html">ezerOLD</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#009064">171</SPAN></TD><TD>
+Remove Zero from Plus.</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="adas.html">adas</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#009067">172</SPAN></TD><TD>
+Plus is associative.</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="adasr.html">adasr</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#00906A">173</SPAN></TD><TD>
+Plus is associative.</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="adco.html">adco</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#00906D">174</SPAN></TD><TD>
+Plus is commutative.</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="adm1s.html">adm1s</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#008F6F">175</SPAN></TD><TD>
+Plus is monotone in its fi...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="adm2s.html">adm2s</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#008F72">176</SPAN></TD><TD>
+Plus is monotone in its se...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="pems.html">pems</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#008F75">177</SPAN></TD><TD>
+"Of Course" is monotone.</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="abs1.html">abs1</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#008F78">178</SPAN></TD><TD>
+Absorption of Plus into Wi...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="abs2.html">abs2</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#008F7A">179</SPAN></TD><TD>
+Absorption into Plus. Toge...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="simp.html">simp</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#008C9C">190</SPAN></TD><TD>
+Principle of simplificatio...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="frege.html">frege</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#008C9F">191</SPAN></TD><TD>
+Axiom 2 in the Metamath is...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="mp.html">mp</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#008CA2">192</SPAN></TD><TD>
+Good ol' classic modus pon...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="ea1.html">ea1</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#008BA6">193</SPAN></TD><TD>
+Left 'and' elimination. Ax...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="ea2.html">ea2</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#008BAB">194</SPAN></TD><TD>
+Right 'and' elimination. A...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="ia.html">ia</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#008AAF">195</SPAN></TD><TD>
+'And' introduction. Axiom ...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="or.html">or</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#0089B4">196</SPAN></TD><TD>
+'Or' elimination, and its ...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="inot.html">inot</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#0089B8">197</SPAN></TD><TD>
+'Not' introduction. Axiom ...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="enot.html">enot</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#0088BD">198</SPAN></TD><TD>
+'Not' elimination. Axiom i...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="simpi.html">simpi</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#0088C1">199</SPAN></TD><TD>
+Inference using simplifica...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A
+HREF="fregei.html">fregei</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#0087C6">200</SPAN></TD><TD>
+Inference using transposit...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A
+HREF="lbtrimd.html">lbtrimd</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#0086CA">201</SPAN></TD><TD>
+Linear biconditional is tr...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A
+HREF="lbsymimd.html">lbsymimd</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#0086CF">202</SPAN></TD><TD>
+Linear biconditional is tr...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="sead.html">sead</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#4F74FF">231</SPAN></TD><TD>
+Distribution of sending ov...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="rech.html">rech</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#5273FF">232</SPAN></TD><TD>
+Writing to a channel being...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="dfsub.html">dfsub</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#5673FF">233</SPAN></TD><TD>
+"Definition" of proper sub...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="abse1.html">abse1</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#5972FF">234</SPAN></TD><TD>
+Proper substitution into t...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="abse2.html">abse2</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#5C71FF">235</SPAN></TD><TD>
+Proper substitution into t...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="abre1.html">abre1</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#6070FF">236</SPAN></TD><TD>
+Proper substitution into t...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="abf.html">abf</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#636FFF">237</SPAN></TD><TD>
+Proper substitution into a...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="abre2.html">abre2</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#666EFF">238</SPAN></TD><TD>
+Proper substitution into t...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="abid.html">abid</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#696EFF">239</SPAN></TD><TD>
+Proper substitution of a v...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="eqpe.html">eqpe</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#7F66FF">248</SPAN></TD><TD>
+Equality can be `!`-ified.</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="eqeu.html">eqeu</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#8165FF">249</SPAN></TD><TD>
+Equality is Euclidean.</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="eqtr.html">eqtr</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#8364FF">250</SPAN></TD><TD>
+Equality is transitive.</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="eqsym.html">eqsym</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#8664FF">251</SPAN></TD><TD>
+Equality is symmetric.</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="eqeui.html">eqeui</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#8863FF">252</SPAN></TD><TD>
+Equality is Euclidean. Inf...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="eqtri.html">eqtri</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#8B61FF">253</SPAN></TD><TD>
+Equality is transitive. In...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A
+HREF="eqsymi.html">eqsymi</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#8D5FFF">254</SPAN></TD><TD>
+Equality is symmetric. Inf...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="eqeud.html">eqeud</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#905EFF">255</SPAN></TD><TD>
+Equality is Euclidean. Ded...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="eqtrd.html">eqtrd</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#935CFF">256</SPAN></TD><TD>
+Equality is transitive. De...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A
+HREF="eqsymd.html">eqsymd</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#955AFF">257</SPAN></TD><TD>
+Equality is symmetric. Ded...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A
+HREF="eqeuimd.html">eqeuimd</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#9858FF">258</SPAN></TD><TD>
+Equality is Euclidean. Int...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A
+HREF="eqtrimd.html">eqtrimd</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#9B57FF">259</SPAN></TD><TD>
+Equality is transitive. In...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A
+HREF="eqsymimd.html">eqsymimd</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#9D55FF">260</SPAN></TD><TD>
+Equality is symmetric. Int...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="eqse1.html">eqse1</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#A053FF">261</SPAN></TD><TD>
+Sending is closed under eq...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="eqse2.html">eqse2</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#A351FF">262</SPAN></TD><TD>
+Sending is closed under eq...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="eqre.html">eqre</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#A550FF">263</SPAN></TD><TD>
+Recieving is closed under ...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A
+HREF="dfsub1.html">dfsub1</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#A84EFF">264</SPAN></TD><TD>
+Restatement of ~dfsub with...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="test.html">test</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#AA4CFF">265</SPAN></TD><TD>
+</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A
+HREF="dfnab1.html">dfnab1</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#AE47FF">268</SPAN></TD><TD>
+~df-nab also works on nilads.</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A
+HREF="dfnab2.html">dfnab2</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#AF45FF">269</SPAN></TD><TD>
+Read from a nilad.</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A
+HREF="dfnab3.html">dfnab3</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#B143FF">270</SPAN></TD><TD>
+Write to a nilad.</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="vnab1.html">vnab1</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#B53EFF">273</SPAN></TD><TD>
+Write a simple nilad abstr...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="vnab2.html">vnab2</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#B63CFF">274</SPAN></TD><TD>
+Read from a simple nilad a...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="vnab3.html">vnab3</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#B83BFF">275</SPAN></TD><TD>
+Write to a simple nilad ab...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A
+HREF="nvarjust.html">nvarjust</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#B939FF">276</SPAN></TD><TD>
+A variable is equivalent t...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="lav.html">lav</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#C42BFB">283</SPAN></TD><TD>
+Lambda evaluation theorem.</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A
+HREF="iiiota.html">iiiota</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#D018F2">294</SPAN></TD><TD>
+Construction of `II` from ...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A
+HREF="kkiota.html">kkiota</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#D117F0">295</SPAN></TD><TD>
+Construction of `KK` from ...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A
+HREF="ssiota.html">ssiota</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#D115EF">296</SPAN></TD><TD>
+Construction of `SS` from ...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A
+HREF="dfeqtru1i.html">dfeqtru1i</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#D809E5">305</SPAN></TD><TD>
+Introduce `|=`.</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A
+HREF="dfeqtru2i.html">dfeqtru2i</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#D808E4">306</SPAN></TD><TD>
+Eliminate `|=`.</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A HREF="tru.html">tru</A>&nbsp;<SPAN
+CLASS=r STYLE="color:#D906E3">307</SPAN></TD><TD>
+`True` is true. Who'd've t...</TD></TR>
+
+<TR BGCOLOR="#EEFFFA" ALIGN=LEFT><TD><A
+HREF="weqOLD.html">weqOLD</A>&nbsp;<SPAN CLASS=r
+STYLE="color:#E500B8">321</SPAN></TD><TD>
+Equality. Charactrized by ...</TD></TR>
+</TABLE></CENTER>
+<TABLE BORDER=0 WIDTH="100%">
+<TR><TD WIDTH="25%">&nbsp;</TD>
+<TD ALIGN=CENTER VALIGN=BOTTOM>
+<FONT SIZE=-2 FACE=sans-serif>
+Copyright terms:
+<A HREF="../copyright.html#pd">Public domain</A>
+</FONT></TD><TD ALIGN=RIGHT VALIGN=BOTTOM WIDTH="25%">
+<FONT SIZE=-2 FACE=sans-serif>
+<A HREF="http://validator.w3.org/check?uri=referer">
+W3C validator</A>
+</FONT></TD></TR></TABLE>
+</BODY></HTML>
