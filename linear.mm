@@ -1662,6 +1662,8 @@ htmlcss '<STYLE TYPE="text/css">\n' +
   '</STYLE>\n';
   
 htmltitle "Linear Logic Proof Explorer";
+htmlhome '<A HREF="..">Home</A>';
+
 
 htmlvarcolor '<SPAN CLASS=wff>wff</SPAN> '
   + '<SPAN CLASS=var>var</SPAN> '
