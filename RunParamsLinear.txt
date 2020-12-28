@@ -1,7 +1,6 @@
 LoadFile,linear.mm
 VerifyProof,*
 Parse,*
-ProofAsstUseAutotransformations,no,no,no
 PrintSyntaxDetails
 ProofAsstUnifySearchExclude,biigb,xxxid,dummylink
 ProofAsstProofFolder, myproofs
